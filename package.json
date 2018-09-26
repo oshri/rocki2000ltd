@@ -1,0 +1,31 @@
+{
+  "name": "rocki2000ltd",
+  "version": "0.0.0",
+  "main": "index.js",
+  "description": "Rocki 2000 ltd new web site.",
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "dev": "nodemon server/index.js",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "autoprefixer": "^9.1.5",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-wrap-in-js": "^1.1.1",
+    "express": "^4.16.3",
+    "next": "^7.0.0",
+    "node-sass": "^4.9.3",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-url": "^8.0.0",
+    "raw-loader": "^0.5.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "sass-loader": "^7.1.0"
+  }
+}

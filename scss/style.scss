@@ -1,0 +1,22 @@
+@import "_vars.scss";
+
+html, body {
+    box-sizing: border-box;
+    font-family: 'Alef, Arial, sans-serif';
+    font-weight: normal;
+    padding: 63px 0;
+    margin: 0;
+    background-color: $color;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .heb {
+    direction: rtl;
+  }

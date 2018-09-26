@@ -1,0 +1,22 @@
+.Header {
+    position: fixed;
+    top: 0;
+    background: black;
+    transition: top 0.3s ease-in-out;
+    width: 100%;
+    box-sizing: content-box;
+    text-transform: uppercase;
+    z-index: 100;
+
+    &.nav-up {
+        top: -77px;
+    }
+
+    article {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between; 
+        width: 98%;
+        padding: 0 2%;
+    }
+}
