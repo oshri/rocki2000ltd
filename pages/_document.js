@@ -1,6 +1,7 @@
 import Document, { Head, Main, NextScript } from 'next/document';
-import { dependencies } from '../package.json'
-const { next: nextJSVersion, react: reactVersion } = dependencies
+import { dependencies } from '../package.json';
+const { next: nextJSVersion, react: reactVersion } = dependencies;
+import '../scss/style.scss';
 
 
 export default class LayoutDocument extends Document {
