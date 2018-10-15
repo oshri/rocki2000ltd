@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Header from '../components/Header';
-
+import Layout from '../components/Layout';
 import "../scss/style.scss";
 
 
@@ -8,15 +7,13 @@ import "../scss/style.scss";
 const Home = (props) => {
     console.log(props);
     return (
-        <section>
-            <Head>
-                <title>Hello World</title>
-            </Head>
-            <div>
-                <Header />
-                <h1>Home page</h1>
-            </div>
-        </section>
+        <Layout title='Home mage'>
+            <section>
+                <div>
+                    <h1>Home page</h1>
+                </div>
+            </section>
+        </Layout>
     );
 };
 

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -100,7 +100,7 @@ module.exports =
 /*! exports provided: name, version, main, description, engines, scripts, dependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"rocki2000ltd","version":"0.0.0","main":"index.js","description":"Rocki 2000 ltd new web site.","engines":{"node":"8.12.0","npm":"6.4.1"},"scripts":{"dev":"nodemon server/index.js","build":"next build","start":"next start"},"dependencies":{"@zeit/next-sass":"^1.0.1","autoprefixer":"^9.1.5","babel-plugin-module-resolver":"^3.1.1","babel-plugin-wrap-in-js":"^1.1.1","express":"^4.16.3","next":"^7.0.0","node-sass":"^4.9.3","postcss-easy-import":"^3.0.0","postcss-loader":"^3.0.0","postcss-url":"^8.0.0","raw-loader":"^0.5.1","react":"^16.5.2","react-dom":"^16.5.2","sass-loader":"^7.1.0"}};
+module.exports = {"name":"rocki2000ltd","version":"0.0.0","main":"index.js","description":"Rocki 2000 ltd new web site.","engines":{"node":"8.11.3","npm":"6.4.1"},"scripts":{"dev":"nodemon server/index.js","build":"next build","start":"next start"},"dependencies":{"@zeit/next-sass":"^1.0.1","autoprefixer":"^9.1.5","babel-plugin-module-resolver":"^3.1.1","babel-plugin-wrap-in-js":"^1.1.1","express":"^4.16.3","material-ui":"^0.19.4","react-tap-event-plugin":"^3.0.2","prop-types":"latest","next":"^7.0.0","node-sass":"^4.9.3","postcss-easy-import":"^3.0.0","postcss-loader":"^3.0.0","postcss-url":"^8.0.0","raw-loader":"^0.5.1","react":"^16.5.2","react-dom":"^16.5.2","sass-loader":"^7.1.0","underscore":"^1.9.1"}};
 
 /***/ }),
 
@@ -118,8 +118,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/document */ "next/document");
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_document__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _package_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../package.json */ "./package.json");
-var _package_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../package.json */ "./package.json", 1);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _package_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../package.json */ "./package.json");
+var _package_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../package.json */ "./package.json", 1);
 
 
 
@@ -144,8 +146,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var nextJSVersion = _package_json__WEBPACK_IMPORTED_MODULE_2__["dependencies"].next,
-    reactVersion = _package_json__WEBPACK_IMPORTED_MODULE_2__["dependencies"].react;
+
+var nextJSVersion = _package_json__WEBPACK_IMPORTED_MODULE_3__["dependencies"].next,
+    reactVersion = _package_json__WEBPACK_IMPORTED_MODULE_3__["dependencies"].react;
 
 var LayoutDocument =
 /*#__PURE__*/
@@ -161,7 +164,8 @@ function (_Document) {
   _createClass(LayoutDocument, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("html", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "Rocki 2000 ltd"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+      var pageContext = this.props.pageContext;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("html", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         charSet: "utf-8"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "viewport",
@@ -196,9 +200,7 @@ function (_Document) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "shortcut icon",
         href: "/static/favicon.ico"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "heading"
-      }, "[DEMO] NextJS ", nextJSVersion, " and React ", reactVersion), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null)));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null)));
     }
   }]);
 
@@ -209,7 +211,7 @@ function (_Document) {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!**********************************!*\
   !*** multi ./pages/_document.js ***!
   \**********************************/
@@ -229,6 +231,17 @@ module.exports = __webpack_require__(/*! ./pages/_document.js */"./pages/_docume
 /***/ (function(module, exports) {
 
 module.exports = require("next/document");
+
+/***/ }),
+
+/***/ "prop-types":
+/*!*****************************!*\
+  !*** external "prop-types" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
 
 /***/ }),
 

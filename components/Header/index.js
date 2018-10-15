@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as _ from 'underscore';
 import './Header.scss';
-
+import AppBar from 'material-ui/AppBar';
 import Menu from '../Menu';
 import Logo from '../Logo';
 
@@ -86,7 +86,8 @@ class Header extends Component {
 		return (
 			<header id="navbar" className={`Header ` + this.state.navClass}>
 				<article>
-					<Logo/>
+					{/* <Logo/> */}
+					<div></div>
 					<Menu />
 				</article>
 			</header>
