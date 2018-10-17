@@ -1,36 +1,60 @@
-import Head from "next/head";
-import Header from '../components/Header';
+import Layout from '../components/Layout';
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux'
+import { fetchNavigation } from '../store';
+import '../scss/style.scss';
+import Instafeed from 'instafeed.js';
 
-import "../scss/style.scss";
-
-
+// const feed = new Instafeed({
+//     get: 'tagged',
+//     tagName: 'rockiBestTop',
+//     clientId: 'd3a2f6b39ac248d696c1d4b6ddc987bc',
+//     accessToken: '8717561512.d3a2f6b.058e8f8c4bd5466db03f03e19b5d24b6'
+// });
 
 const Home = (props) => {
-    console.log(props);
+    // feed.run();
+    console.log('this.props', props);
+
+    let links = props.navigation.map((link, i) => {
+        return (
+            <li key={i}>{link}</li>
+        );
+    });
+
     return (
-        <section>
-            <Head>
-                <title>Hello World</title>
-            </Head>
-            <div>
-                <Header />
-                <h1>Home page</h1>
-            </div>
-        </section>
+        <Layout title='Home mage'>
+            <section>
+                <div>
+                    <div id="instafeed"></div>
+                    <h1>Home page</h1>
+                    <ul>{links}</ul>
+                    <button onClick={props.fetchNav}>
+                        Fetch Nav
+                    </button>
+                </div>
+            </section>
+        </Layout>
     );
 };
 
-Home.getInitialProps = async () => {
-    return [
-        {
-          id: 1,
-          name: 'cars'
-        },
-        {
-          id: 2,
-          name: 'jeeps'
-        }
-      ];
+Home.getInitialProps = async ({ store }) => {
+    await store.dispatch(fetchNavigation());
 };
 
-export default Home;
+// Passing data to props from Store
+function mapStateToProps(state) {
+    return {
+        navigation: state.navigation
+    };
+}
+
+// Passing Dispatch function to props
+function mapDispatchToProps(dispatch){
+    return {
+      fetchNav: bindActionCreators(fetchNavigation, dispatch)
+    };
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

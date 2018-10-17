@@ -1,17 +1,21 @@
 const express = require("express");
-const router = express.Router();
+// const instagramCtrl = require("../controllers/instagramAccessToken.ctrl");
+// const navigationCtrl = require("../controllers/navigation.ctrl");
 
-router.get("/subjects", (req, res) => {
-  res.json([
-    {
-      id: 1,
-      name: 'cars'
-    },
-    {
-      id: 2,
-      name: 'jeeps'
-    }
-  ]);
-});
+const apiRoutes = (app) => {
+  const router = express.Router();
+  
+  const instagramCtrl = require("../controllers/instagramAccessToken.ctrl")(app);
+  const navigationCtrl = require("../controllers/navigation.ctrl")(app);
 
-module.exports = router;
+
+  // Instagram Access Token 
+  router.route('/instagram-access-token').get(instagramCtrl.get);
+
+  // Instagram Access Token 
+  router.route('/navigation').get(navigationCtrl.get);
+  
+  app.use('/api', router);
+};
+
+module.exports = apiRoutes;
