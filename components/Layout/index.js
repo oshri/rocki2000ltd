@@ -17,7 +17,7 @@ const Layout = ({ children, title = 'Rocki 2000 ltd' }) => (
       { children }
   
       <footer>
-        {'I`m here to stay'}
+        {'Im here to stay'}
       </footer>
     </div>
 );

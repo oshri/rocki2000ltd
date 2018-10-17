@@ -21,7 +21,7 @@ export default class LayoutDocument extends Document {
                     <meta property="og:url" content="http://rocki2000ltd.co.il" />
                     <meta property="og:description" content="Rocki 2000 ltd" />
                     <meta property="og:type" content="website" />
-                    <meta property="og:image" content="http://rocki2000ltd.co.il/social/share-facebook.png" />Î
+                    <meta property="og:image" content="http://rocki2000ltd.co.il/social/share-facebook.png" />
     
                     <link rel="stylesheet" href="/static/alef.css" />
                     <link rel="manifest" href="/static/manifest.json" />

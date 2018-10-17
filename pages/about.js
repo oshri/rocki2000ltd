@@ -1,4 +1,7 @@
+import Layout from '../components/Layout';
+
 const About = () => (
+  <Layout title='Home mage'>
     <section className="page-section">
       <h1>About Next JS</h1>
       <p>
@@ -21,6 +24,7 @@ const About = () => (
         </span>
       </p>
     </section>
+  </Layout>  
   );
   
   export default About;

@@ -1,25 +1,38 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-// import { MuiThemeProvider } from '@material-ui/core/styles';
-
-// import getPageContext from '../src/getPageContext';
+import withRedux from 'next-redux-wrapper';
+import { initializeStore, actionTypes, fetchNavigation } from '../store';
+import { Provider } from 'react-redux';
 
 class MyApp extends App {
-	constructor(props) {
-		super(props);
-		// this.pageContext = getPageContext();
+	
+	static async getInitialProps ({Component, ctx}) {
+		fetchNavigation();
+
+		return {
+			pageProps: (Component.getInitialProps ? await Component.getInitialProps(ctx) : {})
+	  }
 	}
 
-	componentDidMount() {}
-
-	render() {
-		const { Component, pageProps } = this.props;
-		return (
-			<Container>				
+	componentDidCatch (error, errorInfo) {
+		console.log('CUSTOM ERROR HANDLING', error)
+		// This is needed to render errors correctly in development / production
+		super.componentDidCatch(error, errorInfo)
+	}
+  
+	render () {
+	  const {Component, pageProps, store} = this.props
+	  
+	  return (
+		<Container>
+			<Provider store={store}>
 				<Component {...pageProps} />
-			</Container>
-		);
+			</Provider>
+		</Container>
+	  );
 	}
+	
 }
 
-export default MyApp;
+
+export default withRedux(initializeStore)(MyApp);
