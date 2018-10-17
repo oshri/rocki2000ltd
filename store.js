@@ -15,7 +15,7 @@ export const actionTypes = {
   NAVIGATION_LOAD_ERROR: 'NAVIGATION_LOAD_ERROR',
   RESET_STORE: 'RESET_STORE'
 }
-
+// background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 // REDUCERS
 export const reducer = (state = initialState, action) => {
   switch (action.type) {

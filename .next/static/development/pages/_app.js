@@ -14419,7 +14419,8 @@ var actionTypes = {
   NAVIGATION_LOAD: 'NAVIGATION_LOAD',
   NAVIGATION_LOAD_SUCCESS: 'NAVIGATION_LOAD_SUCCESS',
   NAVIGATION_LOAD_ERROR: 'NAVIGATION_LOAD_ERROR',
-  RESET_STORE: 'RESET_STORE' // REDUCERS
+  RESET_STORE: 'RESET_STORE' // background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  // REDUCERS
 
 };
 var reducer = function reducer() {

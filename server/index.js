@@ -5,34 +5,47 @@ const next = require("next");
 const fs = require('fs');
 const path = require('path');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 
+
+/**
+ * CONFIG
+ */
 const PORT = process.env.PORT || 4200;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
-
-
 dotenv.load({ path: '.env' });
 
-// const sslOptions = {
-//   key: fs.readFileSync(path.join(process.env.CERT_ROOT, 'key.pem')),
-//   cert: fs.readFileSync(path.join(process.env.CERT_ROOT, 'cert.pem'))
-// };
+const db = mongoose.connect('mongodb://localhost:27017/rocki2000ltd');
 
-// const sslOptions = {
-//   'key': fs.readFileSync(path.join(__dirname, '/../.https/key.pem')),
-//   'cert': fs.readFileSync(path.join(__dirname, '/../.https/cert.pem'))
-// };
+/**
+ * SSL CERT
+ */
 
+const sslOptions = {
+  'key': fs.readFileSync(path.join(__dirname, '/../.https/key.pem')),
+  'cert': fs.readFileSync(path.join(__dirname, '/../.https/cert.pem'))
+};
+
+
+/**
+ * Next & Express
+ */
 app
   .prepare()
   .then(() => {
   
     const expressApp = express();
-
     expressApp.use(morgan('dev'));
+    expressApp.use(bodyParser.json());
+    expressApp.use(bodyParser.urlencoded({ extended: true }));
     
+    /**
+     * Handle www & http://
+     */
     // expressApp.all(/.*/, (req, res, next) => {
     //   const host = req.header('host');
 
@@ -47,8 +60,10 @@ app
     // });
 
 
-    const apiRoutes = require("./routes/index.js");
-    
+    /**
+     * Routes
+     */
+    const apiRoutes = require('./routes.js');
     apiRoutes(expressApp);
     
     
@@ -59,7 +74,9 @@ app
     expressApp.listen(PORT, () => console.log(`Rocki2000ltd listening on port ${PORT}`));
 
 
-    // Https Server
+    /**
+     * HTTPS SERVER
+     */
     // const httpsServer = https.createServer(sslOptions, expressApp);
     
     // httpsServer.listen(PORT,(err) =>{
