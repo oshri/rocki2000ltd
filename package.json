@@ -8,11 +8,11 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "start": "NODE_ENV=production nodemon server/index.js",
+    "start": "nodemon server/index.js",
     "dev": "nodemon server/index.js",
     "build": "next build",
-    "prod": "npm run build && NODE_ENV=production nodemon server/index.js",
-    "heroku-postbuild": "./node_modules/next/dist/bin/next build"
+    "heroku-postbuild": "./node_modules/next/dist/bin/next build",
+    "build:log": "heroku logs --tail --app rocki2000ltd"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
