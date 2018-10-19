@@ -15,6 +15,36 @@ const createCtrl = app => {
 		});
 	};
 
+
+	/**
+	 * Return the parent node and all the tree under it
+	 * @param {string} parentId 
+	 */
+	async function getTree(parentId) {
+		const root = Page.findById(parentId);
+		if (!root) {
+			throw new Error("Can't find Page with id " + parentId);
+		}
+		const result = { name: root.name };
+		const children = await Page.find({ parent: parentId });
+		returesult.children = (children && children.length) ? children.map(x => getTree(x.id)) : [];
+		return result;
+	}
+
+	async function getForest() {
+		const roots = await Page.find({ parent: null });
+		return roots.map(x => getTree(x.id));
+	}
+
+	factory.forest = async (req, res, next) => {
+		try {
+			const forest = getForest();
+			res.status(200).json(forest);
+		} catch(error){
+			res.status(500).json({error});
+		}
+	};
+
 	/**
 	 *  GET
 	 *  pages/:id
@@ -69,15 +99,15 @@ const createCtrl = app => {
 		Page.updateOne({ _id: id }, { $set: updatePage })
 			.exec()
 			.then(page => {
-                if (!page) {
-                    return res.status(404).json({ 
-                        error: `Page id:${id} doesn't exist`
-                    });
-                }
+				if (!page) {
+					return res.status(404).json({
+						error: `Page id:${id} doesn't exist`
+					});
+				}
 
-                res.status(200).json(page);
-            })
-			.catch(err => res.status(500).json({error: err}));
+				res.status(200).json(page);
+			})
+			.catch(err => res.status(500).json({ error: err }));
 	};
 
 	/**
@@ -85,8 +115,8 @@ const createCtrl = app => {
 	 * pages/:id
 	 */
 	factory.delete = (req, res, next) => {
-        const id = req.params.id;
-        
+		const id = req.params.id;
+
 		Page.remove({ _id: id })
 			.exec()
 			.then(page => {
