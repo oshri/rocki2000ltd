@@ -4,6 +4,13 @@ import withRedux from 'next-redux-wrapper';
 import { initializeStore, actionTypes, fetchNavigation } from '../store';
 import { Provider } from 'react-redux';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+
+library.add([
+	faPhone
+]);
+
 class MyApp extends App {
 	static async getInitialProps({ Component, ctx }) {
 		fetchNavigation();

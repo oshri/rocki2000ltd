@@ -1,10 +1,12 @@
 import Layout from '../components/Layout';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Button } from 'reactstrap';
 import { fetchNavigation } from '../store';
 import '../scss/style.scss';
 import Instafeed from 'instafeed.js';
 import Splash from '../components/Splash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // const feed = new Instafeed({
 //     get: 'tagged',
@@ -31,6 +33,11 @@ const Home = props => {
 				</div>
             </section> */}
             <Splash />
+			
+			<Button outline color="primary">
+				<FontAwesomeIcon icon="phone" />
+				primary
+			</Button>
 		</Layout>
 	);
 };
