@@ -23,7 +23,7 @@ const Home = props => {
 	});
 
 	return (
-		<Layout title="Home mage">
+		<Layout title="Home page">
 			{/* <section>
 				<div>
 					<div id="instafeed" />
