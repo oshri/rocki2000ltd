@@ -1,4 +1,5 @@
 const express = require("express");
+const auth = require('./middlewares/auth');
 
 const apiRoutes = (app) => {
   const router = express.Router();
@@ -6,6 +7,7 @@ const apiRoutes = (app) => {
   const instagramCtrl = require("./controllers/instagramAccessToken.ctrl")(app);
   const navigationCtrl = require("./controllers/navigation.ctrl")(app);
   const pagesCtrl = require("./controllers/pages.ctrl")(app);
+  const usersCtrl = require("./controllers/users.ctrl")(app);
 
 
   // Instagram Access Token 
@@ -16,13 +18,23 @@ const apiRoutes = (app) => {
 
   // Pages
   router.route('/pages')
-    .post(pagesCtrl.post)
+    .post(auth.requiresAdmin, pagesCtrl.post)
     .get(pagesCtrl.list);
 
   router.route('/pages/:id')
     .get(pagesCtrl.get)
-    .put(pagesCtrl.update)
-    .delete(pagesCtrl.delete);
+    .put(auth.requiresAdmin, pagesCtrl.update)
+    .delete(auth.requiresAdmin, pagesCtrl.delete);
+
+  // Users
+  router.route('/users')
+    .post(auth.requiresAdmin, usersCtrl.post)
+    .get(usersCtrl.list);
+
+  router.route('/users/:id')
+    .get(usersCtrl.get)
+    .put(auth.requiresAdmin, usersCtrl.update)
+    .delete(auth.requiresAdmin, usersCtrl.delete);
   
   app.use('/api', router);
 };

@@ -1,6 +1,7 @@
 const Page = require('../models/pageModel');
 const mongoose = require('mongoose');
 
+
 const createCtrl = app => {
 	const factory = {};
 
@@ -55,6 +56,11 @@ const createCtrl = app => {
 				res.status(201).json(response);
 			})
 			.catch(err => {
+
+				if(err.code === 11000) {
+					res.status(500).json({ error: 'Duplicate page with the same name' });
+				}
+				
 				res.status(500).json({ error: err });
 			});
 	};

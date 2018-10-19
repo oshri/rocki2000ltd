@@ -52,7 +52,8 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "underscore": "^1.9.1",
-    "winston": "^3.1.0"
+    "winston": "^2.4.0",
+    "winston-logzio": "^1.0.8"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"
