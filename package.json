@@ -8,7 +8,7 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "dev": "nodemon server/index.js",
     "build": "next build",
     "heroku-postbuild": "./node_modules/next/dist/bin/next build",
@@ -53,5 +53,8 @@
     "sass-loader": "^7.1.0",
     "underscore": "^1.9.1",
     "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }
