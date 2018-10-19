@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Header from '../Header';
 import Footer from '../Footer';
-import withMui from '../../shared/MUI/withMUI';
 
 const Layout = ({ children, title = 'Rocki 2000 ltd' }) => (
     <div>
@@ -21,4 +20,4 @@ const Layout = ({ children, title = 'Rocki 2000 ltd' }) => (
     </div>
 );
 
-export default withMui(Layout);
+export default Layout;

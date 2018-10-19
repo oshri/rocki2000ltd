@@ -34,7 +34,7 @@ export default class LayoutDocument extends Document {
 					<link rel="stylesheet" href="/static/alef.css" />
 					<link rel="manifest" href="/static/manifest.json" />
 					<link rel="shortcut icon" href="/static/favicon.ico" />
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>>
+                    
 				</Head>
 				<body>
 					{/* <div className="heading">

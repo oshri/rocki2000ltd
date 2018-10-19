@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as _ from 'underscore';
 import './Header.scss';
-import AppBar from 'material-ui/AppBar';
 import Menu from '../Menu';
 import Logo from '../Logo';
 
