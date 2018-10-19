@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:10
+FROM mhart/alpine-node:8.11.3
 # We store all our files in /usr/src to perform the build
 WORKDIR /usr/src
 # We first add only the files required for installing deps
