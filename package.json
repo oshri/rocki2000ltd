@@ -10,8 +10,7 @@
   "scripts": {
     "dev": "nodemon server/index.js",
     "build": "next build",
-    "start": "next start",
-    "export": "next export"
+    "start": "NODE_ENV=production nodemon server/index.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",

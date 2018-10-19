@@ -19,7 +19,14 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 dotenv.load({ path: '.env' });
 
-const db = mongoose.connect('mongodb://localhost:27017/rocki2000ltd');
+
+const db = mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true}, (err) => {
+  if(err) {
+    console.log('Errr: could not connect to mongodb', err);
+  } else {
+    console.log('Success: Connected to mogodb', err);
+  }
+});
 
 /**
  * SSL CERT
