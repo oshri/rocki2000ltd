@@ -1,10 +1,12 @@
 import React from 'react';
-import Link from 'next/link'
+import PropTypes from 'prop-types';
+import MenuLink from '../MenuLink';
 
 import './Menu.scss';
 
 const Menu = (props) => {
-  const { direction } = props;
+  const { direction, theme } = props;
+  
 
   const style = {
     flexDirection: direction ? direction : 'row'
@@ -12,14 +14,15 @@ const Menu = (props) => {
 
   return (
     <div className="menu-wrap" style={style}>
-      <Link href="/about">
-        <a>אודות</a>
-      </Link>{' '}
-      <Link href="/">
-        <a>ראשי</a>
-      </Link>{' '}
+     <MenuLink href='/about' theme={theme}>אודות</MenuLink>
+     <MenuLink href='/' theme={theme}>ראשי</MenuLink>
     </div>
   );
+};
+
+Menu.propTypes = {
+  direction: PropTypes.string,
+  theme: PropTypes.string
 };
 
 export default Menu;

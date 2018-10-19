@@ -1,7 +1,7 @@
 .Header {
     position: fixed;
     top: 0;
-    background: black;
+    background: white;
     transition: top 0.3s ease-in-out;
     width: 100%;
     box-sizing: content-box;
@@ -14,7 +14,7 @@
 
     article {
         display: flex;
-        align-items: flex-end;
+        align-items: flex-end center;
         justify-content: space-between; 
         width: 98%;
         padding: 0 2%;

@@ -40,7 +40,6 @@ export const fetchNavigation = (dispatch) => {
   return (dispatch) => fetch('http://localhost:4200/api/navigation')
         .then((res) => res.json())
         .then(data => {
-          debugger
           return dispatch({ type: actionTypes.NAVIGATION_LOAD_SUCCESS, payload: data.links })
         });
 }

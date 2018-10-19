@@ -1,0 +1,36 @@
+
+.MenuLink {
+    position: relative;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    line-height: 2.9375rem;
+    font-size: 1rem;
+    padding: 0 .125rem;
+    margin: 0 .5rem;
+
+    &:hover {
+        color: black;
+    }
+
+    &.active {
+
+        .activeItemIndicator {
+            visibility: visible;
+            width: 100%;
+            transition: all 0.2s;
+            transition-delay: 0;
+        }
+    }
+
+    .activeItemIndicator {
+        width: 0%;
+        height: 3px;
+        position: absolute;
+        bottom: 0;
+        visibility: hidden;
+        transition: all 0.1s;
+        transition-delay: 0.1s;
+    }
+}

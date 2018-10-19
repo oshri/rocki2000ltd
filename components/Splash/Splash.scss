@@ -1,0 +1,19 @@
+$bp-med : 39.9375em;
+$bp-xl : 74.9375em;
+
+.Splash {
+    padding: 34rem 2rem;
+    width: 100%;
+    background: url('/static/splash-bg.png') no-repeat;
+    background-size: contain;
+
+    @media only screen and (max-width: $bp-xl) {
+        background-position-y: -15%;
+    }
+    
+    @media  only screen and (max-width: $bp-med) {
+        background-position-y: 0%;
+    }
+}
+
+

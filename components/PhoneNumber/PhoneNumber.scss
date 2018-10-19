@@ -1,0 +1,12 @@
+
+.PhoneNumber {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start !important;
+    direction: rtl;
+    padding: 3px;
+
+    span {
+        margin: 10px;
+    }
+}

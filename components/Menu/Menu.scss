@@ -4,6 +4,7 @@
     list-style-type: none;
     display: flex;
     flex-direction: column;
+    padding: 13px;
 
     a {
         text-decoration: none;
@@ -12,12 +13,12 @@
         cursor: pointer;
         line-height: 2.9375rem;
         font-size: 1rem;
-        color: white;
+        color: 38352C;
         padding: 0 .125rem;
         margin: 0 .5rem;
 
         &:hover {
-            color: #2b9bfb;
+            color: #E1BD64;
         }
     }
 

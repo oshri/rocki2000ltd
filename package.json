@@ -13,6 +13,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^3.2.2",
+    "@material-ui/icons": "^3.0.1",
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.1.5",
     "axios": "^0.18.0",

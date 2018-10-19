@@ -316,7 +316,6 @@ var fetchNavigation = function fetchNavigation(dispatch) {
     return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:4200/api/navigation').then(function (res) {
       return res.json();
     }).then(function (data) {
-      debugger;
       return dispatch({
         type: actionTypes.NAVIGATION_LOAD_SUCCESS,
         payload: data.links

@@ -1,0 +1,153 @@
+$bp-med: 39.9375em;
+$bp-xl: 74.9375em;
+
+.Footer {
+	padding: 2rem 2rem;
+	width: 100%;
+	height: 300px;
+	background: url('/static/footer-bg.png') no-repeat;
+	background-size: cover;
+	background-position-x: 100%;
+	position: relative;
+	
+
+	@media only screen and (max-width: $bp-xl) {
+		background-position-y: -15%;
+	}
+
+	@media only screen and (max-width: $bp-med) {
+		background-position-y: 0%;
+	}
+
+	.container {
+		position: absolute;
+		left: 0;
+        right: 0;
+        flex-direction: column;
+        
+        .top-level {
+            flex-wrap: wrap;
+            flex-direction: row;
+            display: flex;
+
+            .rocki-logo {
+                padding: 0 18px;
+            }
+
+            .more-info{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                align-content: center;
+                flex: 3;
+
+                .conatct-info {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+            }
+
+            .menu-links-wrapper{
+                display: flex;
+                flex: 1;
+                direction: rtl;
+                align-items: center;
+    
+                .menu-links{
+                    display: flex;
+                }
+            }
+        }
+
+        .bottom-level {
+            
+            .copyright {
+                text-align: center;
+                padding: 19px;
+                direction: rtl;
+            }
+        }
+	}
+
+	
+}
+
+// .footer {
+//     padding-top: 20px;
+//     padding-bottom: 10px;
+//     background: #333333;
+
+//     .container {
+//         padding-top: 1.5rem;
+//         padding-bottom: 1.5rem;
+//         max-width: 78rem;
+//         margin: 0 auto;
+//         padding-left: 1rem;
+//         font-size: .875rem;
+//         color: #FFFFFF;
+//         line-height: 1.75rem;
+//
+
+//         strong {
+//             text-transform: uppercase;
+//             font-size: 13px;
+//             display: inline-block;
+//         }
+
+//         .citi-logo{
+//             padding: 0 18px;
+//         }
+
+//         .menu-links-wrapper{
+//             flex: 2;
+
+//             .menu-links{
+//                 display: flex;
+//             }
+//         }
+
+//         .more-info{
+//             flex-wrap: wrap;
+//             flex-direction: column;
+//             display: flex;
+//             flex: 1;
+//         }
+
+//         .address{
+//             flex-wrap: wrap;
+//             flex-direction: column;
+//             display: flex;
+//             width: 175px;
+//         }
+//     }
+// }
+
+// .legal-local {
+//     padding-top: .75rem;
+//     padding-bottom: .75rem;
+//     width: 100%;
+//     max-width: 60rem;
+//     margin: 0 auto;
+//     padding-left: 1rem;
+//     font-size: .875rem;
+//     color: #3e3e40;
+//     line-height: 1.75rem;
+// }
+
+// .legal-links {
+//     display: inline-block;
+//     font-size: .875rem;
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 5px;
+
+//     a{
+//         color: #ffffff;
+//         padding: 10px;
+//     }
+// }

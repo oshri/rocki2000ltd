@@ -7,7 +7,7 @@ import Logo from '../Logo';
 
 class Header extends Component {
 	delta = 5;
-    navbarHeight = 50;
+    navbarHeight = 88;
     
 	constructor(props) {
 		super(props);
@@ -86,9 +86,8 @@ class Header extends Component {
 		return (
 			<header id="navbar" className={`Header ` + this.state.navClass}>
 				<article>
-					{/* <Logo/> */}
-					<div></div>
-					<Menu />
+					<Logo/>
+					<Menu theme={'light'}/>
 				</article>
 			</header>
 		);

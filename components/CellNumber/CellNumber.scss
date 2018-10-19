@@ -1,0 +1,11 @@
+
+.CellNumber {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start !important;
+    direction: rtl;
+
+    span {
+        margin: 10px;
+    }
+}
