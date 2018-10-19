@@ -8,6 +8,8 @@ import Instafeed from 'instafeed.js';
 import Splash from '../components/Splash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
+
 // const feed = new Instafeed({
 //     get: 'tagged',
 //     tagName: 'rockiBestTop',
@@ -21,6 +23,8 @@ const Home = props => {
 	let links = props.navigation.map((link, i) => {
 		return <li key={i}>{link}</li>;
 	});
+
+	console.log('process.env.API_URLllllll', process.env.API_URL);
 
 	return (
 		<Layout title="Home page">

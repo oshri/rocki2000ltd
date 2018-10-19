@@ -1,5 +1,7 @@
-const path = require("path");
+require('dotenv').config()
 const glob = require("glob");
+const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   webpack: (config, { dev }) => {
@@ -33,6 +35,20 @@ module.exports = {
         ]
       }
     );
+
+    config.plugins = config.plugins || [];
+
+    config.plugins = [
+      ...config.plugins,
+
+      // Read the .env file
+      new Dotenv({
+        path: path.join(__dirname, '/.env'),
+        systemvars: true
+      })
+    ];
+
+
     return config;
   }
 };

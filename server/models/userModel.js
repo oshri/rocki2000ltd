@@ -27,6 +27,11 @@ const userModel = new schema({
     password: {
         type: String,
         required: true
+    },
+    active: {
+        type: Boolean,
+        require: true,
+        default: false
     }
 });
 

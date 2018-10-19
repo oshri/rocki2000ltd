@@ -1,10 +1,20 @@
 const User = require('../models/userModel');
 const mongoose = require('mongoose');
 const logErrorAndNext = require('../utils/logger');
-
+const validators = require("../utils/validators");
+const helpers = require("../utils/helpers");
 
 const createCtrl = app => {
 	const factory = {};
+
+	/**
+	 * User ar admin
+	 */
+
+	function isAdmin(req, res, next) {
+		// Search if his token header are exist if yes search by token and check his role
+
+	}
 
 	/**
 	 *  GET
@@ -22,20 +32,24 @@ const createCtrl = app => {
 	 *  Users/:id
 	 */
 	factory.get = (req, res, next) => {
-		const id = req.params.id;
+		const id = validators.string(req.params.id);
 
-		User.findById(id)
-			.exec()
-			.then(doc => {
-				if (!doc) {
-					return res.status(404).json({
-						error: `User id:${id} doesn't exist`
-					});
-				}
-
-				res.status(200).json(doc);
-			})
-			.catch(err => logErrorAndNext(`Get User by id went wrong`, {}, req.body, next, res, 500));
+		if(id) {
+			User.findById(id)
+				.exec()
+				.then(doc => {
+					if (!doc) {
+						return res.status(404).json({
+							error: `User id:${id} doesn't exist`
+						});
+					}
+	
+					res.status(200).json(doc);
+				})
+				.catch(err => logErrorAndNext(`Get User by id went wrong`, {}, req.body, next, res, 500));
+		} else {
+			return logErrorAndNext(`Missing required fields`, {}, req.body, next, res, 400);
+		}
 	};
 
 	/**
@@ -44,34 +58,43 @@ const createCtrl = app => {
 	 */
 
 	factory.post = (req, res, next) => {
-        const body = req.body;
-        
-        if (!body.firstName) {
-            return logErrorAndNext(`Create User didn't get FirstName in the body`, {}, req.body, next, res, 400);
-        }
-
-		const User = new User({
-			_id: mongoose.Types.ObjectId(),
-			firstName: body.firstName,
-            lastName: body.lastName,
-            role: body.role,
-            email: body.email,
-            password: body.password,
-        });
+		const body = req.body;
+		
+		const firstName = validators.string(req.body.firstName);
+		const lastName = validators.string(req.body.lastName);
+		const email = validators.string(req.body.email);
+		const password = validators.string(req.body.password);
         
 
-		User.save()
-			.then(response => {
-				res.status(201).json(response);
-			})
-			.catch(err => {
-
-				if(err.code === 11000) {
-					res.status(500).json({ error: 'Duplicate User with the same name' });
-				}
-				
-				res.status(500).json({ error: err });
+        if (firstName && lastName && email && password) {
+			
+			const user = new User({
+				_id: mongoose.Types.ObjectId(),
+				firstName: body.firstName,
+				lastName: body.lastName,
+				email: body.email,
+				password: helpers.hash(body.password),
+				active: true
 			});
+			
+	
+			user.save()
+				.then(response => {
+					res.status(201).json(response);
+				})
+				.catch(err => {
+	
+					if(err.code === 11000) {
+						res.status(500).json({ error: 'Duplicate User with the same name' });
+					}
+					
+					res.status(500).json({ error: err });
+				});
+
+		} else {
+            return logErrorAndNext(`Missing required fields`, {}, req.body, next, res, 400);
+		}
+
 	};
 
 	/**
@@ -79,20 +102,62 @@ const createCtrl = app => {
 	 * Users/:id
 	 */
 	factory.update = (req, res, next) => {
-		const id = req.params.id;
-		const updateUser = req.body;
-		User.updateOne({ _id: id }, { $set: updateUser })
-			.exec()
-			.then(User => {
-                if (!User) {
-                    return res.status(404).json({ 
-                        error: `User id:${id} doesn't exist`
-                    });
-                }
+		const id = validators.string(req.params.id);
+		const firstName = validators.string(req.body.firstName);
+		const lastName = validators.string(req.body.lastName);
 
-                res.status(200).json(User);
-            })
-			.catch(err => res.status(500).json({error: err}));
+		if(id && firstName || lastName) {
+
+			const updateUser = {
+				firstName,
+				lastName
+			};
+
+			User.updateOne({ _id: id }, { $set: updateUser })
+				.exec()
+				.then(User => {
+					if (!User) {
+						return res.status(404).json({ 
+							error: `User id:${id} doesn't exist`
+						});
+					}
+	
+					res.status(200).json(User);
+				})
+				.catch(err => res.status(500).json({error: err}));
+
+		} else {
+			return logErrorAndNext(`Missing required data`, {}, req.body, next, res, 400);
+		}
+
+	};
+
+	/**
+	 * PUT
+	 * Users/:id/activate
+	 */
+	factory.activate = (req, res, next) => {
+		const id = validators.string(req.params.id);
+
+		if(id) {
+
+			User.updateOne({ _id: id }, { $set: { active: true } })
+				.exec()
+				.then(User => {
+					if (!User) {
+						return res.status(404).json({ 
+							error: `User id:${id} doesn't exist`
+						});
+					}
+	
+					res.status(200).json(User);
+				})
+				.catch(err => res.status(500).json({error: err}));
+
+		} else {
+			return logErrorAndNext(`Missing required data`, {}, req.body, next, res, 400);
+		}
+
 	};
 
 	/**
@@ -100,14 +165,25 @@ const createCtrl = app => {
 	 * Users/:id
 	 */
 	factory.delete = (req, res, next) => {
-        const id = req.params.id;
-        
-		User.remove({ _id: id })
-			.exec()
-			.then(User => {
-				res.status(200).json(User);
-			})
-			.catch(err => res.status(500).json({ error: err }));
+		const id = validators.string(req.params.id);
+
+		if(id) {
+			User.updateOne({ _id: id }, { $set: {active: false} })
+				.exec()
+				.then(User => {
+					if (!User) {
+						return res.status(404).json({ 
+							error: `User id:${id} doesn't exist`
+						});
+					}
+	
+					res.status(200).json(User);
+				})
+				.catch(err => res.status(500).json({error: err}));
+		} else {
+			return logErrorAndNext(`Missing required data`, {}, req.body, next, res, 400);
+		}
+
 	};
 
 	return factory;
