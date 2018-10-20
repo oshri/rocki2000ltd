@@ -8,6 +8,7 @@ const apiRoutes = (app) => {
   const navigationCtrl = require("./controllers/navigation.ctrl")(app);
   const pagesCtrl = require("./controllers/pages.ctrl")(app);
   const usersCtrl = require("./controllers/users.ctrl")(app);
+  const tokensCtrl = require("./controllers/tokens.ctrl")(app);
 
 
   // Instagram Access Token 
@@ -36,9 +37,18 @@ const apiRoutes = (app) => {
     .put(auth.requiresAdmin, usersCtrl.update)
     .delete(auth.requiresAdmin, usersCtrl.delete);
 
-    router.route('/users/:id/activate')
-      .put(auth.requiresAdmin, usersCtrl.activate);
-      
+  router.route('/users/:id/activate')
+    .put(auth.requiresAdmin, usersCtrl.activate);
+
+  // Tokens
+  router.route('/tokens')
+    .post(tokensCtrl.post);
+
+  router.route('/tokens/:id')
+    .get(tokensCtrl.get)
+    .put(tokensCtrl.update)
+    .delete(tokensCtrl.delete);
+
 
   
   app.use('/api', router);

@@ -4,17 +4,31 @@ const logErrorAndNext = require('../utils/logger');
 const validators = require("../utils/validators");
 const helpers = require("../utils/helpers");
 
+
 const createCtrl = app => {
+	const tokenCtrl = require("./tokens.ctrl")(app);
 	const factory = {};
 
 	/**
-	 * User ar admin
+	 * User is ADMIN
 	 */
 
-	function isAdmin(req, res, next) {
+	factory.isAdmin = async (req, res, next) => {
 		// Search if his token header are exist if yes search by token and check his role
-
-	}
+		const token = validators.string(req.headers.token);
+		const email = validators.string(req.headers.email);
+		
+		if(token && email) {
+			const tokenDetails = await tokenCtrl.verifyToken(token, email);
+			tokenDetails
+				.then((token) => {
+					console.log(token);
+				})
+				.catch(errr => console.log('Errr', err));
+		} else {
+			return logErrorAndNext(`Missing Auth fields`, {}, req.body, next, res, 400);
+		}
+	};
 
 	/**
 	 *  GET
@@ -51,6 +65,7 @@ const createCtrl = app => {
 			return logErrorAndNext(`Missing required fields`, {}, req.body, next, res, 400);
 		}
 	};
+
 
 	/**
 	 * POST
@@ -185,6 +200,7 @@ const createCtrl = app => {
 		}
 
 	};
+
 
 	return factory;
 };
