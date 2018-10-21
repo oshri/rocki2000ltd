@@ -1,0 +1,7 @@
+{
+    "logLevel": "info",
+    "mongodb": {
+        "url": "mongodb://ds135653.mlab.com:35653/rocki2000ltd",
+        "username": "test"
+    }
+}

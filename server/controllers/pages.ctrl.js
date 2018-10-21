@@ -6,6 +6,36 @@ const createCtrl = app => {
 	const factory = {};
 
 	/**
+	 * Return the parent node and all the tree under it
+	 * @param {string} parentId 
+	 */
+	async function getTree(parentId) {
+		const root = Page.findById(parentId);
+		if (!root) {
+			throw new Error("Can't find Page with id " + parentId);
+		}
+		const result = { name: root.name };
+		const children = await Page.find({ parent: parentId });
+		returesult.children = (children && children.length) ? children.map(x => getTree(x.id)) : [];
+		return result;
+	}
+
+	async function getForest() {
+		const roots = await Page.find({ parent: null });
+		return roots.map(x => getTree(x.id));
+	}
+
+	factory.forest = async (req, res, next) => {
+		try {
+			const forest = getForest();
+			res.status(200).json(forest);
+		} catch(error){
+			res.status(500).json({error});
+		}
+	};
+	
+
+	/**
 	 *  GET
 	 *  pages/
 	 */
@@ -48,7 +78,8 @@ const createCtrl = app => {
 		const page = new Page({
 			_id: mongoose.Types.ObjectId(),
 			name: body.name,
-			description: body.description
+			description: body.description,
+			parent: body.parent
 		});
 
 		page.save()

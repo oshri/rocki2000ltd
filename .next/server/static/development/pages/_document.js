@@ -100,7 +100,7 @@ module.exports =
 /*! exports provided: name, version, main, description, engines, scripts, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"rocki2000ltd","version":"0.0.0","main":"index.js","description":"Rocki 2000 ltd new web site.","engines":{"node":"8.11.3","npm":"6.4.1"},"scripts":{"start":"node server/index.js","dev":"NODE_ENV=development nodemon server/index.js","build":"next build","heroku-postbuild":"./node_modules/next/dist/bin/next build","build:log":"heroku logs --tail --app rocki2000ltd"},"dependencies":{"@fortawesome/fontawesome-svg-core":"^1.2.6","@fortawesome/free-solid-svg-icons":"^5.4.1","@fortawesome/react-fontawesome":"^0.1.3","@zeit/next-sass":"^1.0.1","autoprefixer":"^9.1.5","axios":"^0.18.0","babel-plugin-module-resolver":"^3.1.1","babel-plugin-wrap-in-js":"^1.1.1","body-parser":"^1.18.3","bootstrap":"^4.1.3","dotenv":"^6.1.0","dotenv-webpack":"^1.5.7","express":"^4.16.3","instafeed.js":"^1.4.1","instagram-node":"^0.5.8","isomorphic-fetch":"^2.2.1","jsonwebtoken":"^8.3.0","mongoose":"^5.3.4","morgan":"^1.9.1","next":"^7.0.0","next-redux-wrapper":"^2.0.0","node-sass":"^4.9.3","postcss-easy-import":"^3.0.0","postcss-loader":"^3.0.0","postcss-url":"^8.0.0","prop-types":"latest","raw-loader":"^0.5.1","react":"^16.5.2","react-dom":"^16.5.2","react-redux":"^5.0.7","react-spring":"^5.9.2","react-tap-event-plugin":"^3.0.2","reactstrap":"^6.5.0","redux":"^4.0.1","redux-devtools-extension":"^2.13.5","redux-logger":"^3.0.6","redux-thunk":"^2.3.0","sass-loader":"^7.1.0","underscore":"^1.9.1","winston":"^2.4.0","winston-logzio":"^1.0.8"},"devDependencies":{"nodemon":"^1.17.3"}};
+module.exports = {"name":"rocki2000ltd","version":"0.0.0","main":"index.js","description":"Rocki 2000 ltd new web site.","engines":{"node":"8.11.3","npm":"6.4.1"},"scripts":{"start":"node server/index.js","dev":"nodemon server/index.js","build":"next build","heroku-postbuild":"./node_modules/next/dist/bin/next build","build:log":"heroku logs --tail --app rocki2000ltd"},"dependencies":{"@fortawesome/fontawesome-svg-core":"^1.2.6","@fortawesome/free-solid-svg-icons":"^5.4.1","@fortawesome/react-fontawesome":"^0.1.3","@zeit/next-sass":"^1.0.1","autoprefixer":"^9.1.5","axios":"^0.18.0","babel-plugin-module-resolver":"^3.1.1","babel-plugin-wrap-in-js":"^1.1.1","body-parser":"^1.18.3","bootstrap":"^4.1.3","convict":"^4.4.0","dotenv":"^6.1.0","dotenv-webpack":"^1.5.7","express":"^4.16.3","instafeed.js":"^1.4.1","instagram-node":"^0.5.8","isomorphic-fetch":"^2.2.1","jsonwebtoken":"^8.3.0","mongoose":"^5.3.4","morgan":"^1.9.1","next":"^7.0.0","next-redux-wrapper":"^2.0.0","node-sass":"^4.9.3","postcss-easy-import":"^3.0.0","postcss-loader":"^3.0.0","postcss-url":"^8.0.0","prop-types":"latest","raw-loader":"^0.5.1","react":"^16.5.2","react-dom":"^16.5.2","react-redux":"^5.0.7","react-spring":"^5.9.2","react-tap-event-plugin":"^3.0.2","reactstrap":"^6.5.0","redux":"^4.0.1","redux-devtools-extension":"^2.13.5","redux-logger":"^3.0.6","redux-thunk":"^2.3.0","sass-loader":"^7.1.0","underscore":"^1.9.1","winston":"^2.4.0","winston-logzio":"^1.0.8"},"devDependencies":{"nodemon":"^1.17.3"}};
 
 /***/ }),
 
@@ -122,6 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _package_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../package.json */ "./package.json");
 var _package_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../package.json */ "./package.json", 1);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/pages/_document.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -163,42 +164,132 @@ function (_Document) {
     key: "render",
     value: function render() {
       var pageContext = this.props.pageContext;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("html", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-        charSet: "utf-8"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("html", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+        charSet: "utf-8",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "viewport",
-        content: "width=device-width, initial-scale=1, shrink-to-fit=no"
+        content: "width=device-width, initial-scale=1, shrink-to-fit=no",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "description",
-        content: "Rocki 2000 ltd"
+        content: "Rocki 2000 ltd",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "theme-color",
-        content: "#000000"
+        content: "#000000",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         property: "og:title",
-        content: "Rocki 2000 ltd"
+        content: "Rocki 2000 ltd",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         property: "og:url",
-        content: "http://rocki2000ltd.co.il"
+        content: "http://rocki2000ltd.co.il",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         property: "og:description",
-        content: "Rocki 2000 ltd"
+        content: "Rocki 2000 ltd",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         property: "og:type",
-        content: "website"
+        content: "website",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         property: "og:image",
-        content: "http://rocki2000ltd.co.il/social/share-facebook.png"
+        content: "http://rocki2000ltd.co.il/social/share-facebook.png",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "stylesheet",
-        href: "/static/alef.css"
+        href: "/static/alef.css",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 34
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "manifest",
-        href: "/static/manifest.json"
+        href: "/static/manifest.json",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "shortcut icon",
-        href: "/static/favicon.ico"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null)));
+        href: "/static/favicon.ico",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
+        },
+        __self: this
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 43
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44
+        },
+        __self: this
+      })));
     }
   }]);
 

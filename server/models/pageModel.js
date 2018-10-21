@@ -2,34 +2,44 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const pageModel = new schema({
-    _id: { 
-        type: mongoose.Schema.Types.ObjectId
-    },
-    name: { 
+	_id: {
+		type: mongoose.Schema.Types.ObjectId
+	},
+	name: {
+		type: String,
+		unique: true,
+		required: true
+	},
+	description: {
         type: String,
-        unique: true,
-        required: true
-    },
-    description: { 
-        type: String
-    }
+        required: false
+	},
+	parent: {
+        type: String,
+        required: false
+	},
+	active: {
+        type: Boolean,
+        required: false,
+		default: true
+	}
 });
 
 module.exports = mongoose.model('Page', pageModel);
 
 // const pageModel = new schema({
-//     _id: { 
+//     _id: {
 //         type: mongoose.Schema.Types.ObjectId
 //     },
-//     name: { 
+//     name: {
 //         type: String,
 //         unique: true,
 //         required: true
 //     },
-//     link: { 
+//     link: {
 //         type: String
 //     },
-//     description: { 
+//     description: {
 //         type: String
 //     },
 //     active: {

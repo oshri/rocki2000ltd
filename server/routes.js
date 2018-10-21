@@ -22,6 +22,9 @@ const apiRoutes = (app) => {
     .post(auth.requiresAdmin, pagesCtrl.post)
     .get(pagesCtrl.list);
 
+  router.route('/pages/navigation')
+    .get(pagesCtrl.forest);
+
   router.route('/pages/:id')
     .get(pagesCtrl.get)
     .put(auth.requiresAdmin, pagesCtrl.update)
