@@ -56,10 +56,10 @@ const createCtrl = app => {
 
 	factory.post = (req, res, next) => {
 		const email = validators.string(req.body.email);
-		const password = validators.string(req.body.password);
+		const id = validators.string(req.body.id);
 
-		if (email && password) {
-			User.find({ email })
+		if (email && id) {
+			User.findById(id)
 				.exec()
 				.then(doc => {
 					if (!doc) {
@@ -68,24 +68,23 @@ const createCtrl = app => {
 						});
 					}
 
-					// We have the user & we chack his hashPassword
-					const hashPassword = helpers.hash(password);
-
-					if (hashPassword === doc[0].password) {
+					if (doc.email === email) {
 						// Create new token for that user
 						const expires = Date.now() + 1000 * 60 * 60;
 
-						const token = new Token({
+						// const hashUserId = helpers.hash(doc.id);
+                        const jwtToken = helpers.createJwtToken({email: doc.email, id: doc.id});
+                        
+                        const token = new Token({
 							_id: mongoose.Types.ObjectId(),
-							email: email,
+							token: jwtToken,
 							expires: expires
 						});
 
 						token.save()
 							.then(response => {
-								// TODO: modify the response with nice message!!
-
-								res.status(201).json(response);
+								// res.header('Authorization', `Bearer ${jwtToken}`);
+                                res.status(200).json({token: `${jwtToken}`});
 							})
 							.catch(err => {
 								if (err.code === 11000) {

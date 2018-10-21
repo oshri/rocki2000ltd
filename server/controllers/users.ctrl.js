@@ -9,26 +9,12 @@ const createCtrl = app => {
 	const tokenCtrl = require("./tokens.ctrl")(app);
 	const factory = {};
 
-	/**
-	 * User is ADMIN
-	 */
-
-	factory.isAdmin = async (req, res, next) => {
-		// Search if his token header are exist if yes search by token and check his role
-		const token = validators.string(req.headers.token);
-		const email = validators.string(req.headers.email);
-		
-		if(token && email) {
-			const tokenDetails = await tokenCtrl.verifyToken(token, email);
-			tokenDetails
-				.then((token) => {
-					console.log(token);
-				})
-				.catch(errr => console.log('Errr', err));
-		} else {
-			return logErrorAndNext(`Missing Auth fields`, {}, req.body, next, res, 400);
-		}
-	};
+	function hidrateUser(userResponse) {
+		return {
+			firstName: userResponse.firstName,
+			lastName: userResponse.lastName
+		};
+	}
 
 	/**
 	 *  GET
@@ -37,7 +23,8 @@ const createCtrl = app => {
 	factory.list = (req, res, next) => {
 		User.find({}, (err, Users) => {
 			if (err) res.send(500);
-			res.status(200).json(Users);
+			const _users = Users.map(user => hidrateUser(user));
+			res.status(200).json(_users);
 		});
 	};
 
@@ -95,7 +82,8 @@ const createCtrl = app => {
 	
 			user.save()
 				.then(response => {
-					res.status(201).json(response);
+					const _user = hidrateUser(response);
+					res.status(201).json(_user);
 				})
 				.catch(err => {
 	

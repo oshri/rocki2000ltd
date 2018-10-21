@@ -5,7 +5,7 @@ const tokenModel = new schema({
     _id: { 
         type: mongoose.Schema.Types.ObjectId
     },
-    email: {
+    token: {
         type: String
     },
     expires: {
