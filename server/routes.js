@@ -29,7 +29,7 @@ const apiRoutes = (app) => {
 
   // Users
   router.route('/users')
-    .post(auth.requiresAdmin, usersCtrl.post)
+    .post(usersCtrl.post)
     .get(auth.requiresAdmin, usersCtrl.list);
 
   router.route('/users/:id')

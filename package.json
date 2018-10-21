@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "dev": "nodemon server/index.js",
+    "dev": "NODE_ENV=development nodemon server/index.js",
     "build": "next build",
     "heroku-postbuild": "./node_modules/next/dist/bin/next build",
     "build:log": "heroku logs --tail --app rocki2000ltd"
@@ -31,6 +31,7 @@
     "instafeed.js": "^1.4.1",
     "instagram-node": "^0.5.8",
     "isomorphic-fetch": "^2.2.1",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.4",
     "morgan": "^1.9.1",
     "next": "^7.0.0",

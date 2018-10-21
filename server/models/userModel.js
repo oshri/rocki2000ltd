@@ -15,7 +15,7 @@ const userModel = new schema({
     },
     role: {
         type: String,
-        required: true,
+        required: false,
         enum: ['user','admin'],
         default: 'user',
     },
@@ -30,7 +30,6 @@ const userModel = new schema({
     },
     active: {
         type: Boolean,
-        require: true,
         default: false
     }
 });
