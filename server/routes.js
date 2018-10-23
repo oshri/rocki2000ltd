@@ -25,7 +25,6 @@ const apiRoutes = (app) => {
 
   
 
-
   // Instagram Access Token 
   router.route('/instagram-access-token').get(instagramCtrl.get);
 

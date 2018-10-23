@@ -83,15 +83,6 @@ const createCtrl = (app,  pageService) => {
 		} catch (err) {
 			res.status(500).json({error: err});
 		}
-
-        // const id = req.params.id;
-        
-		// Page.remove({ _id: id })
-		// 	.exec()
-		// 	.then(page => {
-		// 		res.status(200).json(page);
-		// 	})
-		// 	.catch(err => res.status(500).json({ error: err }));
 	};
 
 	return factory;
