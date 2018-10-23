@@ -12,7 +12,7 @@
     "dev": "nodemon server/index.js",
     "build": "next build",
     "heroku-postbuild": "./node_modules/next/dist/bin/next build",
-    "build:log": "heroku logs --tail --app rocki2000ltd"
+    "deploy:log": "heroku logs --tail --app rocki2000ltd"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",

@@ -5,7 +5,7 @@ const validators = require("../utils/validators");
 const helpers = require("../utils/helpers");
 
 
-const createCtrl = app => {
+const createCtrl = (app, moduleService) => {
 	const tokenCtrl = require("./tokens.ctrl")(app);
 	const factory = {};
 

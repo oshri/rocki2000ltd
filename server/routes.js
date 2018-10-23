@@ -1,21 +1,33 @@
 const express = require("express");
 const auth = require('./middlewares/auth');
+const PageService = require('./services/page.service');
+
 
 const apiRoutes = (app) => {
   const router = express.Router();
+
+  /**
+   * Services
+   */
+
+  const pageService = new PageService();
+
+
+
+  /**
+   * Routes Controllers
+   */
   
   const instagramCtrl = require("./controllers/instagramAccessToken.ctrl")(app);
-  const navigationCtrl = require("./controllers/navigation.ctrl")(app);
-  const pagesCtrl = require("./controllers/pages.ctrl")(app);
+  const pagesCtrl = require("./controllers/pages.ctrl")(app, pageService);
   const usersCtrl = require("./controllers/users.ctrl")(app);
   const tokensCtrl = require("./controllers/tokens.ctrl")(app);
+
+  
 
 
   // Instagram Access Token 
   router.route('/instagram-access-token').get(instagramCtrl.get);
-
-  // Instagram Access Token 
-  router.route('/navigation').get(navigationCtrl.get);
 
   // Pages
   router.route('/pages')
@@ -23,7 +35,7 @@ const apiRoutes = (app) => {
     .get(pagesCtrl.list);
 
   router.route('/pages/navigation')
-    .get(pagesCtrl.forest);
+    .get(pagesCtrl.structure);
 
   router.route('/pages/:id')
     .get(pagesCtrl.get)
