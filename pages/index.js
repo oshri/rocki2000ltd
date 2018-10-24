@@ -4,26 +4,24 @@ import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
 import { fetchNavigation } from '../store';
 import '../scss/style.scss';
-import Instafeed from 'instafeed.js';
+// import Instafeed from 'instafeed.js';
 import Splash from '../components/Splash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
-const feed = new Instafeed({
-    get: 'tagged',
-    tagName: 'rockiBestTop',
-    clientId: 'd3a2f6b39ac248d696c1d4b6ddc987bc'
-});
+// const feed = new Instafeed({
+//     get: 'tagged',
+//     tagName: 'rockiBestTop',
+//     clientId: 'd3a2f6b39ac248d696c1d4b6ddc987bc'
+// });
 
 const Home = props => {
-	feed.run();
+	// feed.run();
 
 	// let links = props.navigation.map((link, i) => {
 	// 	return <li key={i}>{link}</li>;
 	// });
-
-	console.log('process.env.API_URLllllll', process.env.API_URL);
 
 	return (
 		<Layout title="Home page">
@@ -37,10 +35,10 @@ const Home = props => {
             </section> */}
             <Splash />
 			
-			<Button outline color="primary">
+			{/* <Button outline color="primary">
 				<FontAwesomeIcon icon="phone" />
 				primary
-			</Button>
+			</Button> */}
 		</Layout>
 	);
 };
