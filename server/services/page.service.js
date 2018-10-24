@@ -18,7 +18,9 @@ class PageService extends Base {
         const children = await Page.find({ parent: id });
         
         result.children = (children && children.length) ? children.map(page =>  this.getTree(page.id)) : [];
-        
+            for(let i = 0; i < result.children.length; i++){
+                result.children[i] = await result.children[i];
+            }
 		return result;
     }
     
@@ -26,8 +28,11 @@ class PageService extends Base {
 	async getForest() {
         const roots = await Page.find({ parent: null });
     
-        return roots.map(page =>  this.getTree(page.id));
-
+        const trees = roots.map(page =>  this.getTree(page.id));
+        for(let i = 0; i < trees.length; i++){
+            trees[i] = await trees[i];
+        }
+        return trees;   
 	}
 }
 

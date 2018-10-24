@@ -332,10 +332,11 @@ var serverRenderClock = function serverRenderClock(isServer) {
       payload: !isServer
     });
   };
-};
+}; //https://rocki2000ltd.herokuapp.com/api/navigation
+
 var fetchNavigation = function fetchNavigation(dispatch) {
   return function (dispatch) {
-    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3___default()('https://rocki2000ltd.herokuapp.com/api/navigation').then(function (res) {
+    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:4200/api/pages/navigation').then(function (res) {
       return res.json();
     }).then(function (data) {
       return dispatch({

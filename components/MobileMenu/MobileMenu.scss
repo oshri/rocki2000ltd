@@ -1,0 +1,8 @@
+.MobileMenu {
+    padding: 15px;
+
+    svg {
+        transform: rotate(90deg) scaleX(-1);
+    }
+    cursor: pointer;
+}

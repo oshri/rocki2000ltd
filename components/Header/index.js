@@ -3,6 +3,7 @@ import * as _ from 'underscore';
 import './Header.scss';
 import Menu from '../Menu';
 import Logo from '../Logo';
+import MobileMenu from '../MobileMenu';
 
 class Header extends Component {
 	delta = 5;
@@ -86,7 +87,10 @@ class Header extends Component {
 			<header id="navbar" className={`Header ` + this.state.navClass}>
 				<article>
 					<Logo/>
-					<Menu theme={'light'}/>
+					<div className={"header-menu-wrap"}>
+						<Menu theme={'light'}/>
+						{/* <MobileMenu/> */}
+					</div>
 				</article>
 			</header>
 		);

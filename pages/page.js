@@ -4,39 +4,18 @@ import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
 import { fetchNavigation } from '../store';
 import '../scss/style.scss';
-import Instafeed from 'instafeed.js';
-import Splash from '../components/Splash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
-const feed = new Instafeed({
-    get: 'tagged',
-    tagName: 'rockiBestTop',
-    clientId: 'd3a2f6b39ac248d696c1d4b6ddc987bc'
-});
 
-const Home = props => {
-	feed.run();
-
-	// let links = props.navigation.map((link, i) => {
-	// 	return <li key={i}>{link}</li>;
-	// });
-
-	console.log('process.env.API_URLllllll', process.env.API_URL);
-
+const Page = props => {
+	
 	return (
-		<Layout title="Home page">
-			{/* <section>
-				<div>
-					<div id="instafeed" />
-					<h1>Home page</h1>
-					<ul>{links}</ul>
-					<button onClick={props.fetchNav}>Fetch Nav</button>
-				</div>
-            </section> */}
-            <Splash />
-			
+		<Layout title="Page page">
+			<h1>
+                Page
+            </h1>
 			<Button outline color="primary">
 				<FontAwesomeIcon icon="phone" />
 				primary
@@ -46,7 +25,7 @@ const Home = props => {
 };
 
 Home.getInitialProps = async ({ store }) => {
-	await store.dispatch(fetchNavigation());
+	// await store.dispatch(fetchNavigation());
 };
 
 // Passing data to props from Store
@@ -66,4 +45,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Home);
+)(Page);

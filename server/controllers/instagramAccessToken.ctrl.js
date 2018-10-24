@@ -13,7 +13,7 @@ const ig = require('instagram-node').instagram();
 const createCtrl = (app) => {
     const INSTAGRAM_CLIENT_ID ="d3a2f6b39ac248d696c1d4b6ddc987bc";
     const INSTAGRAM_CLIENT_SECRET ="92622dc7bcc9487b9320156b339e301c";
-    const INSTAGRAM_REDIRECT_URI ="https://www.localhost:3000/api/instagram-access-token";
+    const INSTAGRAM_REDIRECT_URI ="http://localhost:3000/api/instagram-access-token";
     
     const instegramUrl = `https://www.instagram.com/oauth/authorize/?client_id=d3a2f6b39ac248d696c1d4b6ddc987bc&redirect_uri=https://www.localhost:3000/api/instagram-access-token&response_type=code`;
  
