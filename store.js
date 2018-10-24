@@ -37,7 +37,7 @@ export const serverRenderClock = (isServer) => dispatch => {
 }
 //https://rocki2000ltd.herokuapp.com/api/navigation
 export const fetchNavigation = (dispatch) => {
-  return (dispatch) => fetch('http://localhost:4200/api/pages/navigation')
+  return (dispatch) => fetch('http://localhost:8080/api/pages/navigation')
         .then((res) => res.json())
         .then(data => {
           return dispatch({ type: actionTypes.NAVIGATION_LOAD_SUCCESS, payload: data.links })

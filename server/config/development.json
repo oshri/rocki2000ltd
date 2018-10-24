@@ -1,8 +1,0 @@
-{
-    "logLevel": "debug",
-    "mongodb": {
-        "url": "mongodb://localhost:27017/rocki2000ltd",
-        "username": "",
-        "password": ""
-    }
-}

@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const winston = require('winston');
 
-module.exports = function(url, user, pass) {
+module.exports = function(url) {
+
   mongoose.connect(url, {
     useNewUrlParser: true,
-    user: user,
-    pass: pass,
     reconnectTries: Number.MAX_VALUE
   });
 

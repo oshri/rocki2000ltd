@@ -1,10 +1,10 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const config = require('./config');
 const winston = require('winston');
 const next = require('next');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+
 
 
 /**
@@ -14,6 +14,8 @@ const bodyParser = require('body-parser');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const dbPath = process.env.MONGODB_URI || 'mongodb://localhost:27017/rocki2000ltd';
+const PORT = process.env.PORT || 3000;
 dotenv.load({ path: '.env' });
 
 
@@ -24,8 +26,8 @@ winston.configure({
 	transports: [
 	  new winston.transports.Console({
 		timestamp: true,
-		label: config.get('app.name'),
-		level: config.get('logLevel')
+		label: 'Rocki2000ltd',
+		level: 'info'
 	  })
 	]
   });
@@ -33,7 +35,7 @@ winston.configure({
 /**
  * MONGODB CONNECTION
  */
-require('./db')(config.get('mongodb://ds135653.mlab.com:35653/rocki2000ltd'), config.get('test'), config.get('test1234'));
+require('./db')(dbPath);
 
 
 
@@ -43,6 +45,8 @@ require('./db')(config.get('mongodb://ds135653.mlab.com:35653/rocki2000ltd'), co
 app.prepare()
 	.then(() => {
 		const expressApp = express();
+		expressApp.disable('x-powered-by');
+		
 		expressApp.use(morgan('dev'));
 		expressApp.use(bodyParser.json());
 		expressApp.use(bodyParser.urlencoded({ extended: true }));
@@ -57,8 +61,8 @@ app.prepare()
 			return handle(req, res);
 		});
 
-		expressApp.listen(config.get('port'), () =>
-			winston.log("info", `Rocki2000ltd listening on port ${config.get('port')}, Env: ${config.get('env')}`)
+		expressApp.listen(PORT, () =>
+			winston.log("info", `Rocki2000ltd listening on port ${PORT}, Env: ${process.env.NODE_ENV}`)
 		);
 
 	})
