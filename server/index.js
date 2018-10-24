@@ -33,7 +33,7 @@ winston.configure({
 /**
  * MONGODB CONNECTION
  */
-require('./db')(config.get('mongodb.url'), config.get('mongodb.username'), config.get('mongodb.password'));
+require('./db')(config.get('mongodb://ds135653.mlab.com:35653/rocki2000ltd'), config.get('test'), config.get('test1234'));
 
 
 
