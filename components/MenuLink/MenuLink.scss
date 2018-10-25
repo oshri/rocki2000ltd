@@ -10,6 +10,9 @@
     margin: 0 .5rem;
     transition: opacity 250ms;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     &:hover,
     &:focus {
@@ -42,10 +45,6 @@
         width: 5px;
         height: 5px;
         border-radius: 50%;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
         visibility: hidden;
         transition: all 0.1s;
         transition-delay: 0.1s;

@@ -17303,7 +17303,7 @@ function initializeStore() {
 
 /***/ }),
 
-/***/ 6:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/about.js ***!
   \******************************/
@@ -17328,5 +17328,5 @@ module.exports = dll_10edf27d814a728d21af;
 
 /***/ })
 
-},[[6,"static/runtime/webpack.js","styles"]]]));;
+},[[3,"static/runtime/webpack.js","styles"]]]));;
 //# sourceMappingURL=about.js.map
