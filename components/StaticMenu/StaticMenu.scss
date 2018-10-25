@@ -1,0 +1,25 @@
+.StaticMenu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+
+    a {
+        text-decoration: none;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        line-height: 2.9375rem;
+        font-size: 1rem;
+        color: 38352C;
+        padding: 0 .125rem;
+        margin: 0 .5rem;
+
+        &:hover {
+            color: #E1BD64;
+        }
+    }
+
+}

@@ -7,12 +7,6 @@ import './Layout.scss';
 
 const Layout = ({ children, title = 'Rocki 2000 ltd' }) => (
     <div className="Layout">
-      <Head>
-        <title>{ title }</title>
-        <meta charSet='utf-8' />
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-      </Head>
-      
       <Header />
       <div className="page-content">
         { children }

@@ -7,7 +7,7 @@ import FaxNumber from '../FaxNumber';
 import Address from '../Address';
 import './Footer.scss';
 
-import Menu from '../Menu';
+import StaticMenu from '../StaticMenu';
 
 const Footer = (props) => {
     const { theme }  = props;
@@ -29,7 +29,7 @@ const Footer = (props) => {
                     </div>
                     <div className="menu-links-wrapper">
                         <div className="menu-links">
-                            <Menu direction={'column'}/>
+                            <StaticMenu direction={'column'}/>
                         </div>
                     </div>
                 </div>

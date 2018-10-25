@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchNavigation } from '../../store';
+
 import * as _ from 'underscore';
 import './Header.scss';
-import Menu from '../Menu';
+import StaticMenu from '../StaticMenu';
 import Logo from '../Logo';
+import DynamicDropDownMenu from '../DynamicDropDownMenu';
 import MobileMenu from '../MobileMenu';
 
 class Header extends Component {
@@ -23,6 +28,11 @@ class Header extends Component {
 		this.getDocHeight = this.getDocHeight.bind(this);
 		this.hasScrolled = this.hasScrolled.bind(this);
 		this.handleScroll = this.handleScroll.bind(this);
+	}
+
+	async getInitialProps({ store }){
+		debugger
+		await store.dispatch(fetchNavigation());
 	}
 
 	componentDidMount() {
@@ -83,13 +93,19 @@ class Header extends Component {
 	}
 
 	render() {
+
+		let links = this.props.navigation.map((link, i) => {
+			return <li key={i}>{link.name}</li>;
+		});
+
 		return (
 			<header id="navbar" className={`Header ` + this.state.navClass}>
 				<article>
 					<Logo/>
 					<div className={"header-menu-wrap"}>
-						<Menu theme={'light'}/>
-						{/* <MobileMenu/> */}
+						<DynamicDropDownMenu theme={'dark'}/>
+						<StaticMenu theme={'dark'}/>
+						<MobileMenu/>
 					</div>
 				</article>
 			</header>
@@ -97,4 +113,22 @@ class Header extends Component {
 	}
 }
 
-export default Header;
+
+// Passing data to props from Store
+function mapStateToProps(state) {
+	return {
+		navigation: state.navigation
+	};
+}
+
+// Passing Dispatch function to props
+function mapDispatchToProps(dispatch) {
+	return {
+		fetchNav: bindActionCreators(fetchNavigation, dispatch)
+	};
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Header);

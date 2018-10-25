@@ -16,8 +16,8 @@ const MenuLink = ({ children, router, href, theme }) => {
 	};
 
 	return (
-		<div className={`MenuLink ${active}`} style={{color: themeColor(theme)}}>
-			<a href={href} onClick={handleClick}>
+		<div className={`MenuLink ${active}`}>
+			<a href={href} onClick={handleClick} style={{color: themeColor(theme)}}>
 				{children}
 			</a>
 			<div

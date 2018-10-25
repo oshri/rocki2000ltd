@@ -6,7 +6,7 @@ import './MobileMenu.scss';
 
 export const MobileMenu = (props) => {
     return (
-        <div className={"MobileMenu"}>
+        <div className={'MobileMenu'}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -17,7 +17,7 @@ export const MobileMenu = (props) => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                class="feather feather-bar-chart"
+                className={"feather feather-bar-chart"}
             >
                 <line x1="12" y1="20" x2="12" y2="10" />
                 <line x1="18" y1="20" x2="18" y2="4" />
