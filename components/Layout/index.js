@@ -5,14 +5,17 @@ import Header from '../Header';
 import Footer from '../Footer';
 import './Layout.scss';
 
-const Layout = ({ children, title = 'Rocki 2000 ltd' }) => (
+const Layout = ({ children, navigation }) => {
+   
+  return (
     <div className="Layout">
-      <Header />
+      <Header navigation={navigation}/>
       <div className="page-content">
         { children }
       </div>
       <Footer/>
     </div>
-);
+  );
+};
 
 export default Layout;

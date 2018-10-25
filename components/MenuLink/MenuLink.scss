@@ -20,6 +20,20 @@
         outline: none;
     }
 
+    &.dark {
+
+        a{
+            color: white !important;
+        }
+    }
+
+    &.light {
+
+        a{
+            color: black !important;
+        }
+    }
+
     a {
         // text-decoration: none;
 

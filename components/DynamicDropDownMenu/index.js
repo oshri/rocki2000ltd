@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
-import { ProductsDropdown, DevelopersDropdown, CompanyDropdown } from "./DropDowns";
+import Dropdown from "./DropDowns";
 import DropDownsContainer from "./DropDownsContainer";
 import MenuLink from '../MenuLink';
 
 import "./DynamicDropDownMenu.scss";
+import { throws } from "assert";
 
 /**
  * Navigation 
@@ -13,22 +14,28 @@ import "./DynamicDropDownMenu.scss";
 const navigation = [
   {
     title: "אודות",
-    dropdown: ProductsDropdown
+    dropdown: Dropdown
   },
   {
     title: "ייבוא",
-    dropdown: DevelopersDropdown
+    dropdown: Dropdown
   },
   { 
     title: "צור קשר",
-    dropdown: CompanyDropdown
+    dropdown: Dropdown
   }
 ];
 
 class DynamicDropDownMenu extends React.Component {
 
   constructor(props) {
-		super(props);
+    super(props);
+
+    this.buildNavigation = this.buildNavigation.bind(this);
+    
+    if (props.navigation) {
+      this.buildNavigation(props.navigation);
+    }
 
 		this.state = {
       activeIndices: []
@@ -42,7 +49,18 @@ class DynamicDropDownMenu extends React.Component {
 	
 	static defaultProps = {
 		theme: 'dark',
-	};
+  };
+  
+  buildNavigation(navigation, theme){
+    const newNav = navigation.map(nav => {
+      return {
+        title: nav.name,
+        dropdown: new Dropdown(nav.children, theme)
+      };
+    });
+
+    this.navigation = newNav;
+  }
 
   onMouseEnter = event => {
     const currentIndex = Number(event.currentTarget.dataset.index);
@@ -67,18 +85,18 @@ class DynamicDropDownMenu extends React.Component {
     const currentIndex = this.state.activeIndices[this.state.activeIndices.length - 1];
 
     if (typeof currentIndex === "number") {
-      CurrentDropdown = navigation[currentIndex].dropdown;
+      CurrentDropdown = this.navigation[currentIndex].dropdown;
     }
 
     if (typeof previousIndex === "number") {
-      PreviousDropdown = navigation[previousIndex].dropdown;
+      PreviousDropdown = this.navigation[previousIndex].dropdown;
     }
 
     return (
       <div className="DynamicDropDownMenu">
         <nav className="navbar-el" onMouseLeave={this.onMouseLeave}>
           <ul className="navbar-list">
-            {navigation.map((n, index) => {
+            {this.navigation.map((n, index) => {
               return (
                 <div
                   className="navbar-item-el"
@@ -87,7 +105,7 @@ class DynamicDropDownMenu extends React.Component {
                   data-index={index}
                   key={index}
                 >
-                  <MenuLink href={n.title} theme={this.props.theme}>{n.title}</MenuLink>
+                  <MenuLink href={n.link} theme={this.props.theme}>{n.title}</MenuLink>
 
                   <div className="dropdown-slot">
                     {currentIndex === index && (

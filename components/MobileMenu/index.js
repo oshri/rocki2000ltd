@@ -5,6 +5,8 @@ import Link from 'next/link';
 import './MobileMenu.scss';
 
 export const MobileMenu = (props) => {
+    const color = props.theme === 'dark' ? 'white' : 'black';
+
     return (
         <div className={'MobileMenu'}>
             <svg
@@ -19,9 +21,9 @@ export const MobileMenu = (props) => {
                 strokeLinejoin="round"
                 className={"feather feather-bar-chart"}
             >
-                <line x1="12" y1="20" x2="12" y2="10" />
-                <line x1="18" y1="20" x2="18" y2="4" />
-                <line x1="6" y1="20" x2="6" y2="16" />
+                <line x1="12" y1="20" x2="12" y2="10" stroke={color} />
+                <line x1="18" y1="20" x2="18" y2="4"  stroke={color}/>
+                <line x1="6" y1="20" x2="6" y2="16"  stroke={color}/>
             </svg>
         </div>
     );

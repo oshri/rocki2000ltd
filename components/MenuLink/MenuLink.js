@@ -11,19 +11,12 @@ const MenuLink = ({ children, router, href, theme }) => {
 		router.push(href);
 	};
 
-	const themeColor = theme => {
-		return theme === 'light' ? 'black' : 'white';
-	};
-
 	return (
-		<div className={`MenuLink ${active}`}>
-			<a href={href} onClick={handleClick} style={{color: themeColor(theme)}}>
+		<div className={`MenuLink ${active} ${theme}`}>
+			<a href={href} onClick={handleClick}>
 				{children}
 			</a>
-			<div
-				className="activeItemIndicator"
-				style={{ background: themeColor(theme) }}
-			/>
+			<div className={`activeItemIndicator ${theme}`}/>
 		</div>
 	);
 };

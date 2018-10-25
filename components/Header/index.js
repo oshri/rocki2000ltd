@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchNavigation } from '../../store';
-
+import PropTypes from 'prop-types';
 import * as _ from 'underscore';
 import './Header.scss';
 import StaticMenu from '../StaticMenu';
@@ -30,10 +27,13 @@ class Header extends Component {
 		this.handleScroll = this.handleScroll.bind(this);
 	}
 
-	async getInitialProps({ store }){
-		debugger
-		await store.dispatch(fetchNavigation());
-	}
+	static propTypes = {
+		navigation: PropTypes.array
+	};
+	
+	static defaultProps = {
+		navigation: [],
+	};
 
 	componentDidMount() {
 		window.addEventListener('scroll', this.handleScroll);
@@ -103,9 +103,8 @@ class Header extends Component {
 				<article>
 					<Logo/>
 					<div className={"header-menu-wrap"}>
-						<DynamicDropDownMenu theme={'dark'}/>
-						<StaticMenu theme={'dark'}/>
-						<MobileMenu/>
+						<DynamicDropDownMenu theme={'dark'} navigation={this.props.navigation}/>
+						{/* <MobileMenu theme={'dark'}/> */}
 					</div>
 				</article>
 			</header>
@@ -114,21 +113,4 @@ class Header extends Component {
 }
 
 
-// Passing data to props from Store
-function mapStateToProps(state) {
-	return {
-		navigation: state.navigation
-	};
-}
-
-// Passing Dispatch function to props
-function mapDispatchToProps(dispatch) {
-	return {
-		fetchNav: bindActionCreators(fetchNavigation, dispatch)
-	};
-}
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Header);
+export default Header;

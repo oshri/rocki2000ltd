@@ -36,8 +36,12 @@ const Home = props => {
 		}
 	  };
 
+	// let links = props.navigation.map((link, i) => {
+	// 	return <li key={i}>{link}</li>;
+	// });
+
 	return (
-		<Layout title="Home page">
+		<Layout title="Home page" navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
 		
 			{/* <section>
@@ -61,27 +65,26 @@ const Home = props => {
 	);
 };
 
-// Home.getInitialProps = async ({ store }) => {
-// 	await store.dispatch(fetchNavigation());
-// };
+Home.getInitialProps = async ({ store }) => {
+	await store.dispatch(fetchNavigation());
+};
 
-// // Passing data to props from Store
-// function mapStateToProps(state) {
-// 	return {
-// 		navigation: state.navigation
-// 	};
-// }
+// Passing data to props from Store
+function mapStateToProps(state) {
+	return {
+		navigation: state.navigation
+	};
+}
 
-// // Passing Dispatch function to props
-// function mapDispatchToProps(dispatch) {
-// 	return {
-// 		fetchNav: bindActionCreators(fetchNavigation, dispatch)
-// 	};
-// }
+// Passing Dispatch function to props
+function mapDispatchToProps(dispatch) {
+	return {
+		fetchNav: bindActionCreators(fetchNavigation, dispatch)
+	};
+}
 
-// export default connect(
-// 	mapStateToProps,
-// 	mapDispatchToProps
-// )(Home);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Home);
 
-export default Home;

@@ -29,7 +29,7 @@ const Footer = (props) => {
                     </div>
                     <div className="menu-links-wrapper">
                         <div className="menu-links">
-                            <StaticMenu direction={'column'}/>
+                            <StaticMenu direction={'column'} theme={'light'}/>
                         </div>
                     </div>
                 </div>
