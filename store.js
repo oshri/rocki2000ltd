@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import fetch from 'isomorphic-fetch';
@@ -35,12 +34,12 @@ export const reducer = (state = initialState, action) => {
 export const serverRenderClock = (isServer) => dispatch => {
   return dispatch({ type: actionTypes.TICK, payload: !isServer })
 }
-//https://rocki2000ltd.herokuapp.com/api/pages/navigation
+
 export const fetchNavigation = (dispatch) => {
-  return (dispatch) => fetch('https://rocki2000ltd.herokuapp.com/api/pages/navigation')
+  return (dispatch) => fetch(`${process.env.API_URL || 'http://localhost:8080/api/'}pages/navigation`)
         .then((res) => res.json())
         .then(data => {
-          return dispatch({ type: actionTypes.NAVIGATION_LOAD_SUCCESS, payload: data.links })
+          return dispatch({ type: actionTypes.NAVIGATION_LOAD_SUCCESS, payload: data })
         });
 }
 

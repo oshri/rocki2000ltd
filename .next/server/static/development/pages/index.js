@@ -108,6 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Address_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Address.scss */ "./components/Address/Address.scss");
 /* harmony import */ var _Address_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Address_scss__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/Address/Address.js";
 
 
 
@@ -116,8 +117,19 @@ var Address = function Address(_ref) {
   var theme = _ref.theme,
       url = _ref.url;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Address"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, url));
+    className: "Address",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, url));
 };
 
 Address.propTypes = {
@@ -170,6 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _CellNumber_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CellNumber.scss */ "./components/CellNumber/CellNumber.scss");
 /* harmony import */ var _CellNumber_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_CellNumber_scss__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/CellNumber/CellNumber.js";
 
 
 
@@ -179,8 +192,19 @@ var CellNumber = function CellNumber(_ref) {
       number = _ref.number;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "tel:".concat(number),
-    className: "CellNumber"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, number));
+    className: "CellNumber",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, number));
 };
 
 CellNumber.propTypes = {
@@ -233,6 +257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _FaxNumber_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FaxNumber.scss */ "./components/FaxNumber/FaxNumber.scss");
 /* harmony import */ var _FaxNumber_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_FaxNumber_scss__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/FaxNumber/FaxNumber.js";
 
 
 
@@ -241,8 +266,19 @@ var FaxNumber = function FaxNumber(_ref) {
   var theme = _ref.theme,
       number = _ref.number;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "FaxNumber"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, number));
+    className: "FaxNumber",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, number));
 };
 
 FaxNumber.propTypes = {
@@ -301,6 +337,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Footer_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Footer.scss */ "./components/Footer/Footer.scss");
 /* harmony import */ var _Footer_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_Footer_scss__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Menu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Menu */ "./components/Menu/index.js");
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/Footer/Footer.js";
 
 
 
@@ -314,37 +351,82 @@ __webpack_require__.r(__webpack_exports__);
 var Footer = function Footer(props) {
   var theme = props.theme;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Footer"
+    className: "Footer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
+    className: "container",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "top-level "
+    className: "top-level ",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "rocki-logo"
+    className: "rocki-logo",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    size: 'big'
+    size: 'big',
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "more-info"
+    className: "more-info",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "menu-links-wrapper",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "conatct-info"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PhoneNumber__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    number: '08-9461555'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CellNumber__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    number: '054-7272554'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FaxNumber__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    number: '08-9361574'
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Address__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    url: 'היצירה 2 א.ת. קרית רכטמן רחובות'
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "menu-links-wrapper"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "menu-links"
+    className: "menu-links",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Menu__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    direction: 'column'
+    direction: 'column',
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: this
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "bottom-level"
+    className: "bottom-level",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "copyright"
+    className: "copyright",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
   }, "\xA9 \u05DB\u05DC \u05D4\u05D6\u05DB\u05D5\u05D9\u05D5\u05EA \u05E9\u05DE\u05D5\u05E8\u05D5\u05EA \u05DC\u05D9.\u05E8\u05D5\u05E7\u05D9 \u05EA\u05E2\u05E9\u05D9\u05D5\u05EA 2000 \u05D1\u05E2\"\u05DE (\u05DE\u05E8\u05E4\u05D3\u05D9\u05EA \u05E8\u05D5\u05E7\u05D9)"))));
 };
 
@@ -414,6 +496,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Menu */ "./components/Menu/index.js");
 /* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Logo */ "./components/Logo/index.js");
 /* harmony import */ var _MobileMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../MobileMenu */ "./components/MobileMenu/index.js");
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/Header/index.js";
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -531,11 +615,38 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         id: "navbar",
-        className: "Header " + this.state.navClass
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logo__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header-menu-wrap"
+        className: "Header " + this.state.navClass,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 87
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 88
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logo__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-menu-wrap",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 90
+        },
+        __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Menu__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        theme: 'light'
+        theme: 'light',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 91
+        },
+        __self: this
       }))));
     }
   }]);
@@ -544,6 +655,17 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./components/Layout/Layout.scss":
+/*!***************************************!*\
+  !*** ./components/Layout/Layout.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
@@ -564,6 +686,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Header */ "./components/Header/index.js");
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Footer */ "./components/Footer/index.js");
+/* harmony import */ var _Layout_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Layout.scss */ "./components/Layout/Layout.scss");
+/* harmony import */ var _Layout_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_Layout_scss__WEBPACK_IMPORTED_MODULE_5__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/Layout/index.js";
+
 
 
 
@@ -574,12 +700,60 @@ var Layout = function Layout(_ref) {
   var children = _ref.children,
       _ref$title = _ref.title,
       title = _ref$title === void 0 ? 'Rocki 2000 ltd' : _ref$title;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    charSet: "utf-8"
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Layout",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    charSet: "utf-8",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     name: "viewport",
-    content: "initial-scale=1.0, width=device-width"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+    content: "initial-scale=1.0, width=device-width",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "page-content",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
+  }, children), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
@@ -614,6 +788,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Logo_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Logo.scss */ "./components/Logo/Logo.scss");
 /* harmony import */ var _Logo_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Logo_scss__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/Logo/index.js";
 
 
 
@@ -622,19 +797,39 @@ __webpack_require__.r(__webpack_exports__);
 var Logo = function Logo(props) {
   var size = props.size;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Logo"
+    className: "Logo",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/"
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: this
   }, size === 'big' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "/static/logo-b.png",
     alt: "logo",
     width: "153px",
-    height: "153px"
+    height: "153px",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
   }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "/static/logo-s.png",
     alt: "logo",
     width: "65px",
-    height: "60px"
+    height: "60px",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
   })));
 };
 
@@ -672,6 +867,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MenuLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../MenuLink */ "./components/MenuLink/index.js");
 /* harmony import */ var _Menu_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Menu.scss */ "./components/Menu/Menu.scss");
 /* harmony import */ var _Menu_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Menu_scss__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/Menu/index.js";
 
 
 
@@ -685,13 +881,28 @@ var Menu = function Menu(props) {
   };
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "menu-wrap",
-    style: style
+    style: style,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
     href: "/about",
-    theme: theme
+    theme: theme,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
   }, "\u05D0\u05D5\u05D3\u05D5\u05EA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
     href: "/",
-    theme: theme
+    theme: theme,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
   }, "\u05E8\u05D0\u05E9\u05D9"));
 };
 
@@ -720,6 +931,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _MenuLink_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MenuLink.scss */ "./components/MenuLink/MenuLink.scss");
 /* harmony import */ var _MenuLink_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_MenuLink_scss__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/MenuLink/MenuLink.js";
 
 
 
@@ -745,15 +957,30 @@ var MenuLink = function MenuLink(_ref) {
     className: "MenuLink ".concat(active),
     style: {
       color: themeColor(theme)
-    }
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: href,
-    onClick: handleClick
+    onClick: handleClick,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
   }, children), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "activeItemIndicator",
     style: {
       background: themeColor(theme)
-    }
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
   }));
 };
 
@@ -821,13 +1048,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _MobileMenu_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MobileMenu.scss */ "./components/MobileMenu/MobileMenu.scss");
 /* harmony import */ var _MobileMenu_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_MobileMenu_scss__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/MobileMenu/index.js";
 
 
 
 
 var MobileMenu = function MobileMenu(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "MobileMenu"
+    className: "MobileMenu",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "24",
@@ -838,22 +1071,42 @@ var MobileMenu = function MobileMenu(props) {
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",
-    class: "feather feather-bar-chart"
+    class: "feather feather-bar-chart",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
     x1: "12",
     y1: "20",
     x2: "12",
-    y2: "10"
+    y2: "10",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
     x1: "18",
     y1: "20",
     x2: "18",
-    y2: "4"
+    y2: "4",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
     x1: "6",
     y1: "20",
     x2: "6",
-    y2: "16"
+    y2: "16",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
   })));
 };
 MobileMenu.propTypes = {};
@@ -876,6 +1129,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _PhoneNumber_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PhoneNumber.scss */ "./components/PhoneNumber/PhoneNumber.scss");
 /* harmony import */ var _PhoneNumber_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_PhoneNumber_scss__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/PhoneNumber/PhoneNumber.js";
 
 
 
@@ -885,8 +1139,19 @@ var PhoneNumber = function PhoneNumber(_ref) {
       number = _ref.number;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "tel:".concat(number),
-    className: "PhoneNumber"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, number));
+    className: "PhoneNumber",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, number));
 };
 
 PhoneNumber.propTypes = {
@@ -950,6 +1215,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Splash_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Splash.scss */ "./components/Splash/Splash.scss");
 /* harmony import */ var _Splash_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Splash_scss__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/components/Splash/index.js";
 
 
 
@@ -957,7 +1223,12 @@ __webpack_require__.r(__webpack_exports__);
 var Splash = function Splash(props) {
   var size = props.size;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Splash"
+    className: "Splash",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
   });
 };
 
@@ -988,12 +1259,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../store */ "./store.js");
 /* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../scss/style.scss */ "./scss/style.scss");
 /* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var instafeed_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! instafeed.js */ "instafeed.js");
-/* harmony import */ var instafeed_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(instafeed_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _components_Splash__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Splash */ "./components/Splash/index.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _components_Splash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Splash */ "./components/Splash/index.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__);
 
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/pages/index.js";
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1005,30 +1275,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+ // import Instafeed from 'instafeed.js';
 
 
-
-
-var feed = new instafeed_js__WEBPACK_IMPORTED_MODULE_8___default.a({
-  get: 'tagged',
-  tagName: 'rockiBestTop',
-  clientId: 'd3a2f6b39ac248d696c1d4b6ddc987bc'
-});
+ // const feed = new Instafeed({
+//     get: 'tagged',
+//     tagName: 'rockiBestTop',
+//     clientId: 'd3a2f6b39ac248d696c1d4b6ddc987bc'
+// });
 
 var Home = function Home(props) {
-  feed.run(); // let links = props.navigation.map((link, i) => {
-  // 	return <li key={i}>{link}</li>;
-  // });
-
-  console.log('process.env.API_URLllllll', process.env.API_URL);
+  // feed.run();
+  var links = props.navigation.map(function (link, i) {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+      key: i,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: this
+    }, link.name);
+  });
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    title: "Home page"
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Splash__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__["Button"], {
-    outline: true,
-    color: "primary"
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__["FontAwesomeIcon"], {
-    icon: "phone"
-  }), "primary"));
+    title: "Home page",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, links), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Splash__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: this
+  }));
 };
 
 Home.getInitialProps =
@@ -1105,19 +1392,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "navigationLoad", function() { return navigationLoad; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetState", function() { return resetState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeStore", function() { return initializeStore; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "redux");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-devtools-extension */ "redux-devtools-extension");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-logger */ "redux-logger");
-/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_5__);
-
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-devtools-extension */ "redux-devtools-extension");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-logger */ "redux-logger");
+/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -1160,16 +1444,15 @@ var serverRenderClock = function serverRenderClock(isServer) {
       payload: !isServer
     });
   };
-}; //https://rocki2000ltd.herokuapp.com/api/navigation
-
+};
 var fetchNavigation = function fetchNavigation(dispatch) {
   return function (dispatch) {
-    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:8080/api/pages/navigation').then(function (res) {
+    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(process.env.API_URL || 'http://localhost:8080/api/', "pages/navigation")).then(function (res) {
       return res.json();
     }).then(function (data) {
       return dispatch({
         type: actionTypes.NAVIGATION_LOAD_SUCCESS,
-        payload: data.links
+        payload: data
       });
     });
   };
@@ -1198,7 +1481,7 @@ var resetState = function resetState() {
 };
 function initializeStore() {
   var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  return Object(redux__WEBPACK_IMPORTED_MODULE_1__["createStore"])(reducer, initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_2__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_1__["applyMiddleware"])(redux_logger__WEBPACK_IMPORTED_MODULE_5___default.a, redux_thunk__WEBPACK_IMPORTED_MODULE_4___default.a)));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer, initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_logger__WEBPACK_IMPORTED_MODULE_4___default.a, redux_thunk__WEBPACK_IMPORTED_MODULE_3___default.a)));
 }
 
 /***/ }),
@@ -1234,28 +1517,6 @@ module.exports = require("@babel/runtime/regenerator");
 /***/ (function(module, exports) {
 
 module.exports = require("@fortawesome/react-fontawesome");
-
-/***/ }),
-
-/***/ "axios":
-/*!************************!*\
-  !*** external "axios" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("axios");
-
-/***/ }),
-
-/***/ "instafeed.js":
-/*!*******************************!*\
-  !*** external "instafeed.js" ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("instafeed.js");
 
 /***/ }),
 

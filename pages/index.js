@@ -19,9 +19,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Home = props => {
 	// feed.run();
 
-	// let links = props.navigation.map((link, i) => {
-	// 	return <li key={i}>{link}</li>;
-	// });
+	let links = props.navigation.map((link, i) => {
+		return <li key={i}>{link.name}</li>;
+	});
 
 	return (
 		<Layout title="Home page">
@@ -32,7 +32,10 @@ const Home = props => {
 					<ul>{links}</ul>
 					<button onClick={props.fetchNav}>Fetch Nav</button>
 				</div>
-            </section> */}
+			</section> */}
+			
+			<ul>{links}</ul>
+
             <Splash />
 			
 			{/* <Button outline color="primary">

@@ -6,9 +6,6 @@ import { fetchNavigation } from '../store';
 import '../scss/style.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
-
-
 const Page = props => {
 	
 	return (

@@ -3,9 +3,10 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Header from '../Header';
 import Footer from '../Footer';
+import './Layout.scss';
 
 const Layout = ({ children, title = 'Rocki 2000 ltd' }) => (
-    <div>
+    <div className="Layout">
       <Head>
         <title>{ title }</title>
         <meta charSet='utf-8' />
@@ -13,9 +14,9 @@ const Layout = ({ children, title = 'Rocki 2000 ltd' }) => (
       </Head>
       
       <Header />
-  
-      { children }
-  
+      <div className="page-content">
+        { children }
+      </div>
       <Footer/>
     </div>
 );
