@@ -357,7 +357,7 @@ var serverRenderClock = function serverRenderClock(isServer) {
 };
 var fetchNavigation = function fetchNavigation(dispatch) {
   return function (dispatch) {
-    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(process.env.API_URL || 'http://localhost:8080/api/', "pages/navigation")).then(function (res) {
+    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2___default()("https://rocki2000ltd.herokuapp.com/api/pages/navigation").then(function (res) {
       return res.json();
     }).then(function (data) {
       return dispatch({

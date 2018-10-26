@@ -31032,7 +31032,7 @@ function mapDispatchToProps(dispatch) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "serverRenderClock", function() { return serverRenderClock; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchNavigation", function() { return fetchNavigation; });
@@ -31093,7 +31093,7 @@ var serverRenderClock = function serverRenderClock(isServer) {
 };
 var fetchNavigation = function fetchNavigation(dispatch) {
   return function (dispatch) {
-    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(process.env.API_URL || 'http://localhost:8080/api/', "pages/navigation")).then(function (res) {
+    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2___default()("https://rocki2000ltd.herokuapp.com/api/pages/navigation").then(function (res) {
       return res.json();
     }).then(function (data) {
       return dispatch({
@@ -31129,7 +31129,6 @@ function initializeStore() {
   var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer, initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_logger__WEBPACK_IMPORTED_MODULE_4___default.a, redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"])));
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 

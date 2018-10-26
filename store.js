@@ -36,7 +36,7 @@ export const serverRenderClock = (isServer) => dispatch => {
 }
 
 export const fetchNavigation = (dispatch) => {
-  return (dispatch) => fetch(`${process.env.API_URL || 'http://localhost:8080/api/'}pages/navigation`)
+  return (dispatch) => fetch(`https://rocki2000ltd.herokuapp.com/api/pages/navigation`)
         .then((res) => res.json())
         .then(data => {
           return dispatch({ type: actionTypes.NAVIGATION_LOAD_SUCCESS, payload: data })
