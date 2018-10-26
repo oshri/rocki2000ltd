@@ -1,12 +1,12 @@
-import Layout from '../components/Layout';
+import Layout from '../src/components/Layout';
 import NextSeo from 'next-seo';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
-import { fetchNavigation } from '../store';
-import '../scss/style.scss';
+import { fetchNavigation } from '../src/store';
+import '../src/scss/style.scss';
 // import Instafeed from 'instafeed.js';
-import Splash from '../components/Splash';
+import Splash from '../src/components/Splash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -65,26 +65,27 @@ const Home = props => {
 	);
 };
 
-Home.getInitialProps = async ({ store }) => {
-	await store.dispatch(fetchNavigation());
-};
+// Home.getInitialProps = async ({ store }) => {
+// 	await store.dispatch(fetchNavigation());
+// };
 
-// Passing data to props from Store
-function mapStateToProps(state) {
-	return {
-		navigation: state.navigation
-	};
-}
+// // Passing data to props from Store
+// function mapStateToProps(state) {
+// 	return {
+// 		navigation: state.navigation
+// 	};
+// }
 
-// Passing Dispatch function to props
-function mapDispatchToProps(dispatch) {
-	return {
-		fetchNav: bindActionCreators(fetchNavigation, dispatch)
-	};
-}
+// // Passing Dispatch function to props
+// function mapDispatchToProps(dispatch) {
+// 	return {
+// 		fetchNav: bindActionCreators(fetchNavigation, dispatch)
+// 	};
+// }
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Home);
+// export default connect(
+// 	mapStateToProps,
+// 	mapDispatchToProps
+// )(Home);
 
+export default Home;

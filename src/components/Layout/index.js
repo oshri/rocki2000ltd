@@ -1,17 +1,27 @@
+
 import React from 'react';
-import Layout from '../components/Layout';
-import NextSeo from 'next-seo';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { Button } from 'reactstrap';
-import * as FromPageRoot from '../src/store/actions/page.action';
-import '../src/scss/style.scss';
+import { fetchLayout } from '../../store/actions/layout.action';
+import Link from 'next/link';
+import Head from 'next/head';
+import Header from '../Header';
+import Footer from '../Footer';
+import './Layout.scss';
 
-class Page extends React.Component {
-	PAGE_SEO;
 
-	static async getInitialProps({ query: { id } }) {
-		await store.dispatch(FromPageRoot.fetchPage());
+class Layout extends React.Component {
+  PAGE_SEO;
+  
+  constructor(props) {
+    super(props);
+    debugger
+	}
+
+	static async getInitialProps({ store }) {
+    debugger
+		await store.dispatch(fetchLayout());
 	}
 
 	componentDidMount() {
@@ -35,10 +45,13 @@ class Page extends React.Component {
 
 	render() {
 		return (
-			<Layout title="Home page" navigation={props.navigation}>
-			<NextSeo config={this.PAGE_SEO}/>	
-            	pppp
-			</Layout>
+			<div className="Layout bg-dots-gray-large">
+        <Header navigation={this.props.navigation}/>
+        <div className="page-content">
+          { this.props.children }
+        </div>
+        <Footer/>
+      </div>
 		);
 	}
 }
@@ -46,18 +59,18 @@ class Page extends React.Component {
 // Passing data to props from Store
 function mapStateToProps(state) {
 	return {
-		data: state.data
+		navigation: state.data
 	};
 }
 
 // Passing Dispatch function to props
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchPage: bindActionCreators(FromPageRoot.fetchPage, dispatch)
+		fetchLayout: bindActionCreators(fetchLayout, dispatch)
 	};
 }
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Page);
+)(Layout);

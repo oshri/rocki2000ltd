@@ -88,14 +88,14 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/index.js":
+/***/ "./pages/about.js":
 /*!************************!*\
-  !*** ./pages/index.js ***!
+  !*** ./pages/about.js ***!
   \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -105,101 +105,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _src_components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/components/Layout */ "./src/components/Layout/index.js");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next-seo */ "next-seo");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "redux");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "reactstrap");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _src_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/store */ "./src/store/index.js");
-/* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/scss/style.scss */ "./src/scss/style.scss");
-/* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_src_scss_style_scss__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _src_components_Splash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/components/Splash */ "./src/components/Splash/index.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__);
-var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/pages/index.js";
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/pages/about.js";
 
 
 
-
-
-
-
- // import Instafeed from 'instafeed.js';
-
-
- // const feed = new Instafeed({
-//     get: 'tagged',
-//     tagName: 'rockiBestTop',
-//     clientId: 'd3a2f6b39ac248d696c1d4b6ddc987bc'
-// });
-
-var Home = function Home(props) {
-  // feed.run();
-  var PAGE_SEO = {
-    title: 'Rocki 2000 ltd | Page',
-    description: 'page description',
-    openGraph: {
-      type: 'website',
-      locale: 'en_US',
-      url: 'https://www.rocki2000ltd.co.il/page',
-      title: 'Rocki 2000 ltd | Page',
-      description: 'page description Open Graph',
-      image: '',
-      site_name: 'rocki2000ltd.co.il',
-      imageWidth: 1200,
-      imageHeight: 1200
-    }
-  }; // let links = props.navigation.map((link, i) => {
-  // 	return <li key={i}>{link}</li>;
-  // });
-
+var About = function About() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    title: "Home page",
-    navigation: props.navigation,
+    title: "Home mage",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 4
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_seo__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    config: PAGE_SEO,
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "page-section",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 5
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Splash__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 6
     },
     __self: this
-  }));
-}; // Home.getInitialProps = async ({ store }) => {
-// 	await store.dispatch(fetchNavigation());
-// };
-// // Passing data to props from Store
-// function mapStateToProps(state) {
-// 	return {
-// 		navigation: state.navigation
-// 	};
-// }
-// // Passing Dispatch function to props
-// function mapDispatchToProps(dispatch) {
-// 	return {
-// 		fetchNav: bindActionCreators(fetchNavigation, dispatch)
-// 	};
-// }
-// export default connect(
-// 	mapStateToProps,
-// 	mapDispatchToProps
-// )(Home);
+  }, "About Next JS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti et eos sit vero ab laborum nulla culpa, quis neque ex, voluptatum, eveniet amet autem obcaecati animi ratione quo officiis at!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }, "Voluptas obcaecati et adipisci quasi omnis dolores odio eos hic modi voluptatum ratione ullam sequi aspernatur ducimus exercitationem possimus, sint rem officiis esse recusandae, eveniet laborum repellat. Ipsum, culpa reprehenderit."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, "Facilis deleniti dolore neque excepturi hic, tempora dolores repellat ipsum quis nihil! Dolor sapiente asperiores laborum aperiam necessitatibus obcaecati adipisci temporibus itaque optio saepe similique perspiciatis nulla ullam, voluptatibus praesentium?"))));
+};
 
-
-/* harmony default export */ __webpack_exports__["default"] = (Home);
+/* harmony default export */ __webpack_exports__["default"] = (About);
 
 /***/ }),
 
@@ -1772,53 +1730,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/Splash/Splash.scss":
-/*!*******************************************!*\
-  !*** ./src/components/Splash/Splash.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/components/Splash/index.js":
-/*!****************************************!*\
-  !*** ./src/components/Splash/index.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Splash_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Splash.scss */ "./src/components/Splash/Splash.scss");
-/* harmony import */ var _Splash_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Splash_scss__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/src/components/Splash/index.js";
-
-
-
-
-var Splash = function Splash(props) {
-  var size = props.size;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Splash",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: this
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Splash);
-
-/***/ }),
-
 /***/ "./src/components/StaticMenu/StaticMenu.scss":
 /*!***************************************************!*\
   !*** ./src/components/StaticMenu/StaticMenu.scss ***!
@@ -1893,17 +1804,6 @@ StaticMenu.propTypes = {
 
 /***/ }),
 
-/***/ "./src/scss/style.scss":
-/*!*****************************!*\
-  !*** ./src/scss/style.scss ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
 /***/ "./src/store/actions/layout.action.js":
 /*!********************************************!*\
   !*** ./src/store/actions/layout.action.js ***!
@@ -1957,234 +1857,14 @@ var resetLayoutState = function resetLayoutState() {
 
 /***/ }),
 
-/***/ "./src/store/actions/page.action.js":
-/*!******************************************!*\
-  !*** ./src/store/actions/page.action.js ***!
-  \******************************************/
-/*! exports provided: actionTypes, fetchPage, pageLoadSuccess, resetPageState */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPage", function() { return fetchPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pageLoadSuccess", function() { return pageLoadSuccess; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetPageState", function() { return resetPageState; });
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__);
-
-var actionTypes = {
-  LOAD_PAGE: 'LOAD_PAGE',
-  LOAD_PAGE_SUCCESS: 'LOAD_PAGE_SUCCESS',
-  LOAD_PAGE_ERROR: 'LOAD_PAGE_ERROR',
-  RESET_PAGE_STORE: 'RESET_PAGE_STORE'
-};
-var fetchPage = function fetchPage(payload) {
-  return function (dispatch) {
-    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default()("http://localhost:8080/api/pages/".concat(payload)).then(function (res) {
-      return res.json();
-    }).then(function (data) {
-      return dispatch({
-        type: actionTypes.LOAD_PAGE_SUCCESS,
-        payload: data
-      });
-    });
-  };
-};
-var pageLoadSuccess = function pageLoadSuccess(payload) {
-  return function (dispatch) {
-    dispatch({
-      type: actionTypes.LOAD_PAGE_SUCCESS,
-      payload: payload
-    });
-  };
-};
-var resetPageState = function resetPageState() {
-  return function (dispatch) {
-    return dispatch({
-      type: actionTypes.RESET_PAGE_STORE
-    });
-  };
-};
-
-/***/ }),
-
-/***/ "./src/store/index.js":
-/*!****************************!*\
-  !*** ./src/store/index.js ***!
-  \****************************/
-/*! exports provided: initializeStore */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeStore", function() { return initializeStore; });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-devtools-extension */ "redux-devtools-extension");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-logger */ "redux-logger");
-/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducers */ "./src/store/reducers/index.js");
-
-
-
-
-
-var initialState = {
-  layout: undefined,
-  page: undefined
-};
-function initializeStore() {
-  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_4__["default"], initialState, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_logger__WEBPACK_IMPORTED_MODULE_3___default.a, redux_thunk__WEBPACK_IMPORTED_MODULE_2___default.a)));
-}
-
-/***/ }),
-
-/***/ "./src/store/reducers/index.js":
-/*!*************************************!*\
-  !*** ./src/store/reducers/index.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _page_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./page.reducer */ "./src/store/reducers/page.reducer.js");
-/* harmony import */ var _layout_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layout.reducer */ "./src/store/reducers/layout.reducer.js");
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  page: _page_reducer__WEBPACK_IMPORTED_MODULE_1__["page"],
-  layout: _layout_reducer__WEBPACK_IMPORTED_MODULE_2__["layout"]
-}));
-
-/***/ }),
-
-/***/ "./src/store/reducers/layout.reducer.js":
-/*!**********************************************!*\
-  !*** ./src/store/reducers/layout.reducer.js ***!
-  \**********************************************/
-/*! exports provided: initialPageState, layout */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPageState", function() { return initialPageState; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "layout", function() { return layout; });
-/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immutable */ "immutable");
-/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immutable__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/layout.action */ "./src/store/actions/layout.action.js");
-
-
-var initialPageState = immutable__WEBPACK_IMPORTED_MODULE_0___default.a.fromJS({
-  isLoading: false,
-  data: undefined
-});
-var layout = function layout() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialPageState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_LAYOUT:
-      return Object.assign({}, state, {
-        isLoading: true
-      });
-
-    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_LAYOUT_SUCCESS:
-      return Object.assign({}, state, {
-        isLoading: false,
-        data: action.payload
-      });
-
-    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_LAYOUT_ERROR:
-      return Object.assign({}, state, {
-        isLoading: false,
-        data: undefined
-      });
-
-    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].RESET_LAYOUT_STORE:
-      return Object.assign({}, state, {
-        isLoading: false,
-        data: undefined
-      });
-
-    default:
-      return state;
-  }
-};
-
-/***/ }),
-
-/***/ "./src/store/reducers/page.reducer.js":
-/*!********************************************!*\
-  !*** ./src/store/reducers/page.reducer.js ***!
-  \********************************************/
-/*! exports provided: initialPageState, page */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPageState", function() { return initialPageState; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "page", function() { return page; });
-/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immutable */ "immutable");
-/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immutable__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_page_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/page.action */ "./src/store/actions/page.action.js");
-
-
-var initialPageState = immutable__WEBPACK_IMPORTED_MODULE_0___default.a.fromJS({
-  isLoading: false,
-  data: undefined
-});
-var page = function page() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialPageState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case _actions_page_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_PAGE:
-      return Object.assign({}, state, {
-        isLoading: true
-      });
-
-    case _actions_page_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_PAGE_SUCCESS:
-      return Object.assign({}, state, {
-        isLoading: false,
-        data: action.payload
-      });
-
-    case _actions_page_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_PAGE_ERROR:
-      return Object.assign({}, state, {
-        isLoading: false,
-        data: undefined
-      });
-
-    case _actions_page_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].RESET_PAGE_STORE:
-      return Object.assign({}, state, {
-        isLoading: false,
-        data: undefined
-      });
-
-    default:
-      return state;
-  }
-};
-
-/***/ }),
-
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
-  !*** multi ./pages/index.js ***!
+  !*** multi ./pages/about.js ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! ./pages/about.js */"./pages/about.js");
 
 
 /***/ }),
@@ -2200,17 +1880,6 @@ module.exports = require("@babel/runtime/regenerator");
 
 /***/ }),
 
-/***/ "@fortawesome/react-fontawesome":
-/*!*************************************************!*\
-  !*** external "@fortawesome/react-fontawesome" ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@fortawesome/react-fontawesome");
-
-/***/ }),
-
 /***/ "assert":
 /*!*************************!*\
   !*** external "assert" ***!
@@ -2222,17 +1891,6 @@ module.exports = require("assert");
 
 /***/ }),
 
-/***/ "immutable":
-/*!****************************!*\
-  !*** external "immutable" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("immutable");
-
-/***/ }),
-
 /***/ "isomorphic-fetch":
 /*!***********************************!*\
   !*** external "isomorphic-fetch" ***!
@@ -2241,17 +1899,6 @@ module.exports = require("immutable");
 /***/ (function(module, exports) {
 
 module.exports = require("isomorphic-fetch");
-
-/***/ }),
-
-/***/ "next-seo":
-/*!***************************!*\
-  !*** external "next-seo" ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next-seo");
 
 /***/ }),
 
@@ -2332,17 +1979,6 @@ module.exports = require("react-redux");
 
 /***/ }),
 
-/***/ "reactstrap":
-/*!*****************************!*\
-  !*** external "reactstrap" ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("reactstrap");
-
-/***/ }),
-
 /***/ "redux":
 /*!************************!*\
   !*** external "redux" ***!
@@ -2351,39 +1987,6 @@ module.exports = require("reactstrap");
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
-
-/***/ }),
-
-/***/ "redux-devtools-extension":
-/*!*******************************************!*\
-  !*** external "redux-devtools-extension" ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-devtools-extension");
-
-/***/ }),
-
-/***/ "redux-logger":
-/*!*******************************!*\
-  !*** external "redux-logger" ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-logger");
-
-/***/ }),
-
-/***/ "redux-thunk":
-/*!******************************!*\
-  !*** external "redux-thunk" ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-thunk");
 
 /***/ }),
 
@@ -2399,4 +2002,4 @@ module.exports = require("underscore");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=about.js.map

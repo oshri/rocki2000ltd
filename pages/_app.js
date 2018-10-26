@@ -1,7 +1,8 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import withRedux from 'next-redux-wrapper';
-import { initializeStore, actionTypes, fetchNavigation } from '../store';
+import { initializeStore } from '../src/store';
+import  { fetchLayout } from '../src/store/actions/layout.action';
 import { Provider } from 'react-redux';
 import NextSeo from 'next-seo';
 
@@ -31,8 +32,9 @@ const DEFAULT_SEO = {
 
 class MyApp extends App {
 	static async getInitialProps({ Component, ctx }) {
-		fetchNavigation();
+		fetchLayout();
 
+		debugger
 		return {
 			pageProps: Component.getInitialProps
 				? await Component.getInitialProps(ctx)
