@@ -491,20 +491,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-/**
- * Navigation 
- */
-
-var navigation = [{
-  title: "אודות",
-  dropdown: _DropDowns__WEBPACK_IMPORTED_MODULE_3__["default"]
-}, {
-  title: "ייבוא",
-  dropdown: _DropDowns__WEBPACK_IMPORTED_MODULE_3__["default"]
-}, {
-  title: "צור קשר",
-  dropdown: _DropDowns__WEBPACK_IMPORTED_MODULE_3__["default"]
-}];
 
 var DynamicDropDownMenu =
 /*#__PURE__*/
@@ -552,7 +538,8 @@ function (_React$Component) {
     value: function buildNavigation(navigation, theme) {
       var newNav = navigation.map(function (nav) {
         return {
-          title: nav.name,
+          name: nav.name,
+          link: nav.link,
           dropdown: new _DropDowns__WEBPACK_IMPORTED_MODULE_3__["default"](nav.children, theme)
         };
       });
@@ -580,7 +567,7 @@ function (_React$Component) {
         className: "DynamicDropDownMenu",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 80
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -588,17 +575,17 @@ function (_React$Component) {
         onMouseLeave: this.onMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 81
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "navbar-list",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 82
         },
         __self: this
-      }, this.navigation.map(function (n, index) {
+      }, this.navigation.map(function (mainLink, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "navbar-item-el",
           onMouseEnter: _this2.onMouseEnter,
@@ -607,35 +594,35 @@ function (_React$Component) {
           key: index,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 101
+            lineNumber: 85
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuLink__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          href: n.link,
+          href: mainLink.link,
           theme: _this2.props.theme,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 108
+            lineNumber: 92
           },
           __self: this
-        }, n.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, mainLink.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown-slot",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110
+            lineNumber: 94
           },
           __self: this
         }, currentIndex === index && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 112
+            lineNumber: 96
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropDownsContainer__WEBPACK_IMPORTED_MODULE_4__["default"], {
           preventDistortion: "[data-prevent-distortion]",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 97
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -644,28 +631,28 @@ function (_React$Component) {
           "data-transform-origin": "left bottom",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114
+            lineNumber: 98
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown-background",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119
+            lineNumber: 103
           },
           __self: this
         }, PreviousDropdown && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PreviousDropdown, {
           prev: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120
+            lineNumber: 104
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CurrentDropdown, {
           current: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 105
           },
           __self: this
         }))))));
@@ -1171,7 +1158,7 @@ var Layout = function Layout(_ref) {
   var children = _ref.children,
       navigation = _ref.navigation;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Layout",
+    className: "Layout bg-dots-gray-large",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
@@ -1901,7 +1888,6 @@ var fetchNavigation = function fetchNavigation(dispatch) {
     return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(process.env.API_URL || 'http://localhost:8080/api/', "pages/navigation")).then(function (res) {
       return res.json();
     }).then(function (data) {
-      debugger;
       return dispatch({
         type: actionTypes.NAVIGATION_LOAD_SUCCESS,
         payload: data

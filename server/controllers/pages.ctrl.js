@@ -1,4 +1,5 @@
 const Page = require('../models/pageModel');
+const PageTag = require('../models/tokenModel');
 
 const createCtrl = (app,  pageService) => {
 	const factory = {};
@@ -11,11 +12,38 @@ const createCtrl = (app,  pageService) => {
 	factory.structure = async (req, res, next) => {
 		try {
 			const forest = await pageService.getForest();
-			// TODO: need to fix the resoult
+			
 			res.status(200).json(forest);
 		} catch(err){
 			res.status(500).json({ error: err });
 		}
+	};
+
+	/**
+	 *  GET Tags
+	 *  pages/:id/tags
+	 */
+	factory.getTags = async (req, res, next) => {
+		try {
+			const tags = await pageService.getTags(req.params.id);
+			res.status(200).json(tags);
+		  } catch (err) {
+			res.status(500).json({ error: err });
+		  }
+	};
+
+	/**
+	 * POST
+	 * pages/
+	 */
+
+	factory.createTag = async (req, res, next) => {
+		try {
+			const tag = await pageService.createTag({pageId: req.params.id, name: req.body.name});
+			res.status(201).json(tag);
+		  } catch (err) {
+			res.status(500).json({ error: err });
+		  }
 	};
 	
 
@@ -39,7 +67,9 @@ const createCtrl = (app,  pageService) => {
 	factory.get = async (req, res, next) => {
 		try {
 			const page = await pageService.get(req.params.id);
-			res.status(200).json(page);
+			const tags = await pageService.getTags(req.params.id);
+
+			res.status(200).json({...page.toJSON(), tags});
 		  } catch (err) {
 			res.status(500).json({ error: err });
 		  }

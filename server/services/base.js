@@ -2,17 +2,21 @@ const errors = require('../utils/errors');
 const winston = require('winston');
 
 class Base {
-	constructor() {
-		this.model = undefined;
+	constructor(model) {
+		this.model = model;
+	}
+
+	async getBy(query) {
+		const entityes = await this.model.find(query).exec();
+		winston.log(
+			'info',
+			`get by ${this.modle} ${JSON.stringify(entityes)}`
+		);
+		return entityes;
 	}
 
 	async getAll() {
-		const entityes = await this.model.find({}).exec();
-		winston.log(
-			'info',
-			`get all ${this.modle} ${JSON.stringify(entityes)}`
-		);
-		return entityes;
+		return await this.getBy({});
 	}
 
 	async create(data) {

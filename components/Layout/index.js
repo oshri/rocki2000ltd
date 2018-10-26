@@ -8,7 +8,7 @@ import './Layout.scss';
 const Layout = ({ children, navigation }) => {
    
   return (
-    <div className="Layout">
+    <div className="Layout bg-dots-gray-large">
       <Header navigation={navigation}/>
       <div className="page-content">
         { children }

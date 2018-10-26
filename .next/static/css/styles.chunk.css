@@ -135,7 +135,8 @@
     display: flex;
     justify-content: center;
     list-style: none;
-    margin: 0; }
+    margin: 0;
+    direction: rtl; }
 
 .DynamicDropDownMenu .navbar-el .navbar-list .navbar-item-el {
       position: relative;
@@ -7770,6 +7771,11 @@ html, body {
   padding: 0; }
 .heb {
   direction: rtl; }
+.bg-dots-gray-large {
+  background: url(/static/svg/dots-large.svg);
+  background-position: top; }
+.bg-dots-gray {
+  background: url(/static/svg/dots-small.svg); }
 
 .Splash {
   padding: 34rem 2rem;

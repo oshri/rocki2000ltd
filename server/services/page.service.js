@@ -1,20 +1,33 @@
 const Base = require("./base");
 const Page = require('../models/pageModel');
+const PageTag = require('../models/pageTagModel');
 const errors = require('../utils/errors');
 const winston = require('winston');
 
 class PageService extends Base {
 
     constructor() {
-        super();
-        this.model = Page;
+        super(Page);
+    }
+
+    async getTags(pageId) {
+        return await PageTag.find({pageId: pageId});
+    }
+
+    async createTag(tag) {
+        const newPageTag = new PageTag(tag);
+        return await newPageTag.save();
     }
 
     async getTree(id) {
 		const root = await this.get(id);
         if(!root) {throw new errors.NotFoundError(`Can't find Page with id '${id}' doesn't exist`);}
 
-		const result = { name: root.name };
+		const result = { 
+            name: root.name,
+            link: root.link
+        };
+
         const children = await Page.find({ parent: id });
         
         result.children = (children && children.length) ? children.map(page =>  this.getTree(page.id)) : [];
@@ -26,7 +39,7 @@ class PageService extends Base {
     
     
 	async getForest() {
-        const roots = await Page.find({ parent: null });
+        const roots = await Page.find({ parent: null }).sort('order');
     
         const trees = roots.map(page =>  this.getTree(page.id));
         for(let i = 0; i < trees.length; i++){

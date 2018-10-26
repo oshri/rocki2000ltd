@@ -41,6 +41,14 @@ const apiRoutes = (app) => {
     .put(auth.requiresAdmin, pagesCtrl.update)
     .delete(auth.requiresAdmin, pagesCtrl.delete);
 
+  router.route('/pages/:id/tags')
+    .get(pagesCtrl.getTags)
+    .post(auth.requiresAdmin, pagesCtrl.createTag);
+
+  router.route('/pages/tags')
+    .get(pagesCtrl.get);
+
+
   // Users
   router.route('/users')
     .post(usersCtrl.post)

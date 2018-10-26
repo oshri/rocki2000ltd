@@ -1,6 +1,98 @@
-[
-    {
-        "name": "Page 1",
-        "description": "page 1 description"
-    }
-]
+{
+	"name": "עמוד הבית",
+	"description": "ברוכים הבאים לאתר החדש של י. רוקי תעשיות בעמ",
+	"parent": "",
+	"link": "/",
+	"order": 0,
+	"active": true,
+	"seo": {
+		"title": "Rocki 2000 ltd | Home page",
+		"description": "",
+		"openGraph": {
+			"site_name": "Rocki 2000 ltd ",
+			"type": "website",
+			"locale": "en_US",
+			"url": "https://www.rocki2000ltd.co.il/",
+			"openGraphTitle": "Rocki 2000 ltd |",
+			"openGraphdescription": "",
+			"image": "",
+			"imageWidth": 1200,
+			"imageHeight": 1200
+		}
+	}
+}
+
+
+{
+	"name": "אודות",
+	"description": "אודות חברת ירוקי תעשיות",
+	"parent": "",
+	"link": "/about",
+	"order": 0,
+	"active": true,
+	"seo": {
+		"title": "Rocki 2000 ltd | About page",
+		"description": "",
+		"openGraph": {
+			"site_name": "Rocki 2000 ltd",
+			"type": "website",
+			"locale": "en_US",
+			"url": "https://www.rocki2000ltd.co.il/about",
+			"openGraphTitle": "Rocki 2000 ltd | About",
+			"openGraphdescription": "",
+			"image": "",
+			"imageWidth": 1200,
+			"imageHeight": 1200
+		}
+	}
+}
+
+
+{
+	"name": "מתן שירות",
+	"description": "אודות חברת ירוקי תעשיות",
+	"parent": "",
+	"link": "/services",
+	"order": 0,
+	"active": true,
+	"seo": {
+		"title": "Rocki 2000 ltd | Services page",
+		"description": "",
+		"openGraph": {
+			"site_name": "Rocki 2000 ltd",
+			"type": "website",
+			"locale": "en_US",
+			"url": "https://www.rocki2000ltd.co.il/services",
+			"openGraphTitle": "Rocki 2000 ltd | Services",
+			"openGraphdescription": "",
+			"image": "",
+			"imageWidth": 1200,
+			"imageHeight": 1200
+		}
+	}
+}
+
+
+{
+	"name": "יבוא",
+	"description": "אודות חברת ירוקי תעשיות",
+	"parent": "",
+	"link": "/import",
+	"order": 0,
+	"active": true,
+	"seo": {
+		"title": "Rocki 2000 ltd | Import page",
+		"description": "",
+		"openGraph": {
+			"site_name": "Rocki 2000 ltd",
+			"type": "website",
+			"locale": "en_US",
+			"url": "https://www.rocki2000ltd.co.il/import",
+			"openGraphTitle": "Rocki 2000 ltd | Import",
+			"openGraphdescription": "",
+			"image": "",
+			"imageWidth": 1200,
+			"imageHeight": 1200
+		}
+	}
+}

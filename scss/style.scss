@@ -20,3 +20,12 @@ html, body {
   .heb {
     direction: rtl;
   }
+
+.bg-dots-gray-large {
+  background: url(/static/svg/dots-large.svg);
+  background-position: top;
+}
+
+.bg-dots-gray {
+  background: url(/static/svg/dots-small.svg);
+}

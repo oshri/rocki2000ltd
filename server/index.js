@@ -52,10 +52,24 @@ app.prepare()
 		expressApp.use(bodyParser.urlencoded({ extended: true }));
 
 		/**
-		 * Routes
+		 * Api Routes
 		 */
-		const apiRoutes = require('./routes.js');
+
+		const apiRoutes = require('./apiRoutes.js');
 		apiRoutes(expressApp);
+
+		/**
+		 * Public Routes
+		 */
+		
+		expressApp.get('/page/:id', (req, res) => {
+			const queryParams = {id: req.params.id};
+			return app.render(req, res, '/page', queryParams);
+		});
+
+		/**
+		 * All Other Routes
+		 */
 
 		expressApp.get('*', (req, res) => {
 			return handle(req, res);

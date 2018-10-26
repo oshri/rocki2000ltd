@@ -18536,7 +18536,6 @@ var fetchNavigation = function fetchNavigation(dispatch) {
     return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_2___default()("".concat(process.env.API_URL || 'http://localhost:8080/api/', "pages/navigation")).then(function (res) {
       return res.json();
     }).then(function (data) {
-      debugger;
       return dispatch({
         type: actionTypes.NAVIGATION_LOAD_SUCCESS,
         payload: data

@@ -8,23 +8,6 @@ import MenuLink from '../MenuLink';
 import "./DynamicDropDownMenu.scss";
 import { throws } from "assert";
 
-/**
- * Navigation 
- */
-const navigation = [
-  {
-    title: "אודות",
-    dropdown: Dropdown
-  },
-  {
-    title: "ייבוא",
-    dropdown: Dropdown
-  },
-  { 
-    title: "צור קשר",
-    dropdown: Dropdown
-  }
-];
 
 class DynamicDropDownMenu extends React.Component {
 
@@ -54,7 +37,8 @@ class DynamicDropDownMenu extends React.Component {
   buildNavigation(navigation, theme){
     const newNav = navigation.map(nav => {
       return {
-        title: nav.name,
+        name: nav.name,
+        link: nav.link,
         dropdown: new Dropdown(nav.children, theme)
       };
     });
@@ -96,7 +80,7 @@ class DynamicDropDownMenu extends React.Component {
       <div className="DynamicDropDownMenu">
         <nav className="navbar-el" onMouseLeave={this.onMouseLeave}>
           <ul className="navbar-list">
-            {this.navigation.map((n, index) => {
+            {this.navigation.map((mainLink, index) => {
               return (
                 <div
                   className="navbar-item-el"
@@ -105,7 +89,7 @@ class DynamicDropDownMenu extends React.Component {
                   data-index={index}
                   key={index}
                 >
-                  <MenuLink href={n.link} theme={this.props.theme}>{n.title}</MenuLink>
+                  <MenuLink href={mainLink.link} theme={this.props.theme}>{mainLink.name}</MenuLink>
 
                   <div className="dropdown-slot">
                     {currentIndex === index && (
