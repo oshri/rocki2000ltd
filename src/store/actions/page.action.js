@@ -1,4 +1,5 @@
-import fetch from 'isomorphic-fetch';
+import Api from '../../libs/api';
+const pageApi = new Api();
 
 export const actionTypes = {
     LOAD_PAGE: 'LOAD_PAGE',
@@ -8,11 +9,9 @@ export const actionTypes = {
 }
 
 export const fetchPage = (payload) => {
-    return (dispatch) => fetch(`http://localhost:8080/api/pages/${payload}`)
-        .then((res) => res.json())
-        .then(data => {
-            return dispatch({ type: actionTypes.LOAD_PAGE_SUCCESS, payload: data });
-        });
+    return (dispatch) => pageApi.get(`pages/${payload}`).then((res) => {
+        return dispatch({ type: actionTypes.LOAD_PAGE_SUCCESS, payload: res });
+    });
 }
   
 export const pageLoadSuccess = (payload) =>  dispatch => {

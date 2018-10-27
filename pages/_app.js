@@ -34,7 +34,9 @@ const DEFAULT_SEO = {
 
 class MyApp extends App {
 
-	static async getInitialProps({ Component, ctx }) {	
+	static async getInitialProps({ Component, ctx }) {
+		
+		// ctx.store.dispatch({type: 'FOO', payload: 'foo'});
 
 		return {
 			pageProps: Component.getInitialProps

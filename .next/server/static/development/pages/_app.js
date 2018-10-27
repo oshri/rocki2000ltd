@@ -207,27 +207,27 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 58
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_seo__WEBPACK_IMPORTED_MODULE_6___default.a, {
         config: DEFAULT_SEO,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 59
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
         store: store,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 60
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 61
         },
         __self: this
       }))));
@@ -288,6 +288,75 @@ function (_App) {
 
 /***/ }),
 
+/***/ "./src/config.js":
+/*!***********************!*\
+  !*** ./src/config.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  env: process && process.env && "development" || "development",
+  apiUrl: process && process.env && process.env.API_URL || undefined
+});
+
+/***/ }),
+
+/***/ "./src/libs/api.js":
+/*!*************************!*\
+  !*** ./src/libs/api.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config */ "./src/config.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var Api =
+/*#__PURE__*/
+function () {
+  function Api() {
+    _classCallCheck(this, Api);
+
+    _defineProperty(this, "url", void 0);
+
+    this.url = _config__WEBPACK_IMPORTED_MODULE_1__["default"].env === 'production' ? _config__WEBPACK_IMPORTED_MODULE_1__["default"].apiUrl : 'http://localhost:8080';
+  }
+
+  _createClass(Api, [{
+    key: "get",
+    value: function get(endPoint) {
+      var path = "".concat(this.url, "/api/").concat(endPoint);
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(path).then(function (res) {
+        return res.data;
+      }).catch(function (err) {
+        return console.log('err', "".concat(path, ":: ").concat(err));
+      });
+    }
+  }]);
+
+  return Api;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Api);
+
+/***/ }),
+
 /***/ "./src/store/actions/layout.action.js":
 /*!********************************************!*\
   !*** ./src/store/actions/layout.action.js ***!
@@ -301,9 +370,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLayout", function() { return fetchLayout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "layoutLoadSuccess", function() { return layoutLoadSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetLayoutState", function() { return resetLayoutState; });
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _libs_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/api */ "./src/libs/api.js");
 
+var layoutApi = new _libs_api__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var actionTypes = {
   LOAD_LAYOUT: 'LOAD_LAYOUT',
   LOAD_LAYOUT_SUCCESS: 'LOAD_LAYOUT_SUCCESS',
@@ -312,12 +381,10 @@ var actionTypes = {
 };
 var fetchLayout = function fetchLayout(payload) {
   return function (dispatch) {
-    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default()("http://localhost:8080/api/pages/navigation").then(function (res) {
-      return res.json();
-    }).then(function (data) {
+    return layoutApi.get('pages/navigation').then(function (res) {
       return dispatch({
         type: actionTypes.LOAD_LAYOUT_SUCCESS,
-        payload: data
+        payload: res
       });
     });
   };
@@ -353,9 +420,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPage", function() { return fetchPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pageLoadSuccess", function() { return pageLoadSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetPageState", function() { return resetPageState; });
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _libs_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/api */ "./src/libs/api.js");
 
+var pageApi = new _libs_api__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var actionTypes = {
   LOAD_PAGE: 'LOAD_PAGE',
   LOAD_PAGE_SUCCESS: 'LOAD_PAGE_SUCCESS',
@@ -364,12 +431,10 @@ var actionTypes = {
 };
 var fetchPage = function fetchPage(payload) {
   return function (dispatch) {
-    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default()("http://localhost:8080/api/pages/".concat(payload)).then(function (res) {
-      return res.json();
-    }).then(function (data) {
+    return pageApi.get("pages/".concat(payload)).then(function (res) {
       return dispatch({
         type: actionTypes.LOAD_PAGE_SUCCESS,
-        payload: data
+        payload: res
       });
     });
   };
@@ -514,38 +579,40 @@ var layout = function layout() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPageState", function() { return initialPageState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "page", function() { return page; });
-/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immutable */ "immutable");
-/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immutable__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_page_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/page.action */ "./src/store/actions/page.action.js");
+/* harmony import */ var _actions_page_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/page.action */ "./src/store/actions/page.action.js");
+// import Immutable from 'immutable';
+ // export const initialPageState = Immutable.fromJS({
+//   isLoading: false,
+//   data: undefined
+// });
 
-
-var initialPageState = immutable__WEBPACK_IMPORTED_MODULE_0___default.a.fromJS({
+var initialPageState = {
   isLoading: false,
   data: undefined
-});
+};
 var page = function page() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialPageState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case _actions_page_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_PAGE:
+    case _actions_page_action__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD_PAGE:
       return Object.assign({}, state, {
         isLoading: true
       });
 
-    case _actions_page_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_PAGE_SUCCESS:
+    case _actions_page_action__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD_PAGE_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
         data: action.payload
       });
 
-    case _actions_page_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_PAGE_ERROR:
+    case _actions_page_action__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD_PAGE_ERROR:
       return Object.assign({}, state, {
         isLoading: false,
         data: undefined
       });
 
-    case _actions_page_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].RESET_PAGE_STORE:
+    case _actions_page_action__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].RESET_PAGE_STORE:
       return Object.assign({}, state, {
         isLoading: false,
         data: undefined
@@ -603,25 +670,14 @@ module.exports = require("@fortawesome/free-solid-svg-icons");
 
 /***/ }),
 
-/***/ "immutable":
-/*!****************************!*\
-  !*** external "immutable" ***!
-  \****************************/
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("immutable");
-
-/***/ }),
-
-/***/ "isomorphic-fetch":
-/*!***********************************!*\
-  !*** external "isomorphic-fetch" ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-fetch");
+module.exports = require("axios");
 
 /***/ }),
 

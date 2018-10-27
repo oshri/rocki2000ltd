@@ -88,15 +88,15 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/index.js":
-/*!************************!*\
-  !*** ./pages/index.js ***!
-  \************************/
+/***/ "./pages/page.js":
+/*!***********************!*\
+  !*** ./pages/page.js ***!
+  \***********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -115,15 +115,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _src_store_actions_layout_action__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/store/actions/layout.action */ "./src/store/actions/layout.action.js");
-/* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/scss/style.scss */ "./src/scss/style.scss");
-/* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_src_scss_style_scss__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _src_components_Splash__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/components/Splash */ "./src/components/Splash/index.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _src_store_actions_page_action__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/store/actions/page.action */ "./src/store/actions/page.action.js");
+/* harmony import */ var _src_store_actions_layout_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/store/actions/layout.action */ "./src/store/actions/layout.action.js");
+/* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/scss/style.scss */ "./src/scss/style.scss");
+/* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_src_scss_style_scss__WEBPACK_IMPORTED_MODULE_9__);
 
-var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/pages/index.js";
-
+var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/pages/page.js";
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -139,7 +136,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-var Home = function Home(props) {
+var Page = function Page(props) {
   var PAGE_SEO = {
     title: 'Rocki 2000 ltd | Page',
     description: 'page description',
@@ -155,46 +152,76 @@ var Home = function Home(props) {
       imageHeight: 1200
     }
   };
+
+  var getField = function getField(props, fieldName) {
+    if (props.data) {
+      if (props.data[fieldName] != undefined) {
+        return "".concat(props.data[fieldName]);
+      }
+
+      return " ";
+    } else {
+      return " ";
+    }
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    title: "Home page",
+    title: "Page",
     navigation: props.navigation,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 41
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_seo__WEBPACK_IMPORTED_MODULE_3___default.a, {
     config: PAGE_SEO,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 42
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_Splash__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "inside-page-content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 43
     },
     __self: this
-  }));
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: this
+  }, getField(props, 'name')), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }, getField(props, 'description'))));
 };
 
-Home.getInitialProps =
+Page.getInitialProps =
 /*#__PURE__*/
 function () {
   var _ref2 = _asyncToGenerator(
   /*#__PURE__*/
   _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
-    var store;
+    var store, id;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            store = _ref.store;
+            store = _ref.store, id = _ref.query.id;
             _context.next = 3;
-            return store.dispatch(Object(_src_store_actions_layout_action__WEBPACK_IMPORTED_MODULE_7__["fetchLayout"])());
+            return store.dispatch(Object(_src_store_actions_layout_action__WEBPACK_IMPORTED_MODULE_8__["fetchLayout"])());
 
           case 3:
+            _context.next = 5;
+            return store.dispatch(_src_store_actions_page_action__WEBPACK_IMPORTED_MODULE_7__["fetchPage"](id));
+
+          case 5:
           case "end":
             return _context.stop();
         }
@@ -210,6 +237,7 @@ function () {
 
 function mapStateToProps(state) {
   return {
+    data: state.page.data,
     navigation: state.layout.navigation
   };
 } // Passing Dispatch function to props
@@ -217,11 +245,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchLayout: Object(redux__WEBPACK_IMPORTED_MODULE_5__["bindActionCreators"])(_src_store_actions_layout_action__WEBPACK_IMPORTED_MODULE_7__["fetchLayout"], dispatch)
+    fetchPage: Object(redux__WEBPACK_IMPORTED_MODULE_5__["bindActionCreators"])(_src_store_actions_page_action__WEBPACK_IMPORTED_MODULE_7__["fetchPage"], dispatch)
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(Home));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(Page));
 
 /***/ }),
 
@@ -1693,53 +1721,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/Splash/Splash.scss":
-/*!*******************************************!*\
-  !*** ./src/components/Splash/Splash.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ "./src/components/Splash/index.js":
-/*!****************************************!*\
-  !*** ./src/components/Splash/index.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Splash_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Splash.scss */ "./src/components/Splash/Splash.scss");
-/* harmony import */ var _Splash_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Splash_scss__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/src/components/Splash/index.js";
-
-
-
-
-var Splash = function Splash(props) {
-  var size = props.size;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Splash",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: this
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Splash);
-
-/***/ }),
-
 /***/ "./src/components/StaticMenu/StaticMenu.scss":
 /*!***************************************************!*\
   !*** ./src/components/StaticMenu/StaticMenu.scss ***!
@@ -1944,14 +1925,64 @@ var resetLayoutState = function resetLayoutState() {
 
 /***/ }),
 
-/***/ 4:
-/*!******************************!*\
-  !*** multi ./pages/index.js ***!
-  \******************************/
+/***/ "./src/store/actions/page.action.js":
+/*!******************************************!*\
+  !*** ./src/store/actions/page.action.js ***!
+  \******************************************/
+/*! exports provided: actionTypes, fetchPage, pageLoadSuccess, resetPageState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPage", function() { return fetchPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pageLoadSuccess", function() { return pageLoadSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetPageState", function() { return resetPageState; });
+/* harmony import */ var _libs_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/api */ "./src/libs/api.js");
+
+var pageApi = new _libs_api__WEBPACK_IMPORTED_MODULE_0__["default"]();
+var actionTypes = {
+  LOAD_PAGE: 'LOAD_PAGE',
+  LOAD_PAGE_SUCCESS: 'LOAD_PAGE_SUCCESS',
+  LOAD_PAGE_ERROR: 'LOAD_PAGE_ERROR',
+  RESET_PAGE_STORE: 'RESET_PAGE_STORE'
+};
+var fetchPage = function fetchPage(payload) {
+  return function (dispatch) {
+    return pageApi.get("pages/".concat(payload)).then(function (res) {
+      return dispatch({
+        type: actionTypes.LOAD_PAGE_SUCCESS,
+        payload: res
+      });
+    });
+  };
+};
+var pageLoadSuccess = function pageLoadSuccess(payload) {
+  return function (dispatch) {
+    dispatch({
+      type: actionTypes.LOAD_PAGE_SUCCESS,
+      payload: payload
+    });
+  };
+};
+var resetPageState = function resetPageState() {
+  return function (dispatch) {
+    return dispatch({
+      type: actionTypes.RESET_PAGE_STORE
+    });
+  };
+};
+
+/***/ }),
+
+/***/ 3:
+/*!*****************************!*\
+  !*** multi ./pages/page.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! ./pages/page.js */"./pages/page.js");
 
 
 /***/ }),
@@ -1964,17 +1995,6 @@ module.exports = __webpack_require__(/*! ./pages/index.js */"./pages/index.js");
 /***/ (function(module, exports) {
 
 module.exports = require("@babel/runtime/regenerator");
-
-/***/ }),
-
-/***/ "@fortawesome/react-fontawesome":
-/*!*************************************************!*\
-  !*** external "@fortawesome/react-fontawesome" ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@fortawesome/react-fontawesome");
 
 /***/ }),
 
@@ -2122,4 +2142,4 @@ module.exports = require("underscore");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=page.js.map

@@ -3,7 +3,9 @@ const dotenv = require('dotenv');
 const winston = require('winston');
 const next = require('next');
 const morgan = require('morgan');
+const { parse } = require('url')
 const bodyParser = require('body-parser');
+const Page = require('./models/pageModel');
 
 
 
@@ -11,8 +13,7 @@ const bodyParser = require('body-parser');
  * CONFIG
  */
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+const app = next({dev: process.env.NODE_ENV !== 'production'});
 const handle = app.getRequestHandler();
 const dbPath = process.env.MONGODB_URI || 'mongodb://localhost:27017/rocki2000ltd';
 const PORT = process.env.PORT || 3000;
@@ -65,6 +66,13 @@ app.prepare()
 		expressApp.get('/page/:id', (req, res) => {
 			const queryParams = {id: req.params.id};
 			return app.render(req, res, '/page', queryParams);
+		});
+
+
+		expressApp.get('/page', (req, res) => {
+			const queryParams = {id: req.params.id, link: req.params.link};
+			if(req.params.id) return res.redirect(`/page/${req.params.link}`, queryParams);
+			res.redirect(301, '/');
 		});
 
 		/**

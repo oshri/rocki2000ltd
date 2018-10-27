@@ -56,6 +56,7 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "underscore": "^1.9.1",
+    "url": "^0.11.0",
     "winston": "^2.4.0",
     "winston-logzio": "^1.0.8"
   },
@@ -64,7 +65,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-inline-dotenv": "^1.1.2",
-    "webpack-bundle-analyzer": "^3.0.2",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "webpack-bundle-analyzer": "^3.0.2"
   }
 }

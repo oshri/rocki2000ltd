@@ -1,4 +1,5 @@
-import fetch from 'isomorphic-fetch';
+import Api from '../../libs/api';
+const layoutApi = new Api();
 
 export const actionTypes = {
     LOAD_LAYOUT: 'LOAD_LAYOUT',
@@ -8,12 +9,9 @@ export const actionTypes = {
 }
 
 export const fetchLayout = (payload) => {
-
-    return (dispatch) => fetch(`http://localhost:8080/api/pages/navigation`)
-        .then((res) => res.json())
-        .then(data => {
-            return dispatch({ type: actionTypes.LOAD_LAYOUT_SUCCESS, payload: data });
-        });
+    return (dispatch) => layoutApi.get('pages/navigation').then((res) => {
+        return dispatch({ type: actionTypes.LOAD_LAYOUT_SUCCESS, payload: res });
+    });
 }
   
 export const layoutLoadSuccess = (payload) =>  dispatch => {

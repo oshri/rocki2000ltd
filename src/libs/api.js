@@ -1,27 +1,22 @@
-import fetch from 'isomorphic-fetch';
-
-// var paramsString = "q=URLUtils.searchParams&topic=api";
-// var searchParams = new URLSearchParams(paramsString);
-
+import axios from 'axios';
+import config from 'config';
 class Api {
+	url;
 
-    constructor({url}) {
-        this.url = url;
-        this.endpoints = {};
-    }
+	constructor() {
+		this.url =
+			config.env === 'production'
+				? config.apiUrl
+				: 'http://localhost:8080';
+	}
 
-    createEntity(entity) {
-        this.endpoints[entity.name] = this.createBasicCrudEndPoint(entity);
-    }
-
-    createBasicCrudEndPoint({name}) {
-        const endPoints = {};
-        const resourceUrl = `${this.url}/${name}`;
-
-        endPoints.getAll = (query) => fetch(resourceUrl);
-        
-    }
-
+	get(endPoint) {
+		let path = `${this.url}/api/${endPoint}`;
+		return axios
+			.get(path)
+			.then(res => res.data)
+			.catch(err => console.log('err', `${path}:: ${err}`));
+	}
 }
 
 export default Api;

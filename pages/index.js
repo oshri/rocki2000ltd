@@ -30,11 +30,6 @@ const Home = (props) => {
 		<Layout title="Home page" navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
             <Splash />
-			
-			<Button outline color="primary" onClick={props.fetchLayout}>
-				<FontAwesomeIcon icon="phone" />
-				get Layout
-			</Button>
 		</Layout>
 	);
 };

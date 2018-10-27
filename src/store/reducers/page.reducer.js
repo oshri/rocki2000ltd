@@ -1,10 +1,15 @@
-import Immutable from 'immutable';
+// import Immutable from 'immutable';
 import { actionTypes } from '../actions/page.action';
 
-export const initialPageState = Immutable.fromJS({
-  isLoading: false,
-  data: undefined
-});
+// export const initialPageState = Immutable.fromJS({
+//   isLoading: false,
+//   data: undefined
+// });
+
+export const initialPageState = {
+    isLoading: false,
+    data: undefined
+};
 
 
 export const page = (state = initialPageState, action) => {

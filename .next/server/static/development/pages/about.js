@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -111,7 +111,7 @@ var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/pages/about.js";
 
 var About = function About() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    title: "Home mage",
+    title: "About Page",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 4
@@ -130,31 +130,13 @@ var About = function About() {
       lineNumber: 6
     },
     __self: this
-  }, "About Next JS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, "About Rocki"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti et eos sit vero ab laborum nulla culpa, quis neque ex, voluptatum, eveniet amet autem obcaecati animi ratione quo officiis at!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
-    },
-    __self: this
-  }, "Voluptas obcaecati et adipisci quasi omnis dolores odio eos hic modi voluptatum ratione ullam sequi aspernatur ducimus exercitationem possimus, sint rem officiis esse recusandae, eveniet laborum repellat. Ipsum, culpa reprehenderit."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: this
-  }, "Facilis deleniti dolore neque excepturi hic, tempora dolores repellat ipsum quis nihil! Dolor sapiente asperiores laborum aperiam necessitatibus obcaecati adipisci temporibus itaque optio saepe similique perspiciatis nulla ullam, voluptatibus praesentium?"))));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (About);
@@ -348,7 +330,8 @@ var Dropdown = function Dropdown(items) {
       __self: this
     }, items.map(function (link, i) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MenuLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        href: link.link,
+        href: "/page?id=".concat(link.id, "&link=").concat(link.link),
+        as: "/page/".concat(link.link),
         theme: 'light',
         key: i,
         __source: {
@@ -1375,34 +1358,44 @@ var MenuLink = function MenuLink(_ref) {
   var children = _ref.children,
       router = _ref.router,
       href = _ref.href,
-      theme = _ref.theme;
+      theme = _ref.theme,
+      as = _ref.as;
   var active = router.pathname === href ? 'active' : '';
 
   var handleClick = function handleClick(e) {
     e.preventDefault();
-    router.push(href);
+
+    if (as) {
+      router.push("".concat(href), "".concat(as), {
+        shallow: true
+      });
+    } else {
+      router.push(href);
+    }
   };
 
+  console.log("".concat(as ? as : href));
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "MenuLink ".concat(active, " ").concat(theme),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 21
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: href,
     onClick: handleClick,
+    as: "".concat(as ? as : href),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 22
     },
     __self: this
   }, children), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "activeItemIndicator ".concat(theme),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 25
     },
     __self: this
   }));
@@ -1410,6 +1403,7 @@ var MenuLink = function MenuLink(_ref) {
 
 MenuLink.propTypes = {
   href: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  as: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
   theme: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(MenuLink));
@@ -1691,6 +1685,75 @@ StaticMenu.propTypes = {
 
 /***/ }),
 
+/***/ "./src/config.js":
+/*!***********************!*\
+  !*** ./src/config.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  env: process && process.env && "development" || "development",
+  apiUrl: process && process.env && process.env.API_URL || undefined
+});
+
+/***/ }),
+
+/***/ "./src/libs/api.js":
+/*!*************************!*\
+  !*** ./src/libs/api.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config */ "./src/config.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var Api =
+/*#__PURE__*/
+function () {
+  function Api() {
+    _classCallCheck(this, Api);
+
+    _defineProperty(this, "url", void 0);
+
+    this.url = _config__WEBPACK_IMPORTED_MODULE_1__["default"].env === 'production' ? _config__WEBPACK_IMPORTED_MODULE_1__["default"].apiUrl : 'http://localhost:8080';
+  }
+
+  _createClass(Api, [{
+    key: "get",
+    value: function get(endPoint) {
+      var path = "".concat(this.url, "/api/").concat(endPoint);
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(path).then(function (res) {
+        return res.data;
+      }).catch(function (err) {
+        return console.log('err', "".concat(path, ":: ").concat(err));
+      });
+    }
+  }]);
+
+  return Api;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Api);
+
+/***/ }),
+
 /***/ "./src/store/actions/layout.action.js":
 /*!********************************************!*\
   !*** ./src/store/actions/layout.action.js ***!
@@ -1704,9 +1767,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLayout", function() { return fetchLayout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "layoutLoadSuccess", function() { return layoutLoadSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetLayoutState", function() { return resetLayoutState; });
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _libs_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs/api */ "./src/libs/api.js");
 
+var layoutApi = new _libs_api__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var actionTypes = {
   LOAD_LAYOUT: 'LOAD_LAYOUT',
   LOAD_LAYOUT_SUCCESS: 'LOAD_LAYOUT_SUCCESS',
@@ -1715,12 +1778,10 @@ var actionTypes = {
 };
 var fetchLayout = function fetchLayout(payload) {
   return function (dispatch) {
-    return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default()("http://localhost:8080/api/pages/navigation").then(function (res) {
-      return res.json();
-    }).then(function (data) {
+    return layoutApi.get('pages/navigation').then(function (res) {
       return dispatch({
         type: actionTypes.LOAD_LAYOUT_SUCCESS,
-        payload: data
+        payload: res
       });
     });
   };
@@ -1743,7 +1804,7 @@ var resetLayoutState = function resetLayoutState() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!******************************!*\
   !*** multi ./pages/about.js ***!
   \******************************/
@@ -1766,14 +1827,14 @@ module.exports = require("assert");
 
 /***/ }),
 
-/***/ "isomorphic-fetch":
-/*!***********************************!*\
-  !*** external "isomorphic-fetch" ***!
-  \***********************************/
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("isomorphic-fetch");
+module.exports = require("axios");
 
 /***/ }),
 
