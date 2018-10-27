@@ -8,7 +8,7 @@ export const actionTypes = {
 }
 
 export const fetchLayout = (payload) => {
-    debugger
+
     return (dispatch) => fetch(`http://localhost:8080/api/pages/navigation`)
         .then((res) => res.json())
         .then(data => {

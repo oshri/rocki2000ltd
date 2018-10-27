@@ -2,10 +2,12 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import withRedux from 'next-redux-wrapper';
 import { initializeStore } from '../src/store';
-import  { fetchLayout } from '../src/store/actions/layout.action';
 import { Provider } from 'react-redux';
 import NextSeo from 'next-seo';
 
+/**
+ * Fontawsome
+ */
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,7 +17,7 @@ library.add([
 
 const DEFAULT_SEO = {
 	title: 'Rocki 2000 ltd',
-	description: 'rocki 2000 description',
+	description: 'rocki 2000 ',
 	openGraph: {
 	  type: 'website',
 	  locale: 'en_US',
@@ -31,10 +33,9 @@ const DEFAULT_SEO = {
   
 
 class MyApp extends App {
-	static async getInitialProps({ Component, ctx }) {
-		fetchLayout();
 
-		debugger
+	static async getInitialProps({ Component, ctx }) {	
+
 		return {
 			pageProps: Component.getInitialProps
 				? await Component.getInitialProps(ctx)

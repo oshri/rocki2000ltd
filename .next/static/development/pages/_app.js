@@ -23064,12 +23064,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next-redux-wrapper */ "./node_modules/next-redux-wrapper/lib/index.js");
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _src_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/store */ "./src/store/index.js");
-/* harmony import */ var _src_store_actions_layout_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/store/actions/layout.action */ "./src/store/actions/layout.action.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next-seo */ "./node_modules/next-seo/dist/index.js");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next-seo */ "./node_modules/next-seo/dist/index.js");
+/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 
 var _jsxFileName = "/Users/ok13067/projects/rocki2000ltd/pages/_app.js";
 
@@ -23107,13 +23106,16 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+/**
+ * Fontawsome
+ */
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_8__["library"].add([_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faPhone"]]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_7__["library"].add([_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faPhone"]]);
 var DEFAULT_SEO = {
   title: 'Rocki 2000 ltd',
-  description: 'rocki 2000 description',
+  description: 'rocki 2000 ',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -23155,27 +23157,27 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_seo__WEBPACK_IMPORTED_MODULE_7___default.a, {
-        config: DEFAULT_SEO,
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 56
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_6__["Provider"], {
-        store: store,
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_seo__WEBPACK_IMPORTED_MODULE_6___default.a, {
+        config: DEFAULT_SEO,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 57
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
+        store: store,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 58
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59
         },
         __self: this
       }))));
@@ -23192,32 +23194,30 @@ function (_App) {
             switch (_context.prev = _context.next) {
               case 0:
                 Component = _ref.Component, ctx = _ref.ctx;
-                Object(_src_store_actions_layout_action__WEBPACK_IMPORTED_MODULE_5__["fetchLayout"])();
-                debugger;
 
                 if (!Component.getInitialProps) {
-                  _context.next = 9;
+                  _context.next = 7;
                   break;
                 }
 
-                _context.next = 6;
+                _context.next = 4;
                 return Component.getInitialProps(ctx);
 
-              case 6:
+              case 4:
                 _context.t0 = _context.sent;
-                _context.next = 10;
+                _context.next = 8;
                 break;
 
-              case 9:
+              case 7:
                 _context.t0 = {};
 
-              case 10:
+              case 8:
                 _context.t1 = _context.t0;
                 return _context.abrupt("return", {
                   pageProps: _context.t1
                 });
 
-              case 12:
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -23280,7 +23280,6 @@ var actionTypes = {
   RESET_LAYOUT_STORE: 'RESET_LAYOUT_STORE'
 };
 var fetchLayout = function fetchLayout(payload) {
-  debugger;
   return function (dispatch) {
     return isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default()("http://localhost:8080/api/pages/navigation").then(function (res) {
       return res.json();
@@ -23428,42 +23427,40 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPageState", function() { return initialPageState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "layout", function() { return layout; });
-/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immutable */ "./node_modules/immutable/dist/immutable.js");
-/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immutable__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/layout.action */ "./src/store/actions/layout.action.js");
+/* harmony import */ var _actions_layout_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/layout.action */ "./src/store/actions/layout.action.js");
+// import Immutable from 'immutable';
+ // export const initialPageState = Immutable.fromJS({
+//   isLoading: false,
+//   navigation: []
+// });
 
-
-var initialPageState = immutable__WEBPACK_IMPORTED_MODULE_0___default.a.fromJS({
+var initialPageState = {
   isLoading: false,
-  data: undefined
-});
+  navigation: []
+};
 var layout = function layout() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialPageState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_LAYOUT:
+    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD_LAYOUT:
       return Object.assign({}, state, {
         isLoading: true
       });
 
-    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_LAYOUT_SUCCESS:
+    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD_LAYOUT_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
-        data: action.payload
+        navigation: action.payload
       });
 
-    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].LOAD_LAYOUT_ERROR:
+    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].LOAD_LAYOUT_ERROR:
       return Object.assign({}, state, {
-        isLoading: false,
-        data: undefined
+        isLoading: false
       });
 
-    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_1__["actionTypes"].RESET_LAYOUT_STORE:
-      return Object.assign({}, state, {
-        isLoading: false,
-        data: undefined
-      });
+    case _actions_layout_action__WEBPACK_IMPORTED_MODULE_0__["actionTypes"].RESET_LAYOUT_STORE:
+      return Object.assign({}, state, initialPageState);
 
     default:
       return state;
