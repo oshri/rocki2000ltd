@@ -53,7 +53,6 @@ const Page = (props) => {
 };
 
 Page.getInitialProps = async ({store, query: { id } }) => {
-	debugger
 	await store.dispatch(fetchLayout());
 	await store.dispatch(FromPageRoot.fetchPage(id));
 };
