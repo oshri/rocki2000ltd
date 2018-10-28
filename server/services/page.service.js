@@ -25,7 +25,8 @@ class PageService extends Base {
 
 		const result = { 
             name: root.name,
-            link: root.link
+            link: root.link,
+            id: root.id
         };
 
         const children = await Page.find({ parent: id });

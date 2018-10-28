@@ -1,48 +1,40 @@
 {
-  "./noop": [
-    {
-      "id": "./node_modules/next/dist/client/noop.js",
-      "name": "./node_modules/next/dist/client/noop.js",
-      "file": "static/chunks/0.js",
-      "publicPath": "static/chunks/0.js"
-    }
-  ],
   "./Address.scss": [
     {
-      "id": "./components/Address/Address.scss",
-      "name": "./components/Address/Address.scss",
+      "id": "./src/components/Address/Address.scss",
+      "name": "./src/components/Address/Address.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./CellNumber.scss": [
     {
-      "id": "./components/CellNumber/CellNumber.scss",
-      "name": "./components/CellNumber/CellNumber.scss",
+      "id": "./src/components/CellNumber/CellNumber.scss",
+      "name": "./src/components/CellNumber/CellNumber.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./DynamicDropDownMenu.scss": [
     {
-      "id": "./components/DynamicDropDownMenu/DynamicDropDownMenu.scss",
-      "name": "./components/DynamicDropDownMenu/DynamicDropDownMenu.scss",
+      "id": "./src/components/DynamicDropDownMenu/DynamicDropDownMenu.scss",
+      "name": "./src/components/DynamicDropDownMenu/DynamicDropDownMenu.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./FaxNumber.scss": [
     {
-      "id": "./components/FaxNumber/FaxNumber.scss",
-      "name": "./components/FaxNumber/FaxNumber.scss",
+      "id": "./src/components/FaxNumber/FaxNumber.scss",
+      "name": "./src/components/FaxNumber/FaxNumber.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./Footer.scss": [
     {
-      "id": "./components/Footer/Footer.scss",
-      "name": "./components/Footer/Footer.scss",
+      "id": "./src/components/Footer/Footer.scss",
+      "name": "./src/components/Footer/Footer.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
@@ -135,74 +127,82 @@
   ],
   "./Header.scss": [
     {
-      "id": "./components/Header/Header.scss",
-      "name": "./components/Header/Header.scss",
+      "id": "./src/components/Header/Header.scss",
+      "name": "./src/components/Header/Header.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./Layout.scss": [
     {
-      "id": "./components/Layout/Layout.scss",
-      "name": "./components/Layout/Layout.scss",
+      "id": "./src/components/Layout/Layout.scss",
+      "name": "./src/components/Layout/Layout.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./Logo.scss": [
     {
-      "id": "./components/Logo/Logo.scss",
-      "name": "./components/Logo/Logo.scss",
+      "id": "./src/components/Logo/Logo.scss",
+      "name": "./src/components/Logo/Logo.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./MenuLink.scss": [
     {
-      "id": "./components/MenuLink/MenuLink.scss",
-      "name": "./components/MenuLink/MenuLink.scss",
+      "id": "./src/components/MenuLink/MenuLink.scss",
+      "name": "./src/components/MenuLink/MenuLink.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./MobileMenu.scss": [
     {
-      "id": "./components/MobileMenu/MobileMenu.scss",
-      "name": "./components/MobileMenu/MobileMenu.scss",
+      "id": "./src/components/MobileMenu/MobileMenu.scss",
+      "name": "./src/components/MobileMenu/MobileMenu.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./PhoneNumber.scss": [
     {
-      "id": "./components/PhoneNumber/PhoneNumber.scss",
-      "name": "./components/PhoneNumber/PhoneNumber.scss",
+      "id": "./src/components/PhoneNumber/PhoneNumber.scss",
+      "name": "./src/components/PhoneNumber/PhoneNumber.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./Splash.scss": [
     {
-      "id": "./components/Splash/Splash.scss",
-      "name": "./components/Splash/Splash.scss",
+      "id": "./src/components/Splash/Splash.scss",
+      "name": "./src/components/Splash/Splash.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
   "./StaticMenu.scss": [
     {
-      "id": "./components/StaticMenu/StaticMenu.scss",
-      "name": "./components/StaticMenu/StaticMenu.scss",
+      "id": "./src/components/StaticMenu/StaticMenu.scss",
+      "name": "./src/components/StaticMenu/StaticMenu.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
-  "../scss/style.scss": [
+  "../src/scss/style.scss": [
     {
-      "id": "./scss/style.scss",
-      "name": "./scss/style.scss",
+      "id": "./src/scss/style.scss",
+      "name": "./src/scss/style.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./noop": [
+    {
+      "id": "./node_modules/next/dist/client/noop.js",
+      "name": "./node_modules/next/dist/client/noop.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
     }
   ]
 }

@@ -7776,6 +7776,8 @@ html, body {
   background-position: top; }
 .bg-dots-gray {
   background: url(/static/svg/dots-small.svg); }
+.inside-page-content {
+  padding: 100px 0; }
 
 .Splash {
   padding: 34rem 2rem;
