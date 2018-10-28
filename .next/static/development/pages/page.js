@@ -28247,14 +28247,15 @@ function () {
         switch (_context.prev = _context.next) {
           case 0:
             store = _ref.store, id = _ref.query.id;
-            _context.next = 3;
+            debugger;
+            _context.next = 4;
             return store.dispatch(Object(_src_store_actions_layout_action__WEBPACK_IMPORTED_MODULE_8__["fetchLayout"])());
 
-          case 3:
-            _context.next = 5;
+          case 4:
+            _context.next = 6;
             return store.dispatch(_src_store_actions_page_action__WEBPACK_IMPORTED_MODULE_7__["fetchPage"](id));
 
-          case 5:
+          case 6:
           case "end":
             return _context.stop();
         }
@@ -29883,7 +29884,7 @@ var resetPageState = function resetPageState() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 18:
 /*!*****************************!*\
   !*** multi ./pages/page.js ***!
   \*****************************/
@@ -29908,5 +29909,5 @@ module.exports = dll_10edf27d814a728d21af;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]));;
+},[[18,"static/runtime/webpack.js","styles"]]]));;
 //# sourceMappingURL=page.js.map
