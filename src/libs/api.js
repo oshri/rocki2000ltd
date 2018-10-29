@@ -6,7 +6,7 @@ class Api {
 	constructor() {
 		this.url =
 			config.env === 'production'
-				? config.apiUrl
+				? ''
 				: 'http://localhost:8080';
 	}
 
