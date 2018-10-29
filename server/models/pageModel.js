@@ -23,7 +23,7 @@ const pageModel = new schema({
 		type: String
 	},
 	order: {
-		type: Boolean,
+		type: Number,
         required: false
 	},
 	active: {
