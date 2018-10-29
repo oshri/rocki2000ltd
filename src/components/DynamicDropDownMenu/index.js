@@ -39,7 +39,8 @@ class DynamicDropDownMenu extends React.Component {
       return {
         name: nav.name,
         link: nav.link,
-        dropdown: new Dropdown(nav.children, theme)
+        id: nav.id,
+        dropdown: new Dropdown(nav.children, nav)
       };
     });
 
@@ -89,8 +90,11 @@ class DynamicDropDownMenu extends React.Component {
                   data-index={index}
                   key={index}
                 >
-                  <MenuLink href={mainLink.link} theme={this.props.theme}>{mainLink.name}</MenuLink>
-
+                  <MenuLink   href={`/page?id=${mainLink.id}&link=${mainLink.link}`}
+                              as={`/page/${mainLink.link}`}
+                              theme={this.props.theme}>
+                    {mainLink.name}
+                  </MenuLink>
                   <div className="dropdown-slot">
                     {currentIndex === index && (
                       <div>

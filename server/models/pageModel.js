@@ -7,6 +7,10 @@ const pageModel = new schema({
 		unique: true,
 		required: true
 	},
+	icon: {
+		type: String,
+		required: false
+	},
 	description: {
         type: String,
         required: false

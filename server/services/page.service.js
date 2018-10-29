@@ -29,6 +29,10 @@ class PageService extends Base {
             id: root.id
         };
 
+        if(root.icon) {
+            result.icon = root.icon;
+        }
+
         const children = await Page.find({ parent: id });
         
         result.children = (children && children.length) ? children.map(page =>  this.getTree(page.id)) : [];

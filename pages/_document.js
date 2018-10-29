@@ -21,6 +21,7 @@ export default class LayoutDocument extends Document {
                     </div> */}
 					<Main />
 					<NextScript />
+					<script async defer="defer" src="//platform.instagram.com/en_US/embeds.js"></script>
 				</body>
 			</html>
 		);

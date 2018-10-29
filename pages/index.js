@@ -8,8 +8,10 @@ import '../src/scss/style.scss';
 import Splash from '../src/components/Splash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
 const Home = (props) => {
 	
+
 	const PAGE_SEO = {
 		title: 'Rocki 2000 ltd | Page',
 		description: 'page description',

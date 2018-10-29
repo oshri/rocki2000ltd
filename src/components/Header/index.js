@@ -104,6 +104,7 @@ class Header extends Component {
 					<Logo/>
 					<div className={"header-menu-wrap"}>
 						<DynamicDropDownMenu theme={'dark'} navigation={this.props.navigation}/>
+						<StaticMenu direction={'row'} theme={'dark'}/>
 						{/* <MobileMenu theme={'dark'}/> */}
 					</div>
 				</article>

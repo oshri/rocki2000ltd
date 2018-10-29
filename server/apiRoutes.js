@@ -1,7 +1,8 @@
 const express = require("express");
 const auth = require('./middlewares/auth');
 const PageService = require('./services/page.service');
-
+const AppService = require('./services/app.service');
+const InstagramService = require('./services/instagram.service');
 
 const apiRoutes = (app) => {
   const router = express.Router();
@@ -11,24 +12,44 @@ const apiRoutes = (app) => {
    */
 
   const pageService = new PageService();
-
-
+  const appService = new AppService();
+  const instagramService = new InstagramService();
 
   /**
    * Routes Controllers
    */
   
-  const instagramCtrl = require("./controllers/instagramAccessToken.ctrl")(app);
+  const instagramCtrl = require("./controllers/instagram.ctrl")(app, instagramService);
   const pagesCtrl = require("./controllers/pages.ctrl")(app, pageService);
+  const appCtrl = require("./controllers/app.ctrl")(app, appService);
   const usersCtrl = require("./controllers/users.ctrl")(app);
   const tokensCtrl = require("./controllers/tokens.ctrl")(app);
 
   
+  /**
+   * App
+   */
+  router.route('/app')
+    .get(auth.requiresAdmin, appCtrl.getApp)
+    .post(auth.requiresAdmin, appCtrl.post)
+    .put(auth.requiresAdmin, appCtrl.updateApp);
 
-  // Instagram Access Token 
-  router.route('/instagram-access-token').get(instagramCtrl.get);
+  /**
+   * Instagram
+   */
+  router.route('/instagram/access-token')
+    .get(auth.requiresAdmin, instagramCtrl.getAccessToken);
 
-  // Pages
+  router.route('/instagram/tag/:name')
+    .get(instagramCtrl.getTagByName);
+
+  router.route('/instagram/tags')
+    .post(instagramCtrl.getTagsByList);
+
+    
+  /**
+   * Pages
+   */
   router.route('/pages')
     .post(auth.requiresAdmin, pagesCtrl.post)
     .get(pagesCtrl.list);
@@ -49,7 +70,9 @@ const apiRoutes = (app) => {
     .get(pagesCtrl.get);
 
 
-  // Users
+  /**
+   * Users
+   */
   router.route('/users')
     .post(usersCtrl.post)
     .get(auth.requiresAdmin, usersCtrl.list);
@@ -62,7 +85,10 @@ const apiRoutes = (app) => {
   router.route('/users/:id/activate')
     .put(auth.requiresAdmin, usersCtrl.activate);
 
-  // Tokens
+
+  /**
+   * Tokens
+   */
   router.route('/tokens')
     .post(tokensCtrl.post);
 
