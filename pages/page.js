@@ -38,7 +38,7 @@ const Page = (props) => {
 	}
 	
 	return (
-		<Layout title="Page" navigation={props.navigation}>
+		<Layout  navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
 			<div className="inside-page-content">
 				<h1>{getField(props, 'name')}</h1>

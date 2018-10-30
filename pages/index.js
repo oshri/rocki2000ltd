@@ -11,9 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Home = (props) => {
 	
-
 	const PAGE_SEO = {
-		title: 'Rocki 2000 ltd | Page',
+		title: 'Rocki 2000 ltd | Welcome',
 		description: 'page description',
 		openGraph: {
 		  type: 'website',
@@ -29,7 +28,7 @@ const Home = (props) => {
 	  };
 	
 	return (
-		<Layout title="Home page" navigation={props.navigation}>
+		<Layout navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
             <Splash />
 		</Layout>

@@ -26,7 +26,7 @@ const About = (props) => {
 	  };
 	
 	return (
-		<Layout title="About page" navigation={props.navigation}>
+		<Layout navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
             
 		</Layout>

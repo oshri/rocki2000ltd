@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Dropdown from "./DropDowns";
 import DropDownsContainer from "./DropDownsContainer";
 import MenuLink from '../MenuLink';
+import Link from 'next/link'
 
 import "./DynamicDropDownMenu.scss";
 import { throws } from "assert";
@@ -89,7 +90,7 @@ class DynamicDropDownMenu extends React.Component {
                   onFocus={this.onMouseEnter}
                   data-index={index}
                   key={index}
-                >
+                > 
                   <MenuLink   href={`/page?id=${mainLink.id}&link=${mainLink.link}`}
                               as={`/page/${mainLink.link}`}
                               theme={this.props.theme}>
