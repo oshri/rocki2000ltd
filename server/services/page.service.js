@@ -11,7 +11,8 @@ class PageService extends Base {
     }
 
     async getTags(pageId) {
-        return await PageTag.find({pageId: pageId});
+        const tags = await PageTag.find({pageId: pageId}, 'name');
+        return tags.map(tag => tag.name);
     }
 
     async createTag(tag) {
@@ -51,7 +52,18 @@ class PageService extends Base {
             trees[i] = await trees[i];
         }
         return trees;   
-	}
+    }
+    
+    async getChildren(parentId) {
+        const pages = await Page.find({parent: parentId}).sort('order');
+        return pages.map((page) => {
+            return {
+                name: page.name,
+                description: page.description,
+                link: page.link
+            };
+        });
+    }
 }
 
 module.exports = PageService;

@@ -15,22 +15,17 @@ const Footer = (props) => {
     return (
         <div className="Footer">
             <div className="container">
-                <div className="top-level ">
-                    <div className="rocki-logo">
-                        <Logo size={'big'} />
-                    </div>
-                    <div className="more-info">
-                        {/* <div className="conatct-info">
-                            <PhoneNumber number={'08-9461555'}/>
-                            <CellNumber number={'054-7272554'}/>
-                            <FaxNumber number={'08-9361574'}></FaxNumber>
-                            <Address url={'היצירה 2 א.ת. קרית רכטמן רחובות'}></Address>
-                        </div> */}
-                    </div>
+                <div className="top-level">
                     <div className="menu-links-wrapper">
                         <div className="menu-links">
                             <StaticMenu direction={'column'} theme={'light'}/>
                         </div>
+                    </div>
+                    <div className="more-info">
+
+                    </div>
+                    <div className="rocki-logo">
+                        <Logo size={'big'} />
                     </div>
                 </div>
                 <div className="bottom-level">

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="201" height="104" viewBox="0 0 201 104">
+  <defs>
+    <rect id="card-icon-bg-a" width="199" height="116"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(0 -15)">
+    <path stroke="#979797" stroke-width="2" d="M0.240319119,117.163187 L200.990901,117.163187"/>
+    <g opacity=".579" transform="translate(1)">
+      <mask id="card-icon-bg-b" fill="#fff">
+        <use xlink:href="#card-icon-bg-a"/>
+      </mask>
+      <circle cx="99" cy="105" r="90" fill="#F8DA79" fill-rule="nonzero" mask="url(#card-icon-bg-b)" opacity=".319"/>
+      <circle cx="99" cy="105" r="70" fill="#E8D495" fill-rule="nonzero" mask="url(#card-icon-bg-b)" opacity=".46"/>
+    </g>
+  </g>
+</svg>

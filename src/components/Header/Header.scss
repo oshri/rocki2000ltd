@@ -14,15 +14,14 @@
 
     article {
         display: flex;
-        align-items: flex-end center;
+        align-items: flex-start center;
         justify-content: space-between; 
-        width: 98%;
         padding: 0 2%;
 
         .header-menu-wrap{
             flex-wrap: wrap;
             flex-direction: row;
-            align-items: flex-end center;
+            align-items: flex-start center;
             display: flex;
         }
     }

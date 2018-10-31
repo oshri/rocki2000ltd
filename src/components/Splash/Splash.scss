@@ -2,7 +2,8 @@ $bp-med : 39.9375em;
 $bp-xl : 74.9375em;
 
 .Splash {
-    padding: 34rem 2rem;
+    position: relative;
+    padding: 16rem 2rem;
     width: 100%;
     background: url('/static/splash-bg.png') no-repeat;
     background-size: contain;
@@ -13,6 +14,49 @@ $bp-xl : 74.9375em;
     
     @media  only screen and (max-width: $bp-med) {
         background-position-y: 0%;
+    }
+
+    .splash-card{
+
+        .splash-info{
+            z-index: 1;
+            position: absolute;
+            top: 30%;
+            right: 9%;
+            height: 200px;
+            flex-direction: column;
+            box-sizing: border-box;
+            display: flex;
+            // align-items: flex-end;
+
+            h1.splash-title {
+                width: 100%;
+                text-align: right;
+            }
+
+            .splash-description{
+                font-size: 15px;
+                color: #949494;
+                text-align: center;
+            }
+
+            .splash-action{
+                width: 100px;
+                margin: 19px;
+            }
+
+        }
+
+        .splash-images{
+            background-color: white;
+            position: absolute;
+            top: 25%;
+            left: 10%;
+            right: 20%;
+            bottom: 3%;
+            border: 1px solid;
+            width: 700px;
+        }
     }
 }
 

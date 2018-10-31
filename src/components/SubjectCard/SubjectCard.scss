@@ -1,0 +1,57 @@
+.SubjectCard{
+    width: 330px;
+    height: 415px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    border-radius: 16px;
+    padding: 10px;
+
+    .subject-icon{
+        padding: 20px 0;
+        position: relative;
+
+
+        .dynamic-icon{
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        img{
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+    }
+
+    .subject-info{
+        height: 190px;
+
+        h3{
+            text-align: center;
+        }
+
+        .subject-description{
+            font-family: Alef-Regular;
+            font-size: 15px;
+            color: #949494;
+            text-align: center;
+        }
+    }
+
+    .card-action{
+        a{
+            width: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+        }
+    }
+}

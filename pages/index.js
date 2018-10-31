@@ -7,6 +7,7 @@ import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';
 import Splash from '../src/components/Splash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SubjectCard from '../src/components/SubjectCard';
 
 
 const Home = (props) => {
@@ -30,7 +31,10 @@ const Home = (props) => {
 	return (
 		<Layout navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
-            <Splash />
+			{/* <Splash /> */}
+			<div className="home-subjects-card">
+				<SubjectCard/>
+			</div>
 		</Layout>
 	);
 };

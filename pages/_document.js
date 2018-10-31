@@ -15,7 +15,7 @@ export default class LayoutDocument extends Document {
 					<link rel="manifest" href="/static/manifest.json" />
 					<link rel="shortcut icon" href="/static/favicon.ico" />
 				</Head>
-				<body>
+				<body className="rtl" dir="rtl">
 					{/* <div className="heading">
                         [DEMO] NextJS {nextJSVersion} and React {reactVersion}
                     </div> */}

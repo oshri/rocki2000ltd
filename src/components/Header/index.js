@@ -101,12 +101,12 @@ class Header extends Component {
 		return (
 			<header id="navbar" className={`Header ` + this.state.navClass}>
 				<article>
-					<Logo/>
 					<div className={"header-menu-wrap"}>
-						<DynamicDropDownMenu theme={'dark'} navigation={this.props.navigation}/>
-						<StaticMenu direction={'row'} theme={'dark'}/>
 						{/* <MobileMenu theme={'dark'}/> */}
+						<StaticMenu direction={'row'} theme={'dark'}/>
+						<DynamicDropDownMenu theme={'dark'} navigation={this.props.navigation}/>
 					</div>
+					<Logo/>
 				</article>
 			</header>
 		);

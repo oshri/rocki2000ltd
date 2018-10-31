@@ -7,8 +7,8 @@ const pageTagModel = new schema({
 		required: true
 	},
 	pageId: {
-        type: String,
-        required: false
+		type: String,
+		required: false
 	}
 });
 

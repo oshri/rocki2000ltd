@@ -67,9 +67,10 @@ const createCtrl = (app,  pageService) => {
 	factory.get = async (req, res, next) => {
 		try {
 			const page = await pageService.get(req.params.id);
+			const children = await pageService.getChildren(page.id);
 			const tags = await pageService.getTags(req.params.id);
 
-			res.status(200).json({...page.toJSON(), tags});
+			res.status(200).json({...page.toJSON(), tags: tags, children});
 		  } catch (err) {
 			res.status(500).json({ error: err });
 		  }

@@ -1,35 +1,48 @@
-@import "_vars.scss";
+@import '_vars.scss';
 @import 'bootstrap/dist/css/bootstrap.css';
 
-html, body {
-    box-sizing: border-box;
-    font-family: 'Alef, Arial, sans-serif';
-    font-weight: normal;
-    margin: 0;
-    background-color: $bgcolor;
-  }
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .heb {
-    direction: rtl;
-  }
+html,
+body {
+	box-sizing: border-box;
+	font-family: 'Alef, Arial, sans-serif';
+	font-weight: normal;
+	margin: 0;
+	background-color: $bgcolor;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.rtl {
+	direction: rtl;
+	unicode-bidi: isolate;
+}
 
 .bg-dots-gray-large {
-  background: url(/static/svg/dots-large.svg);
-  background-position: top;
+	background: url(/static/svg/dots-large.svg);
+	background-position: top;
 }
 
 .bg-dots-gray {
-  background: url(/static/svg/dots-small.svg);
+	background: url(/static/svg/dots-small.svg);
 }
 
-.inside-page-content{
-  padding: 100px 0;
+.inside-page-content {
+	padding: 100px 0;
+}
+
+// Home
+.home-subjects-card {
+	flex-direction: row;
+	box-sizing: border-box;
+	display: flex;
+	max-height: 100%;
+	place-content: center space-around;
+	align-items: center;
+	margin: 5em 0;
 }
