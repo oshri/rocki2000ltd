@@ -7,6 +7,8 @@ import { Button } from 'reactstrap';
 import * as FromPageRoot from '../src/store/actions/page.action';
 import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';
+import PageHeader from '../src/components/PageHeader';
+import PageCard from '../src/components/PageCard';
 
 const Subject = (props) => {
 	
@@ -41,10 +43,17 @@ const Subject = (props) => {
 		<Layout  navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
 			<div className="inside-page-content">
-				<h1>{getField(props, 'name')}</h1>
-				<p>{getField(props, 'description')}</p>
+				<PageHeader breadcrumbs={getField(props, 'link')} title={getField(props, 'name')}/>
+				<p className="page-description">{getField(props, 'description')}</p>
 			</div>
-            
+            <div className="home-pages-card">
+
+				{ 	
+					props.data.children.map((page, index) => {
+						return (<PageCard page={page} key={index}/>);
+					})
+				}
+			</div>
 		</Layout>
 	);
 };

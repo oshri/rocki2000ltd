@@ -7,6 +7,8 @@ import { Button } from 'reactstrap';
 import * as FromPageRoot from '../src/store/actions/page.action';
 import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';
+import PageHeader from '../src/components/PageHeader';
+
 
 const Page = (props) => {
 	
@@ -41,13 +43,10 @@ const Page = (props) => {
 		<Layout  navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
 			<div className="inside-page-content">
-				<h1>{getField(props, 'name')}</h1>
-				<p>{getField(props, 'description')}</p>
+				<PageHeader breadcrumbs={getField(props, 'link')} title={getField(props, 'name')}/>
+				<p className="page-description">{getField(props, 'description')}</p>
 			</div>
-            
-			{/* <Button outline color="primary" onClick={props.fetchPage}>
-				get Layout
-			</Button> */}
+
 		</Layout>
 	);
 };

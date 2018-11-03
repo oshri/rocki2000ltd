@@ -1,0 +1,17 @@
+@import '../../../src/scss/_vars';
+
+.PageHeader{
+    position: relative;
+    padding: $header-padding / 2 25px;
+    border-bottom: 1px solid #d6d6d6;
+    margin: $header-padding / 2;
+
+
+    .Breadcrumbs{
+        text-align: right;
+    }
+    
+    h1{
+        text-align: right;
+    }
+}

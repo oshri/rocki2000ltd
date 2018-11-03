@@ -33,7 +33,14 @@ body {
 }
 
 .inside-page-content {
-	padding: 100px 0;
+	padding: 73px 0;
+
+	.page-description{
+		padding: $header-padding / 2;
+		background-color: white;
+
+		text-align: right;
+	}
 }
 
 // Home
