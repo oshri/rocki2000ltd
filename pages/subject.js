@@ -9,6 +9,7 @@ import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';
 import PageHeader from '../src/components/PageHeader';
 import PageCard from '../src/components/PageCard';
+import InstagramTagsFeed from '../src/components/InstagramTagsFeed';
 
 const Subject = (props) => {
 	
@@ -37,7 +38,19 @@ const Subject = (props) => {
 		} else {
 			return ` `
 		}
-	}
+	};
+
+	const renderInstagramTagsFeed = () => {
+		if(props.data.tags) {
+		  return (
+			<InstagramTagsFeed tags={props.data.tags}/>
+		  )
+		} else {
+		  return (
+			 <div>loading</div>
+		  )
+		}
+	};
 	
 	return (
 		<Layout  navigation={props.navigation}>
@@ -47,12 +60,14 @@ const Subject = (props) => {
 				<p className="page-description">{getField(props, 'description')}</p>
 			</div>
             <div className="home-pages-card">
-
 				{ 	
 					props.data.children.map((page, index) => {
 						return (<PageCard page={page} key={index}/>);
 					})
 				}
+			</div>
+			<div>
+				{renderInstagramTagsFeed()}
 			</div>
 		</Layout>
 	);

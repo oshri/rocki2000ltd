@@ -1,0 +1,100 @@
+.Tag{
+    position: relative;
+    width: 245px;
+    height: 245px;
+    overflow: hidden;
+
+    &:hover {
+        .image-wrapper{
+            img{
+                transform: scale(1.1);
+            }
+        }
+
+        .info{
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    }
+
+    .image-wrapper {
+        width: 245px;
+        height: 245px;
+
+        img{
+            width: 245px;
+            height: 245px;
+            transition: 0.3s all ease;
+            transform: scale(1);
+            transform-origin: 50 50;
+            backface-visibility: hidden;
+        }
+    }
+
+    .info{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.3s all ease;
+        transform: scale(1);
+        transform-origin: 50 50;
+        opacity: 0;
+        z-index: 1;
+
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        place-content: center;
+        align-items: center;
+
+        .counters{
+            flex-direction: row;
+            box-sizing: border-box;
+            display: flex;
+            place-content: center;
+            align-items: center;
+            color: white;
+
+            .count{
+                height: 100%;
+                flex-direction: row;
+                box-sizing: border-box;
+                display: flex;
+                max-height: 100%;
+                place-content: center flex-start;
+                align-items: center;
+                margin: 10px;
+
+
+                span {
+                    flex: 1 1 100%;
+                    box-sizing: border-box;
+                    margin-right: 11px;
+                    max-width: 66%;
+                }
+            }
+        }
+
+        .page-description{
+            text-align: center;
+            font-size: 0.8rem;
+            color: white;
+            display: block;
+            padding: 10px;
+            margin: 14px;
+            padding: 11px;
+        }
+
+        .bg{
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+}

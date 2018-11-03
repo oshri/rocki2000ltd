@@ -9,11 +9,13 @@ import NextSeo from 'next-seo';
  * Fontawsome
  */
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
 
-library.add([
-	faPhone
-]);
+library.add(
+	faPhone,
+	faHeart,
+	faComment
+);
 
 const DEFAULT_SEO = {
 	title: 'Rocki 2000 ltd',

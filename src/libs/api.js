@@ -17,6 +17,14 @@ class Api {
 			.then(res => res.data)
 			.catch(err => console.log('err', `${path}:: ${err}`));
 	}
+
+	post(endPoint, data) {
+		let path = `${this.url}/api/${endPoint}`;
+		return axios
+			.post(path, data)
+			.then(res => res.data)
+			.catch(err => console.log('err', `${path}:: ${err}`));
+	}
 }
 
 export default Api;

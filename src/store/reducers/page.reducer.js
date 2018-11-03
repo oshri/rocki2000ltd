@@ -8,7 +8,8 @@ import { actionTypes } from '../actions/page.action';
 
 export const initialPageState = {
     isLoading: false,
-    data: undefined
+    data: undefined,
+    instagram: undefined
 };
 
 
@@ -28,6 +29,8 @@ export const page = (state = initialPageState, action) => {
                 isLoading: false,
                 data: undefined
             });
+        case actionTypes.LOAD_TAGS_SUCCESS:
+            return LoadTags(state, action.payload);
         case actionTypes.RESET_PAGE_STORE:
             return Object.assign({}, state, {
                 isLoading: false,
@@ -36,3 +39,9 @@ export const page = (state = initialPageState, action) => {
         default: return state
     }
 };
+
+function LoadTags(state, payload) {
+    const images = payload.map((t) => t.data[0]);
+    return {...state, ...{ isLoading: false,
+        instagram: images}}
+}
