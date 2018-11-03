@@ -30,7 +30,6 @@ const apiRoutes = (app) => {
    * App
    */
   router.route('/app')
-    .get(auth.requiresAdmin, appCtrl.getApp)
     .post(auth.requiresAdmin, appCtrl.post)
     .put(auth.requiresAdmin, appCtrl.updateApp);
 
@@ -56,6 +55,9 @@ const apiRoutes = (app) => {
 
   router.route('/pages/navigation')
     .get(pagesCtrl.structure);
+
+  router.route('/pages/home')
+    .get(pagesCtrl.home);
 
   router.route('/pages/:id')
     .get(pagesCtrl.get)

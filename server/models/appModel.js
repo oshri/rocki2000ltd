@@ -11,6 +11,11 @@ const appModel = new schema({
 		type: String,
 		required: false
 	},
+	url: {
+		type: String,
+		required: true,
+		default: 'https://www.rocki2000ltd.co.il'
+	},
 	instagram: {
         accessToken: {
             type: String,

@@ -20,6 +20,21 @@ const createCtrl = (app,  pageService) => {
 	};
 
 	/**
+	 * GET Home page 
+	 */
+
+	 factory.home = async (req, res, next) => {
+		 try {
+			const parents = await pageService.getParents();
+			const homePages = await pageService.getHomePages();
+			res.status(200).json({parents, homePages});
+		 } catch (err) {
+			res.status(500).json({ error: err });
+		 }
+
+	 };
+
+	/**
 	 *  GET Tags
 	 *  pages/:id/tags
 	 */
@@ -83,7 +98,7 @@ const createCtrl = (app,  pageService) => {
 
 	factory.post = async (req, res, next) => {
 		try {
-			const page = await pageService.create(req.body);
+			const page = await pageService.createPage(req.body);
 			res.status(201).json(page);
 		  } catch (err) {
 			res.status(500).json({ error: err });

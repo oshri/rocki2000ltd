@@ -13,10 +13,12 @@ export const fetchLayout = (payload) => {
         return dispatch({ type: actionTypes.LOAD_LAYOUT_SUCCESS, payload: res });
     });
 }
-  
+
+
 export const layoutLoadSuccess = (payload) =>  dispatch => {
     dispatch({ type: actionTypes.LOAD_LAYOUT_SUCCESS, payload: payload})
 }
+
 
 export const resetLayoutState = () => dispatch => {
     return dispatch({ type: actionTypes.RESET_LAYOUT_STORE })

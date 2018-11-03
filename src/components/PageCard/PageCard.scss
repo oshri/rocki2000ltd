@@ -1,0 +1,106 @@
+$page-card-width: 450px;
+
+.PageCard {
+    height: 140px;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    max-height: 140px;
+    align-items: center;
+    background-color: white;
+    width: $page-card-width;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+
+    .page-image{
+        width: 140px;
+        height: 140px;
+        border-left: 1px solid #d8d8d8;
+
+        img{
+            width: 140px;
+            height: 140px;
+        }
+    }
+
+    .page-info{
+        padding: 11px;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        max-height: 100%;
+        place-content: stretch space-between;
+        align-items: stretch;
+
+        h3{
+            font-size: 1.2rem;
+            text-align: right;
+        }
+
+        .page-description{
+            text-align: right;
+            font-size: 0.8rem;
+            color: #949494;
+            display: block;
+        }
+
+        .card-action{
+
+        }
+    }
+
+}
+
+.PageCardPromote{
+    position: relative;
+    width: $page-card-width;
+    height: $page-card-width;
+    border: 3px solid black;
+    padding: 6px;
+
+    .page-image{
+        width: 430px;
+        height: 430px;
+        overflow: hidden;
+    
+        img{
+            width: inherit;
+            height: inherit;
+        }
+    }
+
+    .page-info{
+        position: absolute;
+        width: 300px;
+        height: 200px;
+        background-color: white;
+        z-index: 1;
+        bottom: -26px;
+        right: -26px;
+        border: 3px solid #ebc35a;
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        place-content: stretch space-between;
+        align-items: stretch;
+        padding: 11px;
+
+        h3{
+            font-size: 1.2rem;
+            text-align: right;
+        }
+
+        .page-description{
+            text-align: right;
+            font-size: 0.8rem;
+            color: #949494;
+            display: block;
+        }
+
+        .card-action{
+
+        }
+    }
+
+}

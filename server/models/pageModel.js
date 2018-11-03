@@ -15,6 +15,22 @@ const pageModel = new schema({
         type: String,
         required: false
 	},
+	shortDescription: {
+		type: String,
+        required: false
+	},
+	isPromote: {
+		type: Boolean,
+		default: false
+	},
+	isHome: {
+		type: Boolean,
+		default: false
+	},
+	thumbnail: {
+		type: String,
+		required: false
+	},
 	parent: {
         type: String,
         required: false

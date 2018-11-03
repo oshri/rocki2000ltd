@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const { parse } = require('url');
 const bodyParser = require('body-parser');
 const Page = require('./models/pageModel');
+const helmet = require('helmet');
 
 /**
  * CONFIG
@@ -47,6 +48,7 @@ app.prepare()
 		expressApp.use(morgan('dev'));
 		expressApp.use(bodyParser.json());
 		expressApp.use(bodyParser.urlencoded({ extended: true }));
+		expressApp.use(helmet());
 
 		/**
 		 * Api Routes
@@ -65,7 +67,7 @@ app.prepare()
 			};
 
 			// Page.findOne({ link: queryParams.link })
-			// 	.exec()
+			// 	.exec()	
 			// 	.then(page => {
 			// 		if (!page) {
 			// 			res.redirect(301, '/');

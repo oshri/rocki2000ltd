@@ -4,10 +4,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
 import { fetchLayout } from '../src/store/actions/layout.action';
+import { fetchHome } from '../src/store/actions/home.action';
 import '../src/scss/style.scss';
 import Splash from '../src/components/Splash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SubjectCard from '../src/components/SubjectCard';
+import PageCard from '../src/components/PageCard';
+import MasonryGrid from '../src/components/MasonaryGrid';
 
 
 const Home = (props) => {
@@ -33,7 +36,24 @@ const Home = (props) => {
 			<NextSeo config={PAGE_SEO}/>
 			{/* <Splash /> */}
 			<div className="home-subjects-card">
-				<SubjectCard/>
+
+				{ 	
+					props.parents.map((page, index) => {
+						return (
+							<div>
+								<SubjectCard page={page} key={index}/>
+							</div>
+						);
+					})
+				}
+			</div>
+			<div className="home-pages-card">
+
+				{ 	
+					props.pages.map((page, index) => {
+						return (<PageCard page={page} key={index}/>);
+					})
+				}
 			</div>
 		</Layout>
 	);
@@ -41,12 +61,15 @@ const Home = (props) => {
 
 Home.getInitialProps = async ({ store }) => {
 	await store.dispatch(fetchLayout());
+	await store.dispatch(fetchHome());
 };
 
 // Passing data to props from Store
 function mapStateToProps(state) {
 	return {
-		navigation: state.layout.navigation
+		navigation: state.layout.navigation,
+		parents: state.home.parents,
+		pages: state.home.pages
 	};
 }
 

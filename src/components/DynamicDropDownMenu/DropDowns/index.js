@@ -11,16 +11,19 @@ const Dropdown = (items, parent) => {
        <div data-prevent-distortion>
         <div className="DropSowns-content">
           {
-            parent.icon ? (<div className="parent-icon" 
-                                style = {{
-                                  width: '112px',
-                                  height: '112px',
-                                  backgroundImage: `url(/static/svg/${parent.icon.toLowerCase()}.svg)`, 
-                                  backgroundSize: 'cover', 
-                                  backgroundPosition: 'center center',
-                                  backgroundRepeat: 'no-repeat',
-          }}>
-            </div>) : ''
+            parent.icon ? (
+              <div className="icon-wrap">
+                <div  className="parent-icon" 
+                      style = {{
+                      width: '112px',
+                      height: '112px',
+                      backgroundImage: `url(/static/svg/${parent.icon.toLowerCase()}.svg)`, 
+                      backgroundSize: 'cover', 
+                      backgroundPosition: 'center center',
+                      backgroundRepeat: 'no-repeat'}}>
+                </div>
+              </div>
+            ) : ''
           
           }
 
