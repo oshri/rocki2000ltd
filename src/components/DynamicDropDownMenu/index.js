@@ -91,8 +91,8 @@ class DynamicDropDownMenu extends React.Component {
                   data-index={index}
                   key={index}
                 > 
-                  <MenuLink   href={`/page?id=${mainLink.id}&link=${mainLink.link}`}
-                              as={`/page/${mainLink.link}`}
+                  <MenuLink   href={`/subject?id=${mainLink.id}&link=${mainLink.link}`}
+                              as={`/subject/${mainLink.link}`}
                               theme={this.props.theme}>
                     {mainLink.name}
                   </MenuLink>

@@ -29,8 +29,8 @@ const Dropdown = (items, parent) => {
 
           <div className="sub-links">
             { items.map((link, i) => {
-                return <MenuLink  href={`/page?id=${link.id}&link=${link.link}`}
-                                  as={`/page/${link.link}`}
+                return <MenuLink  href={`/${link.template}?id=${link.id}&link=${link.link}`}
+                                  as={`/${link.template}/${link.link}`}
                                   theme={'light'}
                                   key={i}>
                           {link.name}

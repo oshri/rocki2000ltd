@@ -34,7 +34,7 @@ const Home = (props) => {
 	return (
 		<Layout navigation={props.navigation}>
 			<NextSeo config={PAGE_SEO}/>
-			{/* <Splash /> */}
+			<Splash />
 			<div className="home-subjects-card">
 
 				{ 	

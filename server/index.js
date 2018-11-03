@@ -66,17 +66,6 @@ app.prepare()
 				link: req.params.link
 			};
 
-			// Page.findOne({ link: queryParams.link })
-			// 	.exec()	
-			// 	.then(page => {
-			// 		if (!page) {
-			// 			res.redirect(301, '/');
-			// 		} else {
-			// 			res.redirect(`/page?id=${page.id}&link=${req.params.link}`);
-			// 		}
-			// 	})
-			// 	.catch(err => res.redirect(301, '/'));
-
 			return app.render(req, res, '/page', queryParams);
 		});
 
@@ -84,6 +73,21 @@ app.prepare()
 			const queryParams = { id: req.params.id, link: req.params.link };
 			if (req.params.id)
 				return res.redirect(`/page/${req.params.link}`, queryParams);
+			res.redirect(301, '/');
+		});
+
+		expressApp.get('/subject/:link', (req, res) => {
+			const queryParams = {
+				link: req.params.link
+			};
+
+			return app.render(req, res, '/subject', queryParams);
+		});
+
+		expressApp.get('/subject', (req, res) => {
+			const queryParams = { id: req.params.id, link: req.params.link };
+			if (req.params.id)
+				return res.redirect(`/subject/${req.params.link}`, queryParams);
 			res.redirect(301, '/');
 		});
 

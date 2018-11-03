@@ -38,6 +38,11 @@ const pageModel = new schema({
 	link: {
 		type: String
 	},
+	template: {
+		type: String,
+		required: false,
+		default: 'page'
+	},
 	order: {
 		type: Number,
         required: false

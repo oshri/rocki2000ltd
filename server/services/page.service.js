@@ -28,7 +28,8 @@ class PageService extends Base {
 		const result = { 
             name: root.name,
             link: root.link,
-            id: root.id
+            id: root.id,
+            template: root.template
         };
 
         if(root.icon) {
