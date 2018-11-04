@@ -10,8 +10,8 @@ class InstagramTagsFeed extends Component {
 		super(props);
 	}
 
-	async componentDidMount() {
-		await this.props.dispatch(FromPageRoot.fetchTags(this.props.tags));
+	componentDidMount() {
+		this.props.dispatch(FromPageRoot.fetchTags(this.props.tags));
 	}
 
 	render() {
@@ -22,7 +22,7 @@ class InstagramTagsFeed extends Component {
                         ? this.props.instaTags.map((tag, index) => {
                                 return <InstagramTag key={index} tag={tag} />
                         })
-                        : ('')
+                        : null
                 }
 			</div>
 		);

@@ -66,7 +66,14 @@ app.prepare()
 				link: req.params.link
 			};
 
-			return app.render(req, res, '/page', queryParams);
+			Page.findOne({ link: queryParams.link })
+				.exec()
+				.then(page => {
+					if(!page) res.redirect(301, '/');
+
+					return app.render(req, res, '/page', { id: page.id });
+				})
+				.catch((err) => res.redirect(301, '/'));
 		});
 
 		expressApp.get('/page', (req, res) => {
@@ -81,7 +88,14 @@ app.prepare()
 				link: req.params.link
 			};
 
-			return app.render(req, res, '/subject', queryParams);
+			Page.findOne({ link: queryParams.link })
+				.exec()
+				.then(page => {
+					if(!page) res.redirect(301, '/');
+
+					return app.render(req, res, '/subject', { id: page.id });
+				})
+				.catch((err) => res.redirect(301, '/'));
 		});
 
 		expressApp.get('/subject', (req, res) => {

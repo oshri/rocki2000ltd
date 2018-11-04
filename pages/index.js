@@ -39,11 +39,7 @@ const Home = (props) => {
 
 				{ 	
 					props.parents.map((page, index) => {
-						return (
-							<div>
-								<SubjectCard page={page} key={index}/>
-							</div>
-						);
+						return (<SubjectCard page={page} key={index}/>);
 					})
 				}
 			</div>
