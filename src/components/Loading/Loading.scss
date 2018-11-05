@@ -1,0 +1,39 @@
+.Loading{
+    width: 100px;
+    margin: 0 auto;
+    animation: 0.3s ease linear infinite;
+
+    &.done {
+        opacity: 0;
+    }
+
+    &.start {
+        opacity: 1;
+    }
+
+    .circle {
+        animation: 3s loader ease infinite alternate,  1s loader2 linear infinite;
+        stroke: url(#Gradient);
+        stroke-linecap: round;
+        stroke-width: 2;
+        stroke-dasharray: 94.0955352783 94.0955352783;
+        stroke-dashoffset: 0;
+    }
+      
+    @keyframes loader {
+        0% {
+            stroke-dasharray: 84.0955352783 104.0955352783;
+        }
+        100% {
+            stroke-dasharray: 178.19107055664062 10;
+        }
+    }
+    @keyframes loader2 {
+        0% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: -188.19107055664062;
+        }
+    }
+}

@@ -41,14 +41,12 @@ const Subject = (props) => {
 	};
 
 	const renderInstagramTagsFeed = () => {
-		if(props.data.tags) {
+		if(props.data.tags.length > 0) {
 		  return (
 			<InstagramTagsFeed tags={props.data.tags}/>
 		  )
 		} else {
-		  return (
-			 <div>loading</div>
-		  )
+		  return null
 		}
 	};
 	
@@ -66,9 +64,7 @@ const Subject = (props) => {
 					})
 				}
 			</div>
-			<div>
-				{renderInstagramTagsFeed()}
-			</div>
+			{renderInstagramTagsFeed()}
 		</Layout>
 	);
 };

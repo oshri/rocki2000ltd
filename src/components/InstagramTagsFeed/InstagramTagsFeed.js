@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as FromPageRoot from '../../store/actions/page.action';
 import { fetchTags } from '../../store/actions/page.action';
-import InstagramTag from '../InstagramTag';
 import './InstagramTagsFeed.scss';
+import InstaTags from '../Instagram/InstaTags';
 
 class InstagramTagsFeed extends Component {
 	constructor(props) {
@@ -11,20 +10,12 @@ class InstagramTagsFeed extends Component {
 	}
 
 	componentDidMount() {
-		this.props.dispatch(FromPageRoot.fetchTags(this.props.tags));
+		this.props.dispatch(fetchTags(this.props.tags));
 	}
 
 	render() {
 		return (
-			<div className="InstagramTagsFeed">
-				{
-                    this.props.instaTags
-                        ? this.props.instaTags.map((tag, index) => {
-                                return <InstagramTag key={index} tag={tag} />
-                        })
-                        : null
-                }
-			</div>
+			<InstaTags tags={this.props.instaTags}/>
 		);
 	}
 }

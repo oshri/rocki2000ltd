@@ -10,7 +10,7 @@ import Splash from '../src/components/Splash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SubjectCard from '../src/components/SubjectCard';
 import PageCard from '../src/components/PageCard';
-import MasonryGrid from '../src/components/MasonaryGrid';
+
 
 
 const Home = (props) => {
