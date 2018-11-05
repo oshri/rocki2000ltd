@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTags } from '../../store/actions/page.action';
-import './InstagramTagsFeed.scss';
-import InstaTags from '../Instagram/InstaTags';
+import { fetchTags } from '../../../store/actions/page.action';
+import InstaTags from '../InstaTags';
 
-class InstagramTagsFeed extends Component {
+class InstaTagsFeed extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -26,4 +25,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps)(InstagramTagsFeed);
+export default connect(mapStateToProps)(InstaTagsFeed);

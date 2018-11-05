@@ -9,7 +9,7 @@ import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';
 import PageHeader from '../src/components/PageHeader';
 import PageCard from '../src/components/PageCard';
-import InstagramTagsFeed from '../src/components/InstagramTagsFeed';
+import InstaTagsFeed from '../src/components/Instagram/InstaTagsFeed';
 
 const Subject = (props) => {
 	
@@ -40,10 +40,10 @@ const Subject = (props) => {
 		}
 	};
 
-	const renderInstagramTagsFeed = () => {
+	const renderInstaTagsFeed = () => {
 		if(props.data.tags.length > 0) {
 		  return (
-			<InstagramTagsFeed tags={props.data.tags}/>
+			<InstaTagsFeed tags={props.data.tags}/>
 		  )
 		} else {
 		  return null
@@ -64,7 +64,7 @@ const Subject = (props) => {
 					})
 				}
 			</div>
-			{renderInstagramTagsFeed()}
+			{renderInstaTagsFeed()}
 		</Layout>
 	);
 };

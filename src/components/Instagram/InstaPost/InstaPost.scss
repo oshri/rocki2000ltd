@@ -84,6 +84,8 @@
                 text-overflow: ellipsis;
                 width: 100%;
                 white-space: nowrap;
+                color: black;
+
 
                 span.UsernameText{
                     display: block;
@@ -99,7 +101,7 @@
         }
 
         a.ViewProfileButton{
-            background-color: #3897f0;
+            background-color: #FABF00;
             border-radius: 3px;
             color: #fff;
             -webkit-flex-shrink: 0;

@@ -22,7 +22,7 @@ export const pageLoadSuccess = (payload) =>  dispatch => {
 }
 
 export const fetchTags = (payload) => {
-    return (dispatch) => pageApi.post(`/instagram/tags`, {tags: payload}).then((res) => {
+    return (dispatch) => pageApi.post(`instagram/tags`, {tags: payload}).then((res) => {
         return dispatch({ type: actionTypes.LOAD_TAGS_SUCCESS, payload: res });
     });
 }
