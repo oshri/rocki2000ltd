@@ -8,6 +8,7 @@ import * as FromPageRoot from '../src/store/actions/page.action';
 import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';
 import PageHeader from '../src/components/PageHeader';
+import InstaPost from '../src/components/Instagram/InstaPost';
 
 
 const Page = (props) => {
@@ -46,6 +47,8 @@ const Page = (props) => {
 				<PageHeader breadcrumbs={getField(props, 'link')} title={getField(props, 'name')}/>
 				<p className="page-description">{getField(props, 'description')}</p>
 			</div>
+
+			<InstaPost/>
 
 		</Layout>
 	);
