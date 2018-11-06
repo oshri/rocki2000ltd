@@ -22,15 +22,15 @@ dotenv.load({ path: '.env' });
 /**
  * APPLICATION LOGGING
  */
-winston.configure({
-	transports: [
-		new winston.transports.Console({
-			timestamp: true,
-			label: 'Rocki2000ltd',
-			level: 'info'
-		})
-	]
-});
+// winston.configure({
+// 	transports: [
+// 		new winston.transports.Console({
+// 			timestamp: true,
+// 			label: 'Rocki2000ltd',
+// 			level: 'info'
+// 		})
+// 	]
+// });
 
 /**
  * MONGODB CONNECTION
