@@ -143,6 +143,16 @@
             right: 0;
             top: 0;
 
+            .video-react-controls-enabled{
+                padding-top: 0 !important;
+                width: 100%;
+                height: 100%;
+
+                video{
+                    width: 656px;
+                }
+            }
+
             .EmbeddedMediaImage {
                 width: 100%;
                 pointer-events: none;

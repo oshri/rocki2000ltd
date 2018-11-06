@@ -17,7 +17,9 @@ const createCtrl = (app, tagService) => {
     factory.getTagsByList = async (req, res, next) => {
         try {
           const tags = await tagService.getTags(req.body.tags);
-          res.status(200).json(tags);
+          const filterOutNull = tags.filter((tag) => tag.data.length > 0);
+
+          res.status(200).json(filterOutNull);
         } catch (err) {
           res.status(500).json({ error: err });
         }

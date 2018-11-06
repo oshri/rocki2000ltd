@@ -13,7 +13,24 @@ const InstaPost = (props) => {
 		if (tag.carousel_media) {
             return (<InstaCarouselMedia carouselMedia={tag.carousel_media}/>)
 		} else if (tag.videos) {
+            return (
+                <Player
+                    autoPlay
+                    poster={tag.images.standard_resolution.url}
+                    src={tag.videos.standard_resolution.url}
+                    >
+                <ControlBar autoHide={false} disableDefaultControls={true}>
+                    <PlayToggle />
+                </ControlBar>
+                </Player>
+            )
 		} else {
+            return (
+                <img
+                    className="EmbeddedMediaImage"
+                    src={tag.images.standard_resolution.url}
+                />
+            )
 		}
 	};
 
@@ -48,16 +65,6 @@ const InstaPost = (props) => {
                 </a>
             </div>
             <div className="InstaContent">
-                {/* <a
-                    className="EmbeddedMedia"
-                    href={tag.link}
-                    target="_blank"
-                >
-                    <img
-                        className="EmbeddedMediaImage"
-                        src={tag.images.standard_resolution.url}
-                    />
-                </a> */}
                 <div className="EmbeddedMedia">
                     {renderMediaByType()}
                 </div>
