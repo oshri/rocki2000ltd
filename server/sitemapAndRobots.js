@@ -13,16 +13,19 @@ function setup(server) {
     /** 
      * Build Pages
      */
-    Page.find({}).then(pages => {
+    Page.getBy({}).then(pages => {
 		pages.forEach(page => {
-            
-            if(page.parent) {
+			console.log('Get pages');
+			
+			if(page.parent) {
+				console.log('subject', page.name);
                 sitemap.add({
                     url: `/subject/${page.link}`,
                     changefreq: 'daily',
                     priority: 1
                 });
             } else {
+				console.log('page', page.name);
                 sitemap.add({
                     url: `/page/${page.link}`,
                     changefreq: 'daily',
@@ -55,7 +58,7 @@ function setup(server) {
 		priority: 1
     });
     
-    fs.writeFileSync(path.join(__dirname, '../static/sitemap.xml'), sitemap.toString());
+    // fs.writeFileSync(path.join(__dirname, '../static/sitemap.xml'), sitemap.toString());
 
 	/**
 	 * Build Sitemap.xml &b Robots.txt
@@ -72,8 +75,15 @@ function setup(server) {
 		});
 	});
 
+	const sendFileOptions = {
+		root: path.join(__dirname, '../static'),
+		headers: {
+		  'Content-Type': 'text/plain;charset=UTF-8',
+		}
+	};
+
 	server.get('/robots.txt', (req, res) => {
-		res.sendFile(path.join(__dirname, '../static', 'robots.txt'));
+		res.sendFile('robots.txt', sendFileOptions);
 	});
 }
 

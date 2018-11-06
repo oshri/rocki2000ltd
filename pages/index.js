@@ -11,44 +11,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SubjectCard from '../src/components/SubjectCard';
 import PageCard from '../src/components/PageCard';
 
-
-
-const Home = (props) => {
-	
+const Home = props => {
 	const PAGE_SEO = {
 		title: 'Rocki 2000 ltd | Welcome',
 		description: 'page description',
 		openGraph: {
-		  type: 'website',
-		  locale: 'en_US',
-		  url: 'https://www.rocki2000ltd.co.il/page',
-		  title: 'Rocki 2000 ltd | Page',
-		  description: 'page description Open Graph',
-		  image:'',
-		  site_name: 'rocki2000ltd.co.il',
-		  imageWidth: 1200,
-		  imageHeight: 1200
+			type: 'website',
+			locale: 'en_US',
+			url: 'https://www.rocki2000ltd.co.il/page',
+			title: 'Rocki 2000 ltd | Page',
+			description: 'page description Open Graph',
+			image: '',
+			site_name: 'rocki2000ltd.co.il',
+			imageWidth: 1200,
+			imageHeight: 1200
 		}
-	  };
-	
+	};
+
 	return (
 		<Layout navigation={props.navigation}>
-			<NextSeo config={PAGE_SEO}/>
+			<NextSeo config={PAGE_SEO} />
 			{/* <Splash /> */}
 			<div className="home-subjects-card">
-
-				{ 	
-					props.parents.map((page, index) => {
-						return (<SubjectCard page={page} key={index}/>);
-					})
-				}
+				{props.parents
+					? props.parents.map((page, index) => {
+							return <SubjectCard page={page} key={index} />;
+					  })
+					: null}
 			</div>
 			<div className="home-pages-card">
-
-				{ 	
-					props.pages.map((page, index) => {
-						return (<PageCard page={page} key={index}/>);
-					})
+				{
+					props.pages ? 
+						props.pages.map((page, index) => {
+							return <PageCard page={page} key={index} />;
+						}) : null
 				}
 			</div>
 		</Layout>

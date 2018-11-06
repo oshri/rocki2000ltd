@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';
+import Link from 'next/link';
 
 
 const Error = (props) => {
@@ -16,16 +17,24 @@ const Error = (props) => {
 	  };
 	
 	return (
-		<Layout title="About page" navigation={props.navigation}>
-			<NextSeo config={PAGE_SEO}/>
-            <div>
-				<p>
-					{props.statusCode
-						? `An error ${this.props.statusCode} occurred on server`
-						: 'An error occurred on client'}
-				</p>
-			</div>
-		</Layout>
+		<div className="animated-404-bg">
+			<Layout title="About page" navigation={props.navigation ? props.navigation : []}>
+				<NextSeo config={PAGE_SEO}/>
+				<div className="wrapper-404">
+					<h1>404</h1>
+					<h2>Oops, the page you're looking for does not exist.</h2>
+					<p>
+						You may want to head back to the homepage.
+						<br/>
+						If you think something is broken, report a problem.
+						<br/>
+					</p>
+					<Link href="/">
+						<a className="btn">RETURN HOME</a>
+					</Link>
+				</div>
+			</Layout>
+		</div>
 	);
 };
 

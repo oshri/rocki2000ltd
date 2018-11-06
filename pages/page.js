@@ -8,25 +8,44 @@ import * as FromPageRoot from '../src/store/actions/page.action';
 import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';
 import PageHeader from '../src/components/PageHeader';
-import InstaPost from '../src/components/Instagram/InstaPost';
+import InstaTagsFeed from '../src/components/Instagram/InstaTagsFeed';
 
 
 const Page = (props) => {
-	
-	const PAGE_SEO = {
-		title: 'Rocki 2000 ltd | Page',
-		description: 'page description',
-		openGraph: {
-		  type: 'website',
-		  locale: 'en_US',
-		  url: 'https://www.rocki2000ltd.co.il/page',
-		  title: 'Rocki 2000 ltd | Page',
-		  description: 'page description Open Graph',
-		  image:'',
-		  site_name: 'rocki2000ltd.co.il',
-		  imageWidth: 1200,
-		  imageHeight: 1200
+
+	const getSeo = (props) => {
+		if(props.data) {
+			return props.data.seo;
+		} else {
+			return {
+				title: 'Rocki 2000 ltd',
+				description: '',
+				openGraph: {
+					type: 'website',
+					locale: 'en_US',
+					url: 'https://www.rocki2000ltd.co.il',
+					title: 'Rocki 2000 ltd',
+					description: '',
+					image:'',
+					site_name: 'rocki2000ltd.co.il',
+					imageWidth: 1200,
+					imageHeight: 1200
+				}
+			};
 		}
+	};
+
+	const renderInstaTagsFeed = (props) => {
+		if(props.data) {
+			if(props.data.tags.length > 0) {
+				return (
+				  <InstaTagsFeed tags={props.data.tags}/>
+				)
+			  }
+		} else {
+			return null
+		}
+		
 	};
 
 	const getField = (props, fieldName) => {
@@ -38,18 +57,16 @@ const Page = (props) => {
 		} else {
 			return ` `
 		}
-	}
+	};
 	
 	return (
 		<Layout  navigation={props.navigation}>
-			<NextSeo config={PAGE_SEO}/>
+			<NextSeo config={getSeo(props)}/>
 			<div className="inside-page-content">
 				<PageHeader breadcrumbs={getField(props, 'link')} title={getField(props, 'name')}/>
 				<p className="page-description">{getField(props, 'description')}</p>
 			</div>
-
-			<InstaPost/>
-
+			{renderInstaTagsFeed(props)}
 		</Layout>
 	);
 };

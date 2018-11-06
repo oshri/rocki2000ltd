@@ -2,6 +2,8 @@ const webpack = require('webpack');
 require('dotenv').config();
 const glob = require('glob');
 const path = require('path');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const CriticalPlugin = require('webpack-plugin-critical').CriticalPlugin;
 
 module.exports = {
 	webpack: (config, { dev }) => {
@@ -35,6 +37,44 @@ module.exports = {
 				]
 			}
 		);
+
+		const oldEntry = config.entry
+    config.entry = () => oldEntry().then(entry => {
+      entry['main.js'].push(path.resolve('./server/utils/offline'))
+      return entry
+		})
+		
+    if(!dev){
+      config.plugins.push(new SWPrecacheWebpackPlugin({
+        cacheId: 'test-lighthouse',
+        filepath: path.resolve('./static/sw.js'),
+        staticFileGlobs: [
+          'static/**/*'
+        ],
+        minify: true,
+        staticFileGlobsIgnorePatterns: [/\.next\//],
+        runtimeCaching: [{
+          handler: 'fastest',
+          urlPattern: /[.](png|jpg|css)/
+        },{
+          handler: 'networkFirst',
+          urlPattern: /^http.*/
+        }]
+      }))
+    }
+
+		config.plugins.push(
+			new CriticalPlugin({
+				src: 'index.html',
+				inline: true,
+				minify: true,
+				dest: 'index.html'
+			})
+		);
+		
+		config.plugins.push(
+      new webpack.optimize.UglifyJsPlugin()
+   	);
 
 		config.plugins.push(new webpack.EnvironmentPlugin(['API_URL']));
 

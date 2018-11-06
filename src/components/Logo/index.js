@@ -21,8 +21,8 @@ const Logo = props => {
 					<img
 						src="/static/logo-s.png"
 						alt="logo"
-						width="65px"
-						height="60px"
+						width="57px"
+						height="58px"
 					/>
 				)}
 			</Link>

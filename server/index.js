@@ -110,7 +110,11 @@ app.prepare()
 		 */
 
 		expressApp.get('*', (req, res) => {
-			return handle(req, res);
+			if (req.url === '/sw.js') {
+				app.serveStatic(req, res, path.resolve('./static/sw.js'))
+			  } else {
+				return handle(req, res);
+			  }
 		});
 
 		expressApp.listen(PORT, () =>

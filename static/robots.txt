@@ -1,5 +1,10 @@
-
 User-agent: *
 Allow: /
+Allow: /page
+Allow: /subject
+Allow: /page/*
+Allow: /subject/*
+Disallow: /api/*
 
-Sitemap: https://rocki2000ltd.herokuapp.com/sitemap.xml
+
+Sitemap: http://localhost:8080/sitemap.xml

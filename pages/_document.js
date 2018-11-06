@@ -16,6 +16,7 @@ export default class LayoutDocument extends Document {
 					<link rel="shortcut icon" href="/static/favicon.ico" />
 					<meta name="viewport" content="width=device-width,initial-scale=1"/>
 					<meta name="theme-color" content="#000000"/>
+					<link rel="manifest" href="/static/manifest.json" />
 				</Head>
 				<body className="rtl" dir="rtl">
 					{/* <div className="heading">
@@ -23,7 +24,6 @@ export default class LayoutDocument extends Document {
                     </div> */}
 					<Main />
 					<NextScript />
-					<script async defer="defer" src="//platform.instagram.com/en_US/embeds.js"></script>
 				</body>
 			</html>
 		);
