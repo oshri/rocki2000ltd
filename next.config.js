@@ -3,7 +3,7 @@ require('dotenv').config();
 const glob = require('glob');
 const path = require('path');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const CriticalPlugin = require('webpack-plugin-critical').CriticalPlugin;
+// const CriticalPlugin = require('webpack-plugin-critical').CriticalPlugin;
 
 module.exports = {
 	webpack: (config, { dev }) => {
@@ -63,14 +63,14 @@ module.exports = {
       }))
     }
 
-		config.plugins.push(
-			new CriticalPlugin({
-				src: 'index.html',
-				inline: true,
-				minify: true,
-				dest: 'index.html'
-			})
-		);
+		// config.plugins.push(
+		// 	new CriticalPlugin({
+		// 		src: 'index.html',
+		// 		inline: true,
+		// 		minify: true,
+		// 		dest: 'index.html'
+		// 	})
+		// );
 		
 		config.plugins.push(
       new webpack.optimize.UglifyJsPlugin()
