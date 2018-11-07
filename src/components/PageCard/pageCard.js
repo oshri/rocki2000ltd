@@ -12,11 +12,7 @@ const PageCard = props => {
 	return (
 		<div className={classMode}>
 			<div className="page-image">
-			<Image src={page.thumbnail} alt={page.name} className="img-responsive" />
-				{/* <img
-					src={page.thumbnail}
-					alt={page.name}
-				/> */}
+				<Image src={page.thumbnail} alt={page.name} className="img-responsive" />
 			</div>
 			<div className="page-info">
 				<h3>{page.name}</h3>
