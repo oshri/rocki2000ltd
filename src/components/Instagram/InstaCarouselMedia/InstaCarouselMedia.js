@@ -8,6 +8,7 @@ import {
 	CarouselCaption
 } from 'reactstrap';
 import './InstaCarouselMedia.scss';
+import Image from '../../Image';
 
 class InstaCarouselMedia extends Component {
 	constructor(props) {
@@ -71,9 +72,9 @@ class InstaCarouselMedia extends Component {
 					tag="div"
 					key={media.id}
 					onExiting={this.onExiting}
-					onExited={this.onExited}
-				>
-                 <img src={media.src} />
+					onExited={this.onExited}>
+					
+					<Image src={media.src} alt="" className="img-responsive" />
 				</CarouselItem>
 			);
 		});

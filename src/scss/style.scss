@@ -25,6 +25,12 @@ body {
 	unicode-bidi: isolate;
 }
 
+.img-responsive {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
 .bg-dots-gray-large {
 	background: url(/static/svg/dots-large.svg);
 	background-position: top;

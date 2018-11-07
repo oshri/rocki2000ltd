@@ -1,6 +1,7 @@
 import { Button } from 'reactstrap';
 import ButtonLink from '../ButtonLink';
 import TextTruncate from '../TextTruncate';
+import Image from '../Image';
 import './PageCard.scss';
 
 const PageCard = props => {
@@ -11,10 +12,11 @@ const PageCard = props => {
 	return (
 		<div className={classMode}>
 			<div className="page-image">
-				<img
+			<Image src={page.thumbnail} alt={page.name} className="img-responsive" />
+				{/* <img
 					src={page.thumbnail}
 					alt={page.name}
-				/>
+				/> */}
 			</div>
 			<div className="page-info">
 				<h3>{page.name}</h3>

@@ -9,7 +9,7 @@ export default class LayoutDocument extends Document {
 		const { pageContext } = this.props;
 
 		return (
-			<html>
+			<html lang="he">
 				<Head>
 					<link rel="stylesheet" href="/static/alef.css" />
 					<link rel="manifest" href="/static/manifest.json" />

@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const Page = require('./models/pageModel');
 const helmet = require('helmet');
 const LRUCache = require('lru-cache');
+const { join } = require('path');
 
 /**
  * CONFIG
@@ -75,28 +76,35 @@ app.prepare()
 		/**
 		 * SSR Chach Html
 		 */
-		const renderAndCache = (req, res, pagePath, queryParams) => {
+		const renderAndCache = async (req, res, pagePath, queryParams) => {
 			const key = getCacheKey(req);
 
 			// If we have a page in the cache, let's serve it
 			if (ssrCache.has(key)) {
 				winston.log('CACHE HIT', `${key}`);
+				res.setHeader('x-cache', 'HIT');
 				res.send(ssrCache.get(key));
 				return;
 			}
 
-			// If not let's render the page into HTML
-			app.renderToHTML(req, res, pagePath, queryParams)
-				.then(html => {
-					// Let's cache this page
-					winston.log('CACHE MISS', `${key}`);
-					ssrCache.set(key, html);
+			try {
+				const html = await app.renderToHTML(req, res, pagePath, queryParams);
+			
+				if (res.statusCode !== 200) {
+				  res.send(html);
+				  return;
+				}
+			
+				winston.log('CACHE MISS', `${key}`);
+				ssrCache.set(key, html);
+			
+				res.setHeader('x-cache', 'MISS');
+				res.send(html);
 
-					res.send(html);
-				})
-				.catch(err => {
-					app.renderError(err, req, res, pagePath, queryParams);
-				});
+			} catch (err) {
+				app.renderError(err, req, res, pagePath, queryParams);
+			}
+
 		};
 
 		/**
@@ -163,10 +171,17 @@ app.prepare()
 		 */
 
 		expressApp.get('*', (req, res) => {
-			if (req.url === '/sw.js') {
-				app.serveStatic(req, res, path.resolve('./static/sw.js'));
+			if (req.url.includes('/sw')) {
+
+			  const filePath = join(__dirname, 'static', 'workbox', 'sw.js');
+			  app.serveStatic(req, res, filePath);
+
+			} else if (req.url.startsWith('static/workbox/')) {
+
+			  app.serveStatic(req, res, join(__dirname, req.url));
+
 			} else {
-				return handle(req, res);
+			  handle(req, res, req.url);
 			}
 		});
 

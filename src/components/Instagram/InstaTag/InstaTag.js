@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TextTruncate from '../../TextTruncate';
 import './InstaTag.scss';
+import Image from '../../Image';
 
 const InstaTag = (props) => {
     const { tag }  = props;
@@ -10,7 +11,7 @@ const InstaTag = (props) => {
     return (
         <div className="InstaTag">
             <div className="image-wrapper">
-                <img src={tag.images.low_resolution.url}/>
+                <Image src={tag.images.low_resolution.url} alt={tag.name} className="img-responsive" />
             </div>
             <div className="info">
                 <div className="counters">
