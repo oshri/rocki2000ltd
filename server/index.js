@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const dotenv = require('dotenv');
 const winston = require('winston');
 const next = require('next');
@@ -72,6 +73,7 @@ app.prepare()
 		expressApp.use(bodyParser.json());
 		expressApp.use(bodyParser.urlencoded({ extended: true }));
 		expressApp.use(helmet());
+		expressApp.use(compression());
 
 		/**
 		 * SSR Chach Html
