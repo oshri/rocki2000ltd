@@ -56,6 +56,8 @@
     "react-spring": "^6.1.6",
     "react-tap-event-plugin": "^3.0.2",
     "reactstrap": "^6.5.0",
+    "reapop": "^2.0.1",
+    "reapop-theme-wybo": "^1.0.2",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",
     "redux-form": "^7.4.2",

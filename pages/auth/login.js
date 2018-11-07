@@ -8,16 +8,18 @@ import { fetchLayout } from '../../src/store/actions/layout.action';
 import Layout from '../../src/components/Layout';
 import LoginForm from '../../src/components/LoginForm';
 import '../../src/scss/style.scss';
+import { notify } from 'reapop';
 
 
 let Login = (props) => {
 
 	const submit = (data) => {
 		props.loading();
-
+		props.resetForm();
+		
 		setTimeout(() => {
 			props.handleSubmit(data);
-		}, 10000);
+		}, 500);
 	};
 
 	const getSeo = {
@@ -49,7 +51,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		handleSubmit: bindActionCreators(FromAuthRoot.postLogin, dispatch),
-		loading: bindActionCreators(FromAuthRoot.login, dispatch)
+		loading: bindActionCreators(FromAuthRoot.login, dispatch),
+		resetForm: bindActionCreators(FromAuthRoot.resetForm, dispatch)
 	};
 }
 

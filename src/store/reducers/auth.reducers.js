@@ -18,12 +18,12 @@ export const auth = (state = initialPageState, action) => {
             return Object.assign({}, state, {
                 isLoading: true
             });
-        case actionTypes.LOGION_SUCCESS:
+        case actionTypes.LOGIN_SUCCESS:
             return Object.assign({}, state, {
                 isLoading: false,
                 data: action.payload
             });
-        case actionTypes.LOGION_ERROR:
+        case actionTypes.LOGIN_ERROR:
             return Object.assign({}, state, {
                 isLoading: false,
                 data: null
