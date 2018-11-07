@@ -42,6 +42,7 @@
     "next": "^7.0.0",
     "next-redux-wrapper": "^2.0.0",
     "next-seo": "^1.2.0",
+    "next-workbox-webpack-plugin": "^1.1.0",
     "node-sass": "^4.9.3",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
@@ -57,6 +58,7 @@
     "reactstrap": "^6.5.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",
+    "redux-form": "^7.4.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
@@ -64,10 +66,9 @@
     "underscore": "^1.9.1",
     "url": "^0.11.0",
     "video-react": "^0.13.1",
+    "webpack-pwa-manifest": "^3.7.1",
     "winston": "2.4.0",
-    "winston-logzio": "1.0.8",
-    "next-workbox-webpack-plugin": "^1.1.0",
-    "webpack-pwa-manifest": "^3.7.1"
+    "winston-logzio": "1.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",

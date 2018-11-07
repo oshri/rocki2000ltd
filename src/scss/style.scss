@@ -25,6 +25,10 @@ body {
 	unicode-bidi: isolate;
 }
 
+* {
+	box-sizing: border-box; 
+}
+
 .img-responsive {
 	display: block;
 	height: auto;

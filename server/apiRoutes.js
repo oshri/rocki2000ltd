@@ -72,6 +72,12 @@ const apiRoutes = (app) => {
     .get(pagesCtrl.get);
 
 
+  /** 
+   * Auth / Login
+   */
+  router.route('/auth')
+    .post(usersCtrl.auth);
+
   /**
    * Users
    */

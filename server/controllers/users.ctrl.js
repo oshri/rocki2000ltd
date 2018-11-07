@@ -1,8 +1,10 @@
 const User = require('../models/userModel');
+const Token = require('../models/tokenModel');
 const mongoose = require('mongoose');
 const logErrorAndNext = require('../utils/logger');
 const validators = require("../utils/validators");
 const helpers = require("../utils/helpers");
+const errors = require('../utils/errors');
 
 
 const createCtrl = (app, moduleService) => {
@@ -189,6 +191,70 @@ const createCtrl = (app, moduleService) => {
 
 	};
 
+	/**
+	 * POST
+	 * auth/
+	 */
+	factory.createToken = async (req, res, email, id) => {
+		const expires = Date.now() + 1000 * 60 * 60;
+		const jwtToken = helpers.createJwtToken({email, id});
+				
+		const token = new Token({
+			_id: mongoose.Types.ObjectId(),
+			token: jwtToken,
+			expires: expires
+		});
+
+		try {
+			const _token = await token.save();
+			if(!_token) {
+				return res.status(404).json({ 
+					error: `Fail to create new Token!`
+				});
+			}
+
+			return jwtToken;
+			
+		} catch (err) {
+			return logErrorAndNext(`Faild in token creation data`, {}, req.body, next, res, 400);
+		}
+
+	};
+
+
+	factory.auth = async (req, res, next) => {		
+		const email = validators.string(req.body.email);
+		const password = validators.string(req.body.password);
+
+		const hashPassword = helpers.hash(password);
+		
+		try {
+			const user = await User.findOne({email});
+			if(!user) {
+				return res.status(404).json({ 
+					error: `Authorization Required!`
+				});
+			}
+
+			if(user.password === hashPassword) {
+				
+				// TODO: need to check if user have a token and if he expires!!!!!!
+
+				const token = await factory.createToken(req, res, user.email, user.id);
+				
+				res.header('Authorization', `Bearer ${token}`);
+				res.status(200).json({auth: 'success', user: hidrateUser(user)});
+			} else {
+				return res.status(404).json({ 
+					error: `Authorization Required!`
+				});
+			}
+
+		} catch (error) {
+			return logErrorAndNext(`Missing required data`, {}, req.body, next, res, 400);
+		}
+
+	};
 
 	return factory;
 };
