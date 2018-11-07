@@ -4,6 +4,7 @@ import withRedux from 'next-redux-wrapper';
 import { initializeStore } from '../src/store';
 import { Provider } from 'react-redux';
 import NextSeo from 'next-seo';
+import OfflineSupport from '../src/components/OfflineSupport';
 
 /**
  * Fontawsome
@@ -59,6 +60,7 @@ class MyApp extends App {
 		return (
 			<Container>
 				<NextSeo config={DEFAULT_SEO} />
+				<OfflineSupport />
 				<Provider store={store}>
 					<Component {...pageProps} />
 				</Provider>

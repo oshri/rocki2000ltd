@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const Page = require('./models/pageModel');
 const helmet = require('helmet');
 const LRUCache = require('lru-cache');
-const { join } = require('path');
+const path = require('path');
 
 /**
  * CONFIG
@@ -173,10 +173,10 @@ app.prepare()
 		expressApp.get('*', (req, res) => {
 			if (req.url.includes('/sw')) {
 
-			  const filePath = join(__dirname, 'static', 'workbox', 'sw.js');
+			  const filePath = path.join(__dirname, '../static', 'sw.js');
 			  app.serveStatic(req, res, filePath);
 
-			} else if (req.url.startsWith('static/workbox/')) {
+			} else if (req.url.startsWith('static')) {
 
 			  app.serveStatic(req, res, join(__dirname, req.url));
 
