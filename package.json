@@ -61,12 +61,12 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "sitemap": "^2.1.0",
-    "sw-precache-webpack-plugin": "^0.11.5",
     "underscore": "^1.9.1",
     "url": "^0.11.0",
     "video-react": "^0.13.1",
     "winston": "2.4.0",
-    "winston-logzio": "1.0.8"
+    "winston-logzio": "1.0.8",
+    "next-workbox-webpack-plugin": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
@@ -75,7 +75,6 @@
     "babel-jest": "^23.6.0",
     "babel-plugin-inline-dotenv": "^1.1.2",
     "css-purify-webpack-loader": "^1.0.1",
-    "next-workbox-webpack-plugin": "^1.1.0",
     "nodemon": "^1.17.3",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-pwa-manifest": "^3.7.1"
