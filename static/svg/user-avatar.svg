@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <rect id="user-avatar-a" width="40" height="40" rx="20"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="user-avatar-b" fill="#fff">
+      <use xlink:href="#user-avatar-a"/>
+    </mask>
+    <use fill="#FDF8E6" xlink:href="#user-avatar-a"/>
+    <path fill="#000" d="M17.2680664,5.82343207 C24.3386744,3.86318373 28.1912043,3.35512499 28.8256561,4.29925585 C29.4601078,5.24338671 26.8080822,7.53792187 20.8695792,11.1828613 L17.2680664,5.82343207 Z" mask="url(#user-avatar-b)"/>
+    <polygon fill="#FDCFB7" points="14.313 -2.633 26.08 18.816 20.972 22.246 23.752 37.36 -7.5 46.319 -7.5 -4.167" mask="url(#user-avatar-b)"/>
+    <circle cx="16.111" cy="16.667" r="1.667" fill="#775C6A" mask="url(#user-avatar-b)"/>
+    <path stroke="#775C6A" stroke-width="2" d="M22.7735852 29.2987649C20.0003258 30.4796883 16.9014602 30.6260166 13.4769883 29.7377499M11.0622906 14.4109778C12.8470615 12.9106262 14.7002486 11.9150444 16.6218519 11.4242324" mask="url(#user-avatar-b)"/>
+    <polygon fill="#000" points="-8.234 16.312 20.887 5.479 15.226 -4.288 -7.615 2.641" mask="url(#user-avatar-b)"/>
+  </g>
+</svg>

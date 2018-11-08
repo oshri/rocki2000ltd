@@ -6,6 +6,8 @@ import StaticMenu from '../StaticMenu';
 import Logo from '../Logo';
 import DynamicDropDownMenu from '../DynamicDropDownMenu';
 import MobileMenu from '../MobileMenu';
+import UserMenu from '../UserMenu';
+import { connect } from 'react-redux';
 
 class Header extends Component {
 	delta = 5;
@@ -103,6 +105,7 @@ class Header extends Component {
 				<article>
 					<div className={"header-menu-wrap"}>
 						{/* <MobileMenu theme={'dark'}/> */}
+						{ this.props.auth.data ? <UserMenu /> : null }
 						<StaticMenu direction={'row'} theme={'dark'}/>
 						<DynamicDropDownMenu theme={'dark'} navigation={this.props.navigation}/>
 					</div>
@@ -113,5 +116,12 @@ class Header extends Component {
 	}
 }
 
+function mapStateToProps(state) {
+	return {
+		auth: state.auth
+	};
+}
 
-export default Header;
+export default connect(
+	mapStateToProps
+)(Header);
