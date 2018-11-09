@@ -76,7 +76,11 @@ const apiRoutes = (app) => {
    * Auth / Login
    */
   router.route('/auth')
-    .post(usersCtrl.auth);
+    .post(usersCtrl.auth)
+    .get(usersCtrl.getCurrentUser);
+
+  router.route('/auth/logout')
+    .post(usersCtrl.logout);
 
   /**
    * Users

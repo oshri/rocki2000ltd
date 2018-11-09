@@ -1,24 +1,35 @@
 const logErrorAndNext = require('../utils/logger');
 const User = require('../models/userModel');
 const Token = require('../models/tokenModel');
-const validators = require('../utils/validators');
-const jwt = require('jsonwebtoken');
+const helpers = require("../utils/helpers");
+
 
 /**
  * Admin login routing middleware
  */
 
-exports.requiresAdmin = function(req, res, next) {
-	const authorizationHeader = validators.string(req.headers.authorization);
+exports.requiresAdmin = async (req, res, next) => {
+	const jwt = helpers.extractJwtFromRequest(req);
+	const decodedToken = await helpers.validateJwtToken(jwt);
 
-	if (
-		authorizationHeader &&
-		authorizationHeader.toLowerCase().indexOf('bearer') > -1
-	) {
-		const jwtToken = authorizationHeader.replace(/Bearer/g, '').trim();
+	if (!decodedToken) {
+		return logErrorAndNext(
+			`Authorization Required!`,
+			{},
+			req.body,
+			next,
+			res,
+			401
+		);
+	}
 
-		jwt.verify(jwtToken, process.env.HASH_SECRET, (err, decoded) => {
-			if (err) {
+	try {
+		const token = await Token.findOne({ token: jwt });
+
+		if (token.expires > Date.now()) {
+			const user = await User.findById(decodedToken.id);
+
+			if (!user) {
 				return logErrorAndNext(
 					`Authorization Required!`,
 					{},
@@ -27,93 +38,29 @@ exports.requiresAdmin = function(req, res, next) {
 					res,
 					401
 				);
-			} else {
-                
-                /**
-                 * Token Object
-				 * email: userEmail
-				 * id: userId
-				 */
-				const decodedToken = decoded;
-
-				Token.find({ token: jwtToken })
-					.exec()
-					.then(doc => {
-						if (!doc[0]) {
-							return logErrorAndNext(
-								`Authorization Required!`,
-								{},
-								req.body,
-								next,
-								res,
-								404
-							);
-						}
-
-						if (doc[0].expires > Date.now()) {
-
-							User.findById(decodedToken.id)
-								.exec()
-								.then(doc => {
-									if (!doc) {
-										return res.status(404).json({
-											error: `Authorization Required!`
-										});
-									}
-
-									if (
-										doc.email === decodedToken.email &&
-										doc.role === 'admin'
-									) {
-                                        /**
-                                         * You are Admin :)
-                                         */
-										next();
-									} else {
-										return logErrorAndNext(
-											`Authorization Required!`,
-											{},
-											req.body,
-											next,
-											res,
-											401
-										);
-									}
-								})
-								.catch(err => {
-									return logErrorAndNext(
-										`Auth iisues!`,
-										{},
-										req.body,
-										next,
-										res,
-										401
-									);
-								});
-						} else {
-							logErrorAndNext(
-								`Authorization Required!`,
-								{},
-								req.body,
-								next,
-								res,
-								400
-							);
-						}
-					})
-					.catch(err => {
-						return logErrorAndNext(
-							`Authorization Required!`,
-							{},
-							req.body,
-							next,
-							res,
-							500
-						);
-					});
 			}
-		});
-	} else {
+
+			if (
+				user.email === decodedToken.email &&
+				user.role === 'admin'
+			) {
+				/**
+				 * You are Admin :)
+				 */
+				next();
+			}
+			
+		} else {
+			return logErrorAndNext(
+				`Authorization expires!`,
+				{},
+				req.body,
+				next,
+				res,
+				401
+			);
+		}
+	} catch (err) {
 		return logErrorAndNext(
 			`Authorization Required!`,
 			{},

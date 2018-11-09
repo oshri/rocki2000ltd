@@ -8,34 +8,51 @@ import { actionTypes } from '../actions/auth.action';
 
 export const initialPageState = {
     isLoading: false,
-    data: null
+    isAuthenticated: false,
+    user: null
 };
 
 
 export const auth = (state = initialPageState, action) => {
     switch (action.type) {
         case actionTypes.LOGIN:
-            return Object.assign({}, state, {
-                isLoading: true
-            });
+            return {
+                ...state, ...{
+                    isLoading: true
+                }
+            };
+            
         case actionTypes.LOGIN_SUCCESS:
-            return Object.assign({}, state, {
-                isLoading: false,
-                data: action.payload
-            });
+            return {
+                ...state, ... {
+                    isLoading: false,
+                    isAuthenticated: true,
+                    user: action.payload.user
+                }
+            };
+            
         case actionTypes.LOGIN_ERROR:
-            return Object.assign({}, state, {
-                isLoading: false,
-                data: null
-            });
-        case actionTypes.LOAD_TAGS_SUCCESS:
-            return LoadTags(state, action.payload);
+            return {
+                ...state, ...{
+                    isLoading: false,
+                    isAuthenticated: false,
+                    user: null
+                }
+            };
+
+        case actionTypes.SET_USER:
+            return {
+                ...state, ...{
+                    isLoading: false,
+                    isAuthenticated: true,
+                    user: action.paylaod
+                }
+            };
 
         case actionTypes.RESET_LOGIN_FORM:
-            return Object.assign({}, state, {
-                isLoading: false,
-                data: null
-            });
+            return {
+                ...state, ...initialPageState
+            };
         default: return state
     }
 };

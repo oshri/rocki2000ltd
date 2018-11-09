@@ -8,7 +8,6 @@ import { fetchLayout } from '../../src/store/actions/layout.action';
 import Layout from '../../src/components/Layout';
 import LoginForm from '../../src/components/LoginForm';
 import '../../src/scss/style.scss';
-import { notify } from 'reapop';
 
 
 let Login = (props) => {

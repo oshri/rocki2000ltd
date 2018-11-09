@@ -21,13 +21,12 @@
     "prettier.useTabs": true,
     "git.ignoreLimitWarning": true,
     "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
-        "**/node_modules": true,
+        "**/.git": true,
+        "**/.hg": true,
         "**/.next": true,
-        "**/.vscode": true
+        "**/.svn": true,
+        "**/CVS": true,
+        "**/node_modules": true
     }
 }

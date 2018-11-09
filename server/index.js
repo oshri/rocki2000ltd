@@ -76,6 +76,19 @@ app.prepare()
 		expressApp.use(compression());
 
 		/**
+		 * Cookie Session
+		 */
+
+		 // TODO: need to add coockie session and combine with JWT header
+		// https://www.npmjs.com/package/express-session
+		// expressApp.use(session({
+		// 	cookieName: 'session',
+		// 	secret: 'random_string_goes_here',
+		// 	duration: 30 * 60 * 1000,
+		// 	activeDuration: 5 * 60 * 1000,
+		// }));
+
+		/**
 		 * SSR Chach Html
 		 */
 		const renderAndCache = async (req, res, pagePath, queryParams) => {

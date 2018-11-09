@@ -1,14 +1,53 @@
+import react, { Component } from 'react';
+import { withRouter } from 'next/router';
 import './UserMenu.scss';
 
-const UserMenu = (props) => {
+class UserMenu extends Component {
+	constructor(props) {
+		super(props);
 
-    return (
-        <div className="UserMenu">
-            <div className="user-avatar">
+		this.state = {
+			isOpened: false
+		};
+	}
 
-            </div>
-        </div>
-    )
-};
+	toggleState = () => {
+		this.setState({
+			isOpened: !this.state.isOpened
+		});
+    };
+    
+    logOut = (event) => {
+		event.preventDefault();
+        this.props.logout();
+        this.props.router.push('/');
+    }
 
-export default UserMenu;
+	render() {
+		return (
+			<div className="UserMenu" onMouseLeave={this.toggleState}>
+				<div className="user-avatar" onMouseEnter={this.toggleState} />
+				<div className="dropdown">
+					{this.state.isOpened ? (
+						<div>
+							<div
+								className="caret"
+								data-prevent-distortion
+								data-transform-origin="left bottom"
+							/>
+							<div className="dropdown-background">
+                                <a href="/" onClick={this.logOut}>
+                                    LOGOUT
+                                </a>
+                            </div>
+						</div>
+					) : null}
+				</div>
+			</div>
+		);
+	}
+}
+
+export default withRouter(UserMenu);
+
+

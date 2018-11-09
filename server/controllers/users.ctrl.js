@@ -243,7 +243,8 @@ const createCtrl = (app, moduleService) => {
 				const token = await factory.createToken(req, res, user.email, user.id);
 				
 				res.header('Authorization', `Bearer ${token}`);
-				res.status(200).json({auth: 'success', user: hidrateUser(user)});
+				
+				res.status(200).json({auth: 'success', user: hidrateUser(user), token: `Bearer ${token}`});
 			} else {
 				return res.status(404).json({ 
 					error: `Authorization Required!`
@@ -254,6 +255,47 @@ const createCtrl = (app, moduleService) => {
 			return logErrorAndNext(`Missing required data`, {}, req.body, next, res, 400);
 		}
 
+	};
+
+	factory.logout = async (req, res, next) => {
+		const jwt = helpers.extractJwtFromRequest(req);
+		
+		try {
+			const token = await Token.deleteOne({token: jwt});
+			res.status(200).json({logout: 'success'});
+		} catch (err) {
+			return logErrorAndNext(`Missing required data`, {}, req.body, next, res, 400);
+		}
+	};
+
+	factory.getCurrentUser = async (req, res, next) => {
+		const jwt = helpers.extractJwtFromRequest(req);
+		const decodedToken = await helpers.validateJwtToken(jwt);
+
+		if(!decodedToken) {
+			return logErrorAndNext(`Authorization Required!`,{},req.body,next,res,401);
+		}
+
+		try {
+			const token  = await Token.findOne({ token: jwt });
+
+			if (token.expires > Date.now()) {
+
+				const user =  await User.findById(decodedToken.id);
+				
+				if(!user) {
+					return logErrorAndNext(`Authorization Required!`,{},req.body,next,res,401);
+				}
+
+				res.status(200).json({auth: 'success', user: hidrateUser(user)});
+
+			} else {
+				return logErrorAndNext(`Authorization expires!`,{},req.body,next,res,401);
+			}
+
+		} catch (err) {
+			return logErrorAndNext(`Authorization Required!`,{},req.body,next,res,401);
+		}
 	};
 
 	return factory;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import * as _ from 'underscore';
 import './Header.scss';
@@ -7,7 +9,7 @@ import Logo from '../Logo';
 import DynamicDropDownMenu from '../DynamicDropDownMenu';
 import MobileMenu from '../MobileMenu';
 import UserMenu from '../UserMenu';
-import { connect } from 'react-redux';
+import * as FromAuthAction from '../../store/actions/auth.action';
 
 class Header extends Component {
 	delta = 5;
@@ -105,7 +107,7 @@ class Header extends Component {
 				<article>
 					<div className={"header-menu-wrap"}>
 						{/* <MobileMenu theme={'dark'}/> */}
-						{ this.props.auth.data ? <UserMenu /> : null }
+						{ this.props.auth.isAuthenticated ? <UserMenu logout={this.props.logoutAction}/> : null }
 						<StaticMenu direction={'row'} theme={'dark'}/>
 						<DynamicDropDownMenu theme={'dark'} navigation={this.props.navigation}/>
 					</div>
@@ -122,6 +124,13 @@ function mapStateToProps(state) {
 	};
 }
 
+function mapDispatchToProps(dispatch) {
+	return {
+		logoutAction: bindActionCreators(FromAuthAction.postLogout, dispatch)
+	};
+}
+
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Header);

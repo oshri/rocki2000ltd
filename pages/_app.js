@@ -4,7 +4,10 @@ import withRedux from 'next-redux-wrapper';
 import { initializeStore } from '../src/store';
 import { Provider } from 'react-redux';
 import NextSeo from 'next-seo';
+import * as FromAuthAction from '../src/store/actions/auth.action';
 import OfflineSupport from '../src/components/OfflineSupport';
+import  setAuthorizationToken from '../src/utils/authorizationToken';
+import jwt from 'jsonwebtoken';
 
 /**
  * Fontawsome
@@ -40,7 +43,6 @@ class MyApp extends App {
 	static async getInitialProps({ Component, ctx }) {
 		
 		// ctx.store.dispatch({type: 'FOO', payload: 'foo'});
-
 		return {
 			pageProps: Component.getInitialProps
 				? await Component.getInitialProps(ctx)
@@ -52,6 +54,23 @@ class MyApp extends App {
 		console.log('CUSTOM ERROR HANDLING', error);
 		// This is needed to render errors correctly in development / production
 		super.componentDidCatch(error, errorInfo);
+	}
+
+	componentDidMount(){
+
+		/**
+		 * Reload User session
+		 */
+		if(localStorage.getItem('token')) {
+			const jwtToken = localStorage.getItem('token').replace(/Bearer/g, '').trim();
+			try {
+				const decodedJwt = jwt.verify(jwtToken, process.env.HASH_SECRET);
+				this.props.store.dispatch(FromAuthAction.setUser(decodedJwt.email));
+				setAuthorizationToken(localStorage.getItem('token'));
+			} catch (err) {
+				console.error('Err:', err);
+			}
+		}
 	}
 
 	render() {

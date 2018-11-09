@@ -26,19 +26,29 @@ const helpers = {
             return false;
         }
     },
-    validateJwtToken: jwtToken => {
+    validateJwtToken: async (jwtToken) => {
         if (typeof(jwtToken) === 'string') {
-            jwt.verify(jwtToken, process.env.HASH_SECRET, (err, decoded) => {
-              if (err) {
-                return false;
-              } else {
-
-                return decoded;
-              }
-            });
+            try {
+                const decoded = await jwt.verify(jwtToken, process.env.HASH_SECRET);
+                return decoded
+            } catch (err) {
+                return false
+            }
           } else {
             return false
           }
+    },
+    extractJwtFromRequest: req => {
+        const token = req.headers['x-access-token'] || req.headers['authorization'];
+        const authorizationHeader = validators.string(token);
+        if (
+            authorizationHeader &&
+            authorizationHeader.toLowerCase().indexOf('bearer') > -1
+        ) {
+            return authorizationHeader.replace(/Bearer/g, '').trim();
+        } else {
+            return false
+        }
     }
 };
 
