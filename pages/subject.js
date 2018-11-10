@@ -3,7 +3,6 @@ import Layout from '../src/components/Layout';
 import NextSeo from 'next-seo';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button } from 'reactstrap';
 import * as FromPageRoot from '../src/store/actions/page.action';
 import { fetchLayout } from '../src/store/actions/layout.action';
 import '../src/scss/style.scss';

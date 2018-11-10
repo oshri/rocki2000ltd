@@ -1,6 +1,7 @@
 import axios from 'axios';
 import config from 'config';
 
+
 axios.interceptors.response.use((response) =>  { return response}, (error) => {
     return Promise.reject(error.response);
 });

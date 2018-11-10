@@ -56,6 +56,9 @@ const apiRoutes = (app) => {
   router.route('/pages/navigation')
     .get(pagesCtrl.structure);
 
+  router.route('/pages/all')
+    .get(auth.requiresAdmin, pagesCtrl.structure);
+
   router.route('/pages/home')
     .get(pagesCtrl.home);
 

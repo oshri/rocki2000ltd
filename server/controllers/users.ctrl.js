@@ -195,9 +195,9 @@ const createCtrl = (app, moduleService) => {
 	 * POST
 	 * auth/
 	 */
-	factory.createToken = async (req, res, email, id) => {
+	factory.createToken = async (req, res, user) => {
 		const expires = Date.now() + 1000 * 60 * 60;
-		const jwtToken = helpers.createJwtToken({email, id});
+		const jwtToken = helpers.createJwtToken({user});
 				
 		const token = new Token({
 			_id: mongoose.Types.ObjectId(),
@@ -240,7 +240,12 @@ const createCtrl = (app, moduleService) => {
 				
 				// TODO: need to check if user have a token and if he expires!!!!!!
 
-				const token = await factory.createToken(req, res, user.email, user.id);
+				const token = await factory.createToken(req, res, {
+					email: user.email,
+					id: user.id,
+					firstName: user.firstName,
+					lastName: user.lastName
+				});
 				
 				res.header('Authorization', `Bearer ${token}`);
 				

@@ -36,7 +36,7 @@ class PageService extends Base {
             result.icon = root.icon;
         }
 
-        const children = await Page.find({ parent: id });
+        const children = await Page.find({ parent: id, active:true }).sort('order');
         
         result.children = (children && children.length) ? children.map(page =>  this.getTree(page.id)) : [];
             for(let i = 0; i < result.children.length; i++){
@@ -47,13 +47,47 @@ class PageService extends Base {
     
     
 	async getForest() {
-        const roots = await Page.find({ parent: null }).sort('order');
+        const roots = await Page.find({ parent: null, active: true }).sort('order');
     
         const trees = roots.map(page =>  this.getTree(page.id));
         for(let i = 0; i < trees.length; i++){
             trees[i] = await trees[i];
         }
         return trees;   
+    }
+
+    async getAllTree(id) {
+		const root = await this.get(id);
+        if(!root) {throw new errors.NotFoundError(`Can't find Page with id '${id}' doesn't exist`);}
+
+		const result = { 
+            name: root.name,
+            link: root.link,
+            id: root.id,
+            template: root.template
+        };
+
+        if(root.icon) {
+            result.icon = root.icon;
+        }
+
+        const children = await Page.find({ parent: id }).sort('order');
+        
+        result.children = (children && children.length) ? children.map(page =>  this.getTree(page.id)) : [];
+            for(let i = 0; i < result.children.length; i++){
+                result.children[i] = await result.children[i];
+            }
+		return result;
+    }
+
+    async getAdminForest() {
+        const roots = await Page.find({ parent: null }).sort('order');
+    
+        const trees = roots.map(page =>  this.getAllTree(page.id));
+        for(let i = 0; i < trees.length; i++){
+            trees[i] = await trees[i];
+        }
+        return trees;  
     }
     
     async getChildren(parentId) {

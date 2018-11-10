@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
+import adminReducers from './admin';
+
 import { page }  from './page.reducer';
 import { layout } from './layout.reducer';
 import { home } from './home.reducer';
@@ -11,5 +13,6 @@ export default combineReducers({
     page,
     layout,
     home,
-    form: formReducer
+    form: formReducer,
+    admin: adminReducers
 })

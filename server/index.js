@@ -44,7 +44,7 @@ winston.configure({
 let cacheTime = 1000 * 60 * 60;
 
 if (process.env.NODE_ENV !== 'production') {
-	cacheTime = 100;
+	cacheTime = 0;
 }
 
 const ssrCache = new LRUCache({

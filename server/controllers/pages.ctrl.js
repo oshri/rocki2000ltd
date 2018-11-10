@@ -20,6 +20,21 @@ const createCtrl = (app,  pageService) => {
 	};
 
 	/**
+	 * Return the parent node and all the tree under it
+	 * @param {string} parentId 
+	 */
+
+	factory.pagesTree = async (req, res, next) => {
+		try {
+			const pages = await pageService.getAdminForest();
+			
+			res.status(200).json(pages);
+		} catch(err){
+			res.status(500).json({ error: err });
+		}
+	};
+
+	/**
 	 * GET Home page 
 	 */
 

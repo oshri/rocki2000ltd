@@ -15,6 +15,10 @@ const ProtectedRoute = (WrapperComponent) => {
                 Router.push('/');
             }
         }
+
+        checkValid() {
+            return true
+        }
         
         render() {
             return this.props.auth ? <WrapperComponent {...this.props} /> : <Loading/> ;
