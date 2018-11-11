@@ -6,7 +6,7 @@ const PageHeader = ({ breadcrumbs, title, background }) => {
 	
 	return (
 		<div className="PageHeader" style={{backgroundColor: background || '#ffffff'}}>
-			<Breadcrumbs link={breadcrumbs}/>
+			{ breadcrumbs ? <Breadcrumbs link={breadcrumbs}/> : null }
 			<h1>{title}</h1>
 		</div>
 	);

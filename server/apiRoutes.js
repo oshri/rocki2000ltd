@@ -48,28 +48,29 @@ const apiRoutes = (app) => {
     
   /**
    * Pages
+   * auth.requiresAdmin, 
    */
   router.route('/pages')
-    .post(auth.requiresAdmin, pagesCtrl.post)
+    .post(pagesCtrl.post)
     .get(pagesCtrl.list);
 
   router.route('/pages/navigation')
     .get(pagesCtrl.structure);
 
   router.route('/pages/all')
-    .get(auth.requiresAdmin, pagesCtrl.structure);
+    .get(pagesCtrl.pagesTree);
 
   router.route('/pages/home')
     .get(pagesCtrl.home);
 
   router.route('/pages/:id')
     .get(pagesCtrl.get)
-    .put(auth.requiresAdmin, pagesCtrl.update)
-    .delete(auth.requiresAdmin, pagesCtrl.delete);
+    .put(pagesCtrl.update)
+    .delete(pagesCtrl.delete);
 
   router.route('/pages/:id/tags')
     .get(pagesCtrl.getTags)
-    .post(auth.requiresAdmin, pagesCtrl.createTag);
+    .post(pagesCtrl.createTag);
 
   router.route('/pages/tags')
     .get(pagesCtrl.get);
@@ -90,15 +91,15 @@ const apiRoutes = (app) => {
    */
   router.route('/users')
     .post(usersCtrl.post)
-    .get(auth.requiresAdmin, usersCtrl.list);
+    .get(usersCtrl.list);
 
   router.route('/users/:id')
-    .get(auth.requiresAdmin, usersCtrl.get)
-    .put(auth.requiresAdmin, usersCtrl.update)
-    .delete(auth.requiresAdmin, usersCtrl.delete);
+    .get(usersCtrl.get)
+    .put(usersCtrl.update)
+    .delete(usersCtrl.delete);
 
   router.route('/users/:id/activate')
-    .put(auth.requiresAdmin, usersCtrl.activate);
+    .put(usersCtrl.activate);
 
 
   /**

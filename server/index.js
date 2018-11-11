@@ -10,6 +10,7 @@ const Page = require('./models/pageModel');
 const helmet = require('helmet');
 const LRUCache = require('lru-cache');
 const path = require('path');
+const cookieSession = require("cookie-session");
 
 /**
  * CONFIG
@@ -71,6 +72,11 @@ app.prepare()
 
 		expressApp.use(morgan('dev'));
 		expressApp.use(bodyParser.json());
+		expressApp.use(cookieSession({
+			name: 'session',
+			maxAge: 30 * 24 * 60 * 60 * 1000,
+			keys: [process.env.COOKIE_KEY]
+		}));
 		expressApp.use(bodyParser.urlencoded({ extended: true }));
 		expressApp.use(helmet());
 		expressApp.use(compression());

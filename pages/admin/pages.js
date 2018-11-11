@@ -6,10 +6,12 @@ import { Button } from 'reactstrap';
 import * as FromAuthRoot from '../../src/store/actions/auth.action';
 import { fetchLayout } from '../../src/store/actions/layout.action';
 import Layout from '../../src/components/Layout';
+import PageHeader from '../../src/components/PageHeader';
 
 import * as pagesActions from '../../src/store/actions/admin/pages.action';
 import '../../src/scss/style.scss';
 
+import AdminPageCard from '../../src/components/AdminComponents/AdminPageCard';
 
 let Pages = (props) => {
 
@@ -17,21 +19,36 @@ let Pages = (props) => {
 	const getSeo = {
         title: 'Rocki 2000 ltd | Login',
 		description: '',
-    };
+	};
+	
+	const pages = (
+		props.pages.data.map((page, index) => {
+			return (<AdminPageCard  key={index} {...page}/>)
+		})
+	);
 	
 	return (
 		<Layout  navigation={props.navigation}>
 			<NextSeo config={getSeo}/>
-			<div className="AdminPages">
-                
-            </div>
+			<div className="inside-page-content">
+				<PageHeader title={'ניהול דפים'}/>
+				<div className="AdminPages">
+					<div className="pages">
+						{
+							props.pages.data ? (
+								pages
+							) : null
+						}
+					</div>
+				</div>
+			</div>
 		</Layout>
 	);
 };
 
 Pages.getInitialProps = async ({store, query: { id } }) => {
 	await store.dispatch(fetchLayout());
-	// await store.dispatch(pagesActions.fetchPages());
+	await store.dispatch(pagesActions.fetchPages());
 };
 
 // Passing data to props from Store

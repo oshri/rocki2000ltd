@@ -56,16 +56,30 @@ class PageService extends Base {
         return trees;   
     }
 
+    async getFullTree(id) {
+		const root = await this.get(id);
+        if(!root) {throw new errors.NotFoundError(`Can't find Page with id '${id}' doesn't exist`);}
+
+		const result = root.toJSON();
+
+        if(root.icon) {
+            result.icon = root.icon;
+        }
+
+        const children = await Page.find({ parent: id, active:true }).sort('order');
+        
+        result.children = (children && children.length) ? children.map(page =>  this.getFullTree(page.id)) : [];
+            for(let i = 0; i < result.children.length; i++){
+                result.children[i] = await result.children[i];
+            }
+		return result;
+    }
+
     async getAllTree(id) {
 		const root = await this.get(id);
         if(!root) {throw new errors.NotFoundError(`Can't find Page with id '${id}' doesn't exist`);}
 
-		const result = { 
-            name: root.name,
-            link: root.link,
-            id: root.id,
-            template: root.template
-        };
+		const result = root.toJSON();
 
         if(root.icon) {
             result.icon = root.icon;
@@ -73,7 +87,7 @@ class PageService extends Base {
 
         const children = await Page.find({ parent: id }).sort('order');
         
-        result.children = (children && children.length) ? children.map(page =>  this.getTree(page.id)) : [];
+        result.children = (children && children.length) ? children.map(page =>  this.getFullTree(page.id)) : [];
             for(let i = 0; i < result.children.length; i++){
                 result.children[i] = await result.children[i];
             }
