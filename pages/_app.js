@@ -61,16 +61,17 @@ class MyApp extends App {
 		/**
 		 * Reload User session
 		 */
-		if(localStorage.getItem('token')) {
-			const jwtToken = localStorage.getItem('token').replace(/Bearer/g, '').trim();
-			try {
-				const decodedJwt = jwt.verify(jwtToken, process.env.HASH_SECRET);
-				this.props.store.dispatch(FromAuthAction.setUser(decodedJwt.email));
-				setAuthorizationToken(localStorage.getItem('token'));
-			} catch (err) {
-				console.error('Err:', err);
-			}
-		}
+		// if(localStorage.getItem('token')) {
+		// 	const jwtToken = localStorage.getItem('token').replace(/Bearer/g, '').trim();
+		// 	try {
+			//TODO: Not good to use process.env
+		// 		const decodedJwt = jwt.verify(jwtToken, process.env.HASH_SECRET);
+		// 		this.props.store.dispatch(FromAuthAction.setUser(decodedJwt.user));
+		// 		setAuthorizationToken(localStorage.getItem('token'));
+		// 	} catch (err) {
+		// 		console.error('Err:', err);
+		// 	}
+		// }
 	}
 
 	render() {

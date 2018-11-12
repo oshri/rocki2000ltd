@@ -37,11 +37,27 @@ class AdminPageCard extends Component {
             }
         </ul>
     )
+    
+    submitForm = (data) => {
+        console.log('data submited: ', data);
+    };
 
     render() {
         return (
             <div className="AdminPageCard">
-                <h4>{this.props.name}</h4>
+                <div className="header">
+                    <span className="status"></span>
+                    <div className="title-wrapper">
+                        <h4>{this.props.name}</h4>
+                        <label className="status-time">
+                            As of 
+                            <span className="current-time">
+                                November 11th 2018, 9:02PM 
+                            </span>
+                        </label>
+                    </div>
+
+                </div>
                 <div className="children">
                     {
                         this.props.children ? (this.childrens) : null
@@ -51,16 +67,17 @@ class AdminPageCard extends Component {
                 <Modal
 					isOpen={this.state.modal}
 					toggle={this.toggleEditorModal}
-					className="InstagramCustomeDialog"
+					className="AdminCustomeDialog"
                     >
 					<ModalHeader
-						className="InstaModalHeader"
-						toggle={this.toggleEditorModal} />
-
-					<ModalBody className="InstaModalBody">
-						<div>
+						className="AdminModalHeader"
+						toggle={this.toggleEditorModal} >
                             <span>{this.state.selectedPage ? this.state.selectedPage.name : null}</span>
-                            <PageTabsEditor/>
+                    </ModalHeader>
+
+					<ModalBody className="AdminModalBody">
+						<div>
+                            <PageTabsEditor initialValues={this.state.selectedPage}  handleSubmit={this.submitForm}/>
                         </div>
 					</ModalBody>
 				</Modal>
