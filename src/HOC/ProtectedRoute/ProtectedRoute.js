@@ -1,5 +1,5 @@
 import react ,{Component} from 'react';
-import Router from 'next/router'
+import Router, {withRouter} from 'next/router'
 import Loading from '../../components/Loading';
 
 const ProtectedRoute = (WrapperComponent) => {
@@ -10,18 +10,14 @@ const ProtectedRoute = (WrapperComponent) => {
             super(props)
         }
 
-        componentDidMount() {
-            if(!this.props.auth) {
+        componentDidUpdate() {
+            if(!this.props.auth.isAuthenticated) {
                 Router.push('/');
             }
         }
-
-        checkValid() {
-            return true
-        }
         
         render() {
-            return this.props.auth ? <WrapperComponent {...this.props} /> : <Loading/> ;
+            return this.props.auth.isAuthenticated ? <WrapperComponent {...this.props} /> : null
         }
     };
 

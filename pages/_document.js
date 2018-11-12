@@ -11,13 +11,13 @@ export default class LayoutDocument extends Document {
 		return (
 			<html lang="he">
 				<Head>
+					<meta charset="utf-8" />
 					<link rel="stylesheet" href="/static/alef.css" />
 					<link rel="manifest" href="/static/manifest.json" />
 					<link rel="shortcut icon" href="/static/favicon.ico" />
 					<meta name="viewport" content="width=device-width,initial-scale=1"/>
 					<meta name="theme-color" content="#000000"/>
 					<link rel="manifest" href="/static/manifest.json" />
-					<meta charset="utf-8" />
 				</Head>
 				<body className="rtl" dir="rtl">
 					{/* <div className="heading">

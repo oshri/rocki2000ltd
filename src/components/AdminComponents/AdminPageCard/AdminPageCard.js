@@ -1,5 +1,6 @@
 import react, {Component} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {Editor, EditorState, RichUtils} from 'draft-js';
 import PageTabsEditor from '../PageTabsEditor';
 import './AdminPageCard.scss';
 
@@ -37,6 +38,24 @@ class AdminPageCard extends Component {
             }
         </ul>
     )
+
+    handleEditorChange = (editorState) => {
+        this.setState({editorState});
+    }
+    
+    handleSubmit = ({ firstName, lastName, email }) => {
+        // const { setContact } = this.props;
+        const editorState = this.state.editorState;
+        const contentState = editorState.getCurrentContent();
+        const html = stateToHTML(contentState);
+        // EXECUTE CONNECTED SAMPLE ACTION CREATOR
+        // setContact({
+        //   firstName,
+        //   lastName,
+        //   email,
+        //   html,
+        // })
+    }
     
     submitForm = (data) => {
         console.log('data submited: ', data);
@@ -77,7 +96,11 @@ class AdminPageCard extends Component {
 
 					<ModalBody className="AdminModalBody">
 						<div>
-                            <PageTabsEditor initialValues={this.state.selectedPage}  handleSubmit={this.submitForm}/>
+                            <PageTabsEditor 
+                                editorState={this.state.editorState}
+                                onEditorChange={this.handleEditorChange}
+                                initialValues={this.state.selectedPage}
+                                handleSubmit={this.submitForm}/>
                         </div>
 					</ModalBody>
 				</Modal>

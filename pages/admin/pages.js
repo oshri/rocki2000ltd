@@ -12,6 +12,7 @@ import * as pagesActions from '../../src/store/actions/admin/pages.action';
 import '../../src/scss/style.scss';
 
 import AdminPageCard from '../../src/components/AdminComponents/AdminPageCard';
+import ProtectedRoute from '../../src/HOC/ProtectedRoute';
 
 let Pages = (props) => {
 
@@ -45,6 +46,8 @@ let Pages = (props) => {
 		</Layout>
 	);
 };
+
+Pages = ProtectedRoute(Pages);
 
 Pages.getInitialProps = async ({store, query: { id } }) => {
 	await store.dispatch(fetchLayout());
