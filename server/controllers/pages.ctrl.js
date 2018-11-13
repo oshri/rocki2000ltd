@@ -127,6 +127,7 @@ const createCtrl = (app,  pageService) => {
 	factory.update = async (req, res, next) => {
 		try {
 			const update = await pageService.update(req.params.id, req.body);
+			
 			res.status(200).json(update);
 		} catch (err) {
 			res.status(500).json({error: err});

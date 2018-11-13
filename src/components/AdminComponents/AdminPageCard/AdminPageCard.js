@@ -42,24 +42,22 @@ class AdminPageCard extends Component {
     handleEditorChange = (editorState) => {
         this.setState({editorState});
     }
-    
-    handleSubmit = ({ firstName, lastName, email }) => {
-        // const { setContact } = this.props;
-        const editorState = this.state.editorState;
-        const contentState = editorState.getCurrentContent();
-        const html = stateToHTML(contentState);
-        // EXECUTE CONNECTED SAMPLE ACTION CREATOR
-        // setContact({
-        //   firstName,
-        //   lastName,
-        //   email,
-        //   html,
-        // })
+
+
+    submitf = (values, dispatch, props) => {
+        debugger
     }
     
-    submitForm = (data) => {
-        console.log('data submited: ', data);
-    };
+    // handleSubmit = (event) => {
+        
+    //     const { update } = this.props;
+    //     const editorState = this.state.editorState;
+    //     const contentState = editorState.getCurrentContent();
+    //     const html = stateToHTML(contentState);
+    //     // EXECUTE CONNECTED SAMPLE ACTION CREATOR
+    //     debugger
+    //     update(data);
+    // }
 
     render() {
         return (
@@ -100,7 +98,7 @@ class AdminPageCard extends Component {
                                 editorState={this.state.editorState}
                                 onEditorChange={this.handleEditorChange}
                                 initialValues={this.state.selectedPage}
-                                handleSubmit={this.submitForm}/>
+                                onSubmitForm={this.props.update}/>
                         </div>
 					</ModalBody>
 				</Modal>

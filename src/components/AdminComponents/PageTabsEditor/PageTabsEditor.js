@@ -4,11 +4,20 @@ import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'react
 import EditorField from '../FormsComponents/EditorField';
 import TextField from '../FormsComponents/TextField';
 
-const PageTabsEditor = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props
+let PageTabsEditor = (props) => {
+  const { handleSubmit, pristine, reset, submitting, onSubmitForm } = props
+
+  const onSubmit = (values, dispatch, props) => {
+
+    debugger
+    const dirty_fields_only = values.filter((value, key) => !(value === props.initialValues.get(key)))
+  
+    if (props.dirty) return onSubmitForm(dirty_fields_only)
+  }
+  
 
   return (
-    <form>
+    <form onSubmit={handleSubmit((values, dispatch, props) => onSubmit(values, dispatch, props) )}>
       <Row>
           <Col md={6}>
             <FormGroup>
@@ -32,7 +41,7 @@ const PageTabsEditor = (props) => {
         </Col>
       </Row> */}
       <div>
-        <button type="submit" disabled={pristine || submitting} onClick={handleSubmit}>
+        <button type="submit" disabled={pristine || submitting}>
           Submit
         </button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
@@ -43,7 +52,9 @@ const PageTabsEditor = (props) => {
   );
 };
 
-
-export default reduxForm({
+PageTabsEditor = reduxForm({
+  // a unique name for the form
   form: 'pageEditor'
 })(PageTabsEditor)
+
+export default PageTabsEditor;

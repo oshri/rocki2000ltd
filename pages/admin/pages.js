@@ -8,11 +8,13 @@ import { fetchLayout } from '../../src/store/actions/layout.action';
 import Layout from '../../src/components/Layout';
 import PageHeader from '../../src/components/PageHeader';
 
-import * as pagesActions from '../../src/store/actions/admin/pages.action';
+import * as FromPagesActions from '../../src/store/actions/admin/pages.action';
 import '../../src/scss/style.scss';
 
 import AdminPageCard from '../../src/components/AdminComponents/AdminPageCard';
 import ProtectedRoute from '../../src/HOC/ProtectedRoute';
+
+import PageTabsEditor from '../../src/components/AdminComponents/PageTabsEditor';
 
 let Pages = (props) => {
 
@@ -21,10 +23,15 @@ let Pages = (props) => {
         title: 'Rocki 2000 ltd | Login',
 		description: '',
 	};
+
+	const updatePage = (data) => {
+		debugger
+		props.update({name: data.name, description: data.description, id: data._id});
+	};
 	
 	const pages = (
 		props.pages.data.map((page, index) => {
-			return (<AdminPageCard  key={index} {...page}/>)
+			return (<AdminPageCard update={updatePage} key={index} {...page}/>)
 		})
 	);
 	
@@ -42,6 +49,8 @@ let Pages = (props) => {
 						}
 					</div>
 				</div>
+
+				
 			</div>
 		</Layout>
 	);
@@ -51,7 +60,7 @@ Pages = ProtectedRoute(Pages);
 
 Pages.getInitialProps = async ({store, query: { id } }) => {
 	await store.dispatch(fetchLayout());
-	await store.dispatch(pagesActions.fetchPages());
+	await store.dispatch(FromPagesActions.fetchPages());
 };
 
 // Passing data to props from Store
@@ -66,7 +75,7 @@ function mapStateToProps(state) {
 // Passing Dispatch function to props
 function mapDispatchToProps(dispatch) {
 	return {
-		
+		update: bindActionCreators(FromPagesActions.updatePage, dispatch)
 	};
 }
 

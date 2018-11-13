@@ -29,6 +29,20 @@ class Api {
 			.post(path, data)
 			.then(res => res.data);
 	}
+
+	put(endPoint, data) {
+		let path = `${this.url}/api/${endPoint}`;
+		return axios
+			.put(path, data)
+			.then(res => res.data);
+	}
+
+	delete(endPoint, id) {
+		let path = `${this.url}/api/${endPoint}/${id}`;
+		return axios
+			.delete(path)
+			.then(res => res.data);
+	}
 }
 
 export default Api;

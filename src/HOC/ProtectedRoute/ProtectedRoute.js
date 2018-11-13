@@ -11,9 +11,9 @@ const ProtectedRoute = (WrapperComponent) => {
         }
 
         componentDidUpdate() {
-            if(!this.props.auth.isAuthenticated) {
-                Router.push('/');
-            }
+            // if(!this.props.auth.isAuthenticated) {
+            //     Router.push('/');
+            // }
         }
         
         render() {

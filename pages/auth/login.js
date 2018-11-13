@@ -23,7 +23,7 @@ let Login = (props) => {
 
 	const getSeo = {
         title: 'Rocki 2000 ltd | Login',
-		description: '',
+		description: ''
     };
 	
 	return (
