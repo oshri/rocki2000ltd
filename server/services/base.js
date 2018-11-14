@@ -46,18 +46,21 @@ class Base {
 
 	async update(id, data) {
 		const update = await this.model
-			.findOneAndUpdate({ _id: id }, { $set: data })
-			.exec().then(d => {
-				return d;
-			});
-		if (!update) {
-			throw new errors.NotFoundError(
-				`${this.model} '${id}' dosent exist`
-			);
-		}
+			.findOneAndUpdate({ _id: id }, { $set: data }).exec();
+			if (!update) {
+				throw new errors.NotFoundError(
+					`${this.model} '${id}' dosent exist`
+				);
+			}
+		const updated = await this.model.findById(id).exec();
+			if (!updated) {
+				throw new errors.NotFoundError(
+					`${this.model} '${id}' dosent exist`
+				);
+			}
 
 		winston.log('info', `Update ${this.model} by id: ${id}, ${data}`);
-		return update;
+		return updated;
     }
     
     async delete(id) {

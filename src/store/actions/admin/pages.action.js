@@ -12,7 +12,6 @@ export const actionTypes = {
 }
 
 export const fetchPages = () => {
-    debugger
     return (dispatch) => pagesApi.get(`pages/all`).then((res) => {
         return dispatch({ type: actionTypes.LOAD_ADMIN_PAGES_SUCCESS, payload: res });
     });

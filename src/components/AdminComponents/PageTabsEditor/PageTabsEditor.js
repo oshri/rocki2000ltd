@@ -8,16 +8,14 @@ let PageTabsEditor = (props) => {
   const { handleSubmit, pristine, reset, submitting, onSubmitForm } = props
 
   const onSubmit = (values, dispatch, props) => {
-
-    debugger
     const dirty_fields_only = values.filter((value, key) => !(value === props.initialValues.get(key)))
   
-    if (props.dirty) return onSubmitForm(dirty_fields_only)
+    if (props.dirty) return onSubmitForm(values)
   }
   
 
   return (
-    <form onSubmit={handleSubmit((values, dispatch, props) => onSubmit(values, dispatch, props) )}>
+    <form onSubmit={handleSubmit((values, dispatch, props) => onSubmitForm(values) )}>
       <Row>
           <Col md={6}>
             <FormGroup>
