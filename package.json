@@ -84,6 +84,7 @@
     "babel-plugin-inline-dotenv": "^1.1.2",
     "css-purify-webpack-loader": "^1.0.1",
     "nodemon": "^1.17.3",
-    "webpack-bundle-analyzer": "^3.0.2"
+    "webpack-bundle-analyzer": "^3.0.2",
+    "concurrently": "^3.6.1"
   }
 }
