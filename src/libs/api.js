@@ -12,7 +12,7 @@ class Api {
 	constructor() {
 		this.url =
 			config.env === 'production'
-				? 'http://www.rocki2000ltd.co.il'
+				? 'https://www.rocki2000ltd.co.il'
 				: 'http://localhost:8080';
 	}
 

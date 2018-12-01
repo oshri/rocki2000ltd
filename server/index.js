@@ -114,6 +114,7 @@ app.prepare()
 			}
 
 		};
+		  
 
 		/**
 		 * Api Routes
@@ -192,6 +193,20 @@ app.prepare()
 			  handle(req, res, req.url);
 			}
 		});
+
+		if(process.env.NODE_ENV === 'production') {
+			expressApp.all(/.*/, function (req, res, next) {
+				const host = req.header('host');
+				if (host.match(/^www\..*/i)) {
+					if (req.protocol === 'http') {
+						res.redirect(301, 'https://' + host + req.url);
+					}
+					next();
+				} else {
+					res.redirect(301, 'https://www.' + host + req.url);
+				}
+			  });
+		}
 
 		expressApp.listen(PORT, () =>
 			winston.log(
