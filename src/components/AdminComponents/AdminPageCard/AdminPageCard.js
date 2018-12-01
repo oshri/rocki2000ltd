@@ -1,8 +1,12 @@
 import react, {Component} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { connect } from 'react-redux';
+import {Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText, Row, Col } from 'reactstrap';
+import classnames from 'classnames';
 import {Editor, EditorState, RichUtils} from 'draft-js';
-import PageTabsEditor from '../PageTabsEditor';
+import InfoTabsEditor from '../InfoTabsEditor';
 import './AdminPageCard.scss';
+import Loading from '../../Loading';
 
 class AdminPageCard extends Component {
 
@@ -11,7 +15,8 @@ class AdminPageCard extends Component {
         
         this.state = {
           modal: false,
-          selectedPage: undefined
+          selectedPage: undefined,
+          activeTab: '1'
         };
     }
 
@@ -21,6 +26,14 @@ class AdminPageCard extends Component {
           modal: !this.state.modal,
           selectedPage: page
         });
+    }
+
+    toggle = (tab) => {
+        if (this.state.activeTab !== tab) {
+          this.setState({
+            activeTab: tab
+          });
+        }
     }
 
     childrens = (
@@ -41,11 +54,6 @@ class AdminPageCard extends Component {
 
     handleEditorChange = (editorState) => {
         this.setState({editorState});
-    }
-
-
-    submitf = (values, dispatch, props) => {
-        debugger
     }
     
     // handleSubmit = (event) => {
@@ -89,16 +97,59 @@ class AdminPageCard extends Component {
 					<ModalHeader
 						className="AdminModalHeader"
 						toggle={this.toggleEditorModal} >
-                            <span>{this.state.selectedPage ? this.state.selectedPage.name : null}</span>
+                            <div className="modal-header-content">
+                                <span>{this.state.selectedPage ? this.state.selectedPage.name : null}</span>
+                                <span className="id">{this.state.selectedPage ? this.state.selectedPage.parent : null}</span>
+                            </div>
                     </ModalHeader>
 
 					<ModalBody className="AdminModalBody">
-						<div>
-                            <PageTabsEditor 
-                                editorState={this.state.editorState}
-                                onEditorChange={this.handleEditorChange}
-                                initialValues={this.state.selectedPage}
-                                onSubmitForm={this.props.update}/>
+                        <div>
+                        <Nav tabs>
+                            <NavItem>
+                                <NavLink
+                                className={classnames({ active: this.state.activeTab === '1' })}
+                                onClick={() => { this.toggle('1'); }}
+                                >
+                                Info
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink
+                                className={classnames({ active: this.state.activeTab === '2' })}
+                                onClick={() => { this.toggle('2'); }}
+                                >
+                                Seo
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink
+                                className={classnames({ active: this.state.activeTab === '3' })}
+                                onClick={() => { this.toggle('3'); }}
+                                >
+                                Instegram Tags
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
+                        <TabContent activeTab={this.state.activeTab}>
+                            {
+                                this.props.loading ? <Loading /> : null
+                            }
+						
+                            <TabPane tabId="1">
+                                <InfoTabsEditor 
+                                    editorState={this.state.editorState}
+                                    onEditorChange={this.handleEditorChange}
+                                    initialValues={this.state.selectedPage}
+                                    onSubmitForm={this.props.update}/>
+                            </TabPane>
+                            <TabPane tabId="2">
+                                
+                            </TabPane>
+                            <TabPane tabId="3">
+                                
+                            </TabPane>
+                        </TabContent>
                         </div>
 					</ModalBody>
 				</Modal>
@@ -109,4 +160,14 @@ class AdminPageCard extends Component {
 }
 
 
-export default AdminPageCard;
+// Passing data to props from Store
+function mapStateToProps(state) {
+    return {
+		loading: state.admin.pages.isLoading
+	};
+}
+
+
+export default connect(
+	mapStateToProps
+)(AdminPageCard);

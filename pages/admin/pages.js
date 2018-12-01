@@ -14,7 +14,7 @@ import '../../src/scss/style.scss';
 import AdminPageCard from '../../src/components/AdminComponents/AdminPageCard';
 import ProtectedRoute from '../../src/HOC/ProtectedRoute';
 
-import PageTabsEditor from '../../src/components/AdminComponents/PageTabsEditor';
+import Loading from '../../src/components/Loading';
 
 let Pages = (props) => {
 
@@ -25,8 +25,9 @@ let Pages = (props) => {
 	};
 
 	const updatePage = (data) => {
-		debugger
-		props.update({name: data.name, description: data.description, id: data._id});
+		// TODO: Need to build global Loading state & component that block UI
+		// props.loading();
+		props.update({id: data._id, data: data});
 	};
 	
 	const pages = (
@@ -40,16 +41,19 @@ let Pages = (props) => {
 			<NextSeo config={getSeo}/>
 			<div className="inside-page-content">
 				<PageHeader title={'ניהול דפים'}/>
-				<div className="AdminPages">
-					<div className="pages">
-						{
-							props.pages.data ? (
-								pages
-							) : null
-						}
-					</div>
-				</div>
-
+				{
+					props.pages.isLoading ? <Loading/> : (
+						<div className="AdminPages">
+							<div className="pages">
+								{
+									props.pages.data ? (
+										pages
+									) : null
+								}
+							</div>
+						</div>
+					)
+				}
 				
 			</div>
 		</Layout>
@@ -75,6 +79,7 @@ function mapStateToProps(state) {
 // Passing Dispatch function to props
 function mapDispatchToProps(dispatch) {
 	return {
+		loading: bindActionCreators(FromPagesActions.loadingStart, dispatch),
 		update: bindActionCreators(FromPagesActions.updatePage, dispatch)
 	};
 }

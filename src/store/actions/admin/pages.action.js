@@ -18,12 +18,16 @@ export const fetchPages = () => {
 }
 
 export const updatePage = (payload) => {
-    return (dispatch) => pagesApi.put(`pages/${payload.id}`, payload).then((res) => {
+    return (dispatch) => pagesApi.put(`pages/${payload.id}`, payload.data).then((res) => {
         return dispatch({type: actionTypes.UPDATE_PAGE_SUCCESS, paylaod: res});
     }).catch((err) => {
         return dispatch({ type: actionTypes.REQUEST_ERROR, payload: err.data.error})
     });
 }
+
+export const loadingStart = () => (dispatch) => {
+    return dispatch({type: actionTypes.UPDATE_PAGE})
+};
 
 export const pagesLoadSuccess = (payload) =>  dispatch => {
     dispatch({ type: actionTypes.LOAD_ADMIN_PAGES_SUCCESS, payload: payload})

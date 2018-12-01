@@ -6,15 +6,40 @@
 
     .modal-content{
         height: 100%;
+        position: relative;
 
         .AdminModalHeader{
             border-bottom: none;
             direction: ltr;
-    
+            background-color: #d4d4d4;
+
+            .modal-header-content{
+                height: 100%;
+                flex-direction: row;
+                box-sizing: border-box;
+                display: flex;
+                max-height: 100%;
+                place-content: center space-between;
+                align-items: center;
+
+                span.id{
+                    border-radius: 10px;
+                    background-color: black;
+                    padding: 8px;
+                    color: white;
+
+                    &::before{
+                        content: "ID: "
+                    }
+                }
+            }
+
             h5{
                 text-align: right;
                 width: 100%;
+                direction: rtl;
             }
+    
             
         }
     

@@ -28,6 +28,21 @@ export const pages = (state = initialPageState, action) => {
                 isLoading: false,
                 data: undefined
             });
+        // case actionTypes.UPDATE_PAGE:
+        //     return {
+        //         ...state,
+        //         isLoading: true
+        //     };
+        // case actionTypes.UPDATE_PAGE_SUCCESS:
+        //     return {
+        //         ...state,
+        //         isLoading: false
+        //     };
+        // case actionTypes.REQUEST_ERROR:
+        //     return {
+        //         ...state,
+        //         isLoading: false
+        //     };
         default: return state
     }
 };

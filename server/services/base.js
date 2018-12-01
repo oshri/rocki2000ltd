@@ -46,7 +46,7 @@ class Base {
 
 	async update(id, data) {
 		const update = await this.model
-			.findOneAndUpdate({ _id: id }, { $set: data }).exec();
+			.findOneAndUpdate({ _id: data._id }, { $set: data }).exec();
 			if (!update) {
 				throw new errors.NotFoundError(
 					`${this.model} '${id}' dosent exist`
