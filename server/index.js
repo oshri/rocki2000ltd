@@ -20,7 +20,7 @@ const app = next({ dev: process.env.NODE_ENV !== 'production' });
 const handle = app.getRequestHandler();
 const dbPath =
 	process.env.MONGODB_URI || 'mongodb://localhost:27017/rocki2000ltd';
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 dotenv.load({ path: '.env' });
 
 /**

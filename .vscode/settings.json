@@ -27,6 +27,6 @@
         "**/.next": true,
         "**/.svn": true,
         "**/CVS": true,
-        "**/node_modules": true
+        "**/node_modules": false
     }
 }
