@@ -15,8 +15,7 @@
     "heroku-postbuild": "./node_modules/next/dist/bin/next build",
     "deploy:log": "heroku logs --tail --app rocki2000ltd",
     "deploy:cache:false": "heroku config:set NODE_MODULES_CACHE=false --app rocki2000ltd",
-    "deploy:cache:true": "heroku config:set NODE_MODULES_CACHE=true --app rocki2000ltd",
-    "postinstall": "bower install && grunt build"
+    "deploy:cache:true": "heroku config:set NODE_MODULES_CACHE=true --app rocki2000ltd"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
