@@ -8,7 +8,7 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "start": "npm run build && pm2-runtime server/index.js -i 0 --name 'rocki2000ltd'",
+    "start": "npm run build && pm2-runtime server/index.js",
     "dev": "NODE_ENV=development MONGODB_URI=mongodb://localhost:27017/rocki2000ltd  nodemon --inspect server/index.js",
     "build": "next build",
     "heroku-postbuild": "./node_modules/next/dist/bin/next build",
