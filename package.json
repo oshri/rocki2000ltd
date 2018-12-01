@@ -5,14 +5,18 @@
   "description": "Rocki 2000 ltd new web site.",
   "engines": {
     "node": "8.9.0",
-    "npm": "6.4.1"
+    "npm": "6.4.1",
+    "yarn": "1.12.3"
   },
   "scripts": {
-    "start": "npm run build && pm2-runtime server/index.js",
+    "start": "pm2-runtime server/index.js",
     "dev": "NODE_ENV=development MONGODB_URI=mongodb://localhost:27017/rocki2000ltd  nodemon --inspect server/index.js",
     "build": "next build",
     "heroku-postbuild": "./node_modules/next/dist/bin/next build",
-    "deploy:log": "heroku logs --tail --app rocki2000ltd"
+    "deploy:log": "heroku logs --tail --app rocki2000ltd",
+    "deploy:cache:false": "heroku config:set NODE_MODULES_CACHE=false --app rocki2000ltd",
+    "deploy:cache:true": "heroku config:set NODE_MODULES_CACHE=true --app rocki2000ltd",
+    "postinstall": "bower install && grunt build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
