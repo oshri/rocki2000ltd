@@ -4,7 +4,10 @@ import {Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import {Editor, EditorState, RichUtils} from 'draft-js';
-import InfoTabsEditor from '../InfoTabsEditor';
+import InfoTabEditor from '../InfoTabEditor';
+import SeoTabEditor from '../SeoTabEditor';
+import TagsTabEditor from '../TagsTabEditor';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './AdminPageCard.scss';
 import Loading from '../../Loading';
 
@@ -43,7 +46,8 @@ class AdminPageCard extends Component {
                     return (
                         <li key={index}>
                             <button className="children-link" onClick={() => {this.toggleEditorModal(page)}}>
-                                {page.name}
+                                <span className={page.active ? 'status active' : 'status not-active'}></span>
+                                <span>{page.name}</span>
                             </button>
                         </li>
                     );
@@ -71,9 +75,15 @@ class AdminPageCard extends Component {
         return (
             <div className="AdminPageCard">
                 <div className="header">
-                    <span className="status"></span>
+                    <span className={this.props.active ? 'status active' : 'status not-active'}></span>
+                    <span className="id">{this.props._id}</span>
                     <div className="title-wrapper">
-                        <h4>{this.props.name}</h4>
+                        <div className="row-start-wrapper">
+                            <h4>{this.props.name}</h4>
+                            <button className="rounded-icon-button" onClick={() => {this.toggleEditorModal(this.props)}}>
+                                <FontAwesomeIcon icon="pen" />
+                            </button>
+                        </div>
                         <label className="status-time">
                             As of 
                             <span className="current-time">
@@ -99,7 +109,7 @@ class AdminPageCard extends Component {
 						toggle={this.toggleEditorModal} >
                             <div className="modal-header-content">
                                 <span>{this.state.selectedPage ? this.state.selectedPage.name : null}</span>
-                                <span className="id">{this.state.selectedPage ? this.state.selectedPage.parent : null}</span>
+                                <span className="id">{this.state.selectedPage ? this.state.selectedPage._id : null}</span>
                             </div>
                     </ModalHeader>
 
@@ -136,18 +146,22 @@ class AdminPageCard extends Component {
                                 this.props.loading ? <Loading /> : null
                             }
 						
-                            <TabPane tabId="1">
-                                <InfoTabsEditor 
+                            <TabPane className="tab-container" tabId="1">
+                                <InfoTabEditor 
                                     editorState={this.state.editorState}
                                     onEditorChange={this.handleEditorChange}
                                     initialValues={this.state.selectedPage}
                                     onSubmitForm={this.props.update}/>
                             </TabPane>
-                            <TabPane tabId="2">
-                                
+                            <TabPane className="tab-container" tabId="2">
+                                <SeoTabEditor 
+                                        editorState={this.state.editorState}
+                                        onEditorChange={this.handleEditorChange}
+                                        initialValues={this.state.selectedPage}
+                                        onSubmitForm={this.props.update}/>
                             </TabPane>
-                            <TabPane tabId="3">
-                                
+                            <TabPane className="tab-container" tabId="3">
+                                <TagsTabEditor page={this.state.selectedPage}/>
                             </TabPane>
                         </TabContent>
                         </div>

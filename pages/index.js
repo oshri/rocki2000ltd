@@ -13,7 +13,7 @@ import PageCard from '../src/components/PageCard';
 
 const Home = props => {
 	const PAGE_SEO = {
-		title: 'Rocki 2000 ltd | Welcome',
+		title: `Rocki 2000 ltd | ריפוד לרכב ברחובות, 	רוקי,רוקי תעשיות 2000 בע"מ,רוקי רחובות,רפד רכב,מרפדיה,מרפדית רכב,כסאות הידראולים,כסאות אורטופדים,כסעות נוסעים,כסאות למוניות,ברזנטים,ברזט לג'יפ,ג'יפים`,
 		description: 'page description',
 		openGraph: {
 			type: 'website',

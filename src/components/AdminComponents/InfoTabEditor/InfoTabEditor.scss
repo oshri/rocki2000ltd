@@ -1,4 +1,4 @@
-.InfoTabsEditor {
+.InfoTabEditor {
 
 	.is-home{
 		height: 100%;
@@ -7,7 +7,9 @@
 		display: flex;
 		max-height: 100%;
 		place-content: center space-around;
-		align-items: center;	
+		align-items: center;
+		border: 1px solid #ced4d9;
+		border-radius: 4px;	
 	}
 
 	.form-actions{

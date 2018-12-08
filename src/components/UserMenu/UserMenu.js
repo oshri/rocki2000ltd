@@ -1,4 +1,5 @@
 import react, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'next/router';
 import './UserMenu.scss';
 
@@ -36,8 +37,13 @@ class UserMenu extends Component {
 								data-transform-origin="left bottom"
 							/>
 							<div className="dropdown-background">
-                                <a href="/" onClick={this.logOut}>
-                                    LOGOUT
+								<a className="admin-menu-button" href="/admin/pages">
+									<span>Pages</span>
+									<FontAwesomeIcon icon="sitemap" />
+                                </a>
+                                <a className="admin-menu-button logout" href="/" onClick={this.logOut}>
+									<span>Logout</span>
+									<FontAwesomeIcon icon="sign-out-alt" />
                                 </a>
                             </div>
 						</div>

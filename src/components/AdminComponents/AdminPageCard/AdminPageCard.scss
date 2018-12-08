@@ -32,8 +32,15 @@ $page-card-width: 450px;
             position: absolute;
             right: 8px;
             top: 14px;
-            background-color: #09e809;
             border-radius: 50%;
+
+            &.active{
+                background-color: #09e809;
+            }
+
+            &.not-active{
+                background-color: red;
+            }
         }
 
         .title-wrapper {
@@ -48,6 +55,17 @@ $page-card-width: 450px;
                 margin-bottom: 10px;
                 font-size: 29px;
                 color: #32325d;
+            }
+
+            span.id{
+                font-size: 12px;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                &::before{
+                    content: "ID: "
+                }
             }
         
             .status-time {
@@ -107,6 +125,21 @@ $page-card-width: 450px;
                     background-color: #000000;
                     border-color: #000000;
                     text-decoration: none;
+                }
+
+                .status {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    display: inline-block;
+        
+                    &.active{
+                        background-color: #09e809;
+                    }
+        
+                    &.not-active{
+                        background-color: red;
+                    }
                 }
         
             }

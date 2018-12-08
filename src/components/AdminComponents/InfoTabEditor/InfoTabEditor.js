@@ -2,13 +2,13 @@ import React, {Fragment} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-import './InfoTabsEditor.scss';
+import './InfoTabEditor.scss';
 import EditorField from '../FormsComponents/EditorField';
 import TextField from '../FormsComponents/TextField';
 import SelectField from '../FormsComponents/SelectField';
 import CheckboxField from '../FormsComponents/Checkbox';
 
-let InfoTabsEditor = (props) => {
+let InfoTabEditor = (props) => {
   const { handleSubmit, pristine, reset, submitting, onSubmitForm } = props
 
   const onSubmit = (values, dispatch, props) => {
@@ -18,7 +18,7 @@ let InfoTabsEditor = (props) => {
   }
 
   return (
-    <form className="InfoTabsEditor" onSubmit={handleSubmit((values, dispatch, props) => onSubmitForm(values) )}>
+    <form className="InfoTabEditor" onSubmit={handleSubmit((values, dispatch, props) => onSubmitForm(values) )}>
       
       <Row>
           <Col md={6}>
@@ -27,19 +27,25 @@ let InfoTabsEditor = (props) => {
               <Field id="name" name="name" component={TextField} type="text" placeholder="name" />
             </FormGroup>
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <FormGroup>
               <Label for="ParentID">ParentID</Label>
               <Field id="name" name="parent" component={TextField} type="text" placeholder="parent" />
             </FormGroup>
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <FormGroup>
               <Label for="template">Template</Label>
               <Field id="template" name="template" component={SelectField} placeholder="Template">
                 <option>page</option>
                 <option>subject</option>
               </Field>
+            </FormGroup>
+          </Col>
+          <Col md={2}>
+            <FormGroup>
+                  <Label for="show">Active</Label>
+                  <Field id="isHome" name="active" component={CheckboxField} type="text" placeholder="active"/>
             </FormGroup>
           </Col>
       </Row>
@@ -102,9 +108,8 @@ let InfoTabsEditor = (props) => {
   );
 };
 
-InfoTabsEditor = reduxForm({
-  // a unique name for the form
+InfoTabEditor = reduxForm({
   form: 'pageInfoEditor'
-})(InfoTabsEditor)
+})(InfoTabEditor)
 
-export default InfoTabsEditor;
+export default InfoTabEditor;

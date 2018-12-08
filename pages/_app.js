@@ -13,12 +13,18 @@ import jwt from 'jsonwebtoken';
  * Fontawsome
  */
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPhone, faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faHeart, faComment, faPen, faSignOutAlt, faSitemap, faTrashAlt, faPlus, faSave } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
 	faPhone,
 	faHeart,
-	faComment
+	faComment,
+	faPen,
+	faSignOutAlt,
+	faSitemap,
+	faTrashAlt,
+	faPlus,
+	faSave
 );
 
 const DEFAULT_SEO = {

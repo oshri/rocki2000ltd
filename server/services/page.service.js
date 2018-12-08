@@ -168,6 +168,7 @@ class PageService extends Base {
         }
 
         const pageSeo = await this.generateSeoFromPage(data);
+        
         data.seo = pageSeo;
 
         data.thumbnail = data.thumbnail ? data.thumbnail : 'https://instagram.fsdv2-1.fna.fbcdn.net/vp/6d29880925aa6c8ae96a015ee6060158/5C7CBF35/t51.2885-19/s150x150/42667215_2249355515346719_2545214181003493376_n.jpg';
