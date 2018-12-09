@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NextSeo from 'next-seo';
 import { bindActionCreators } from 'redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'reactstrap';
 import * as FromAuthRoot from '../../src/store/actions/auth.action';
 import { fetchLayout } from '../../src/store/actions/layout.action';
