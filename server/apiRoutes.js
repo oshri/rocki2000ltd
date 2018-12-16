@@ -70,7 +70,9 @@ const apiRoutes = (app) => {
 
   router.route('/pages/:id/tags')
     .get(pagesCtrl.getTags)
-    .post(pagesCtrl.createTag);
+    .post(pagesCtrl.createTag)
+    .put(pagesCtrl.updateTag)
+    .delete(pagesCtrl.deleteTag);
 
   router.route('/pages/tags')
     .get(pagesCtrl.get);

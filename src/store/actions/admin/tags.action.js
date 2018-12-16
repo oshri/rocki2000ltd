@@ -21,7 +21,7 @@ export const loadPageTags = (payload) => {
 }
 
 export const createTags = (payload) => {
-    return (dispatch) => tagsApi.post(`pages/all`, payload).then((res) => {
+    return (dispatch) => tagsApi.post(`/pages/${payload.pageId}/tags`, payload).then((res) => {
         return dispatch({ type: actionTypes.CREATE_TAG_SUCCESS, payload: res });
     }).catch((err) => {
         return dispatch({ type: actionTypes.REQUEST_ERROR, payload: err.data.error})

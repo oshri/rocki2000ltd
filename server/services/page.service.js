@@ -21,6 +21,14 @@ class PageService extends Base {
         return await newPageTag.save();
     }
 
+    async updateTag(tag) {
+        return await this.update(tag);
+    }
+
+    async deleteTag(tagId) {
+        return await this.delete(tagId);
+    }
+
     async getTree(id) {
 		const root = await this.get(id);
         if(!root) {throw new errors.NotFoundError(`Can't find Page with id '${id}' doesn't exist`);}

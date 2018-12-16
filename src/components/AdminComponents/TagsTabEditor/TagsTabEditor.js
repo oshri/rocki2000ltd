@@ -4,11 +4,17 @@ import { bindActionCreators } from 'redux';
 import * as FromTagsActions from '../../../store/actions/admin/tags.action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FieldArraysForm from '../FormsComponents/FieldArraysForm';
+import { isThisQuarter } from 'date-fns';
 
 class TagsTabEditor extends Component {
 
 	constructor(props) {
 		super(props);
+
+		this.onSubmitTag = this.onSubmitTag.bind(this);
+		this.onUpdateTag = this.onUpdateTag.bind(this);
+		this.onDeleteTag = this.onDeleteTag.bind(this);
+		this.convertTagsArrayToObject = this.convertTagsArrayToObject.bind(this);
 	}
 
 	componentDidMount() {
@@ -16,16 +22,57 @@ class TagsTabEditor extends Component {
     	loadPageTags(page._id);
 	}
 
-	createTag(values) {
-		console.log('createTag', values);	
+	onSubmitTag(value) {
+		const {  page, create } = this.props;
+		create({
+			name: value,
+			pageId: page._id
+		});
 	}
+
+	onUpdateTag(value) {
+		const {  page, update } = this.props;
+		update({
+			name: value,
+			pageId: page._id
+		});
+	}
+
+	onDeleteTag(value) {
+		const {  page, remove } = this.props;
+		remove({
+			name: value,
+			pageId: page._id
+		});
+	}
+
+	convertTagsArrayToObject(tags){
+		const { page } = this.props;
+		let tagObjects = {};
+		
+		if (tags) {
+			tagObjects = tags.map((tag) =>  {
+				return {name: tag, pageId: page._id};
+			});
+		}
+
+		return  tagObjects;
+	}
+
+
 
 	
 	render() {
 		return (
 			<div>
-				<FieldArraysForm onSubmit={this.createTag} />
-				{/* <TagsForm initialValues={{tags: this.props.tags.data}} handleSubmit={this.showResults}/> */}
+				{	this.props.tags.data ? 
+					<FieldArraysForm 
+						onSubmitTag={this.onSubmitTag}
+						onUpdtaeTag={this.onUpdtaeTag}
+						onDeleteTag={this.onDeleteTag}
+						initialValues={{tags: this.convertTagsArrayToObject(this.props.tags.data)}}/>
+					: null
+				}
 			</div>
 		);
 	}

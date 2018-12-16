@@ -64,12 +64,41 @@ const createCtrl = (app,  pageService) => {
 
 	/**
 	 * POST
-	 * pages/
+	 * pages/:id/tags/
 	 */
 
 	factory.createTag = async (req, res, next) => {
 		try {
-			const tag = await pageService.createTag({pageId: req.params.id, name: req.body.name});
+			const tag = await pageService.createTag(req.body);
+			res.status(201).json(tag);
+		  } catch (err) {
+			res.status(500).json({ error: err });
+		  }
+	};
+
+	/**
+	 * PUT
+	 * pages/:id/tags/
+	 */
+
+	factory.updateTag = async (req, res, next) => {
+		try {
+			const tag = await pageService.updateTag(req.body);
+			res.status(201).json(tag);
+		  } catch (err) {
+			res.status(500).json({ error: err });
+		  }
+	};
+
+	/**
+	 * DELETE
+	 * pages/:id/tags/
+	 */
+
+	factory.deleteTag = async (req, res, next) => {
+		// TODO: Need to pass tagID same how
+		try {
+			const tag = await pageService.deleteTag(req.body);
 			res.status(201).json(tag);
 		  } catch (err) {
 			res.status(500).json({ error: err });
