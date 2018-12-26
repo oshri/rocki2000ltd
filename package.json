@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "pm2-runtime server/index.js",
-    "dev": "NODE_ENV=development MONGODB_URI=mongodb://localhost:27017/rocki2000ltd  nodemon --inspect server/index.js",
+    "dev": "concurrently --kill-others \"NODE_ENV=development MONGODB_URI=mongodb://localhost:27017/rocki2000ltd  $NODE_DEBUG_OPTION nodemon --inspect server/index.js\"",
     "build": "next build",
     "heroku-postbuild": "./node_modules/next/dist/bin/next build",
     "deploy:log": "heroku logs --tail --app rocki2000ltd",

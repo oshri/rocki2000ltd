@@ -37,8 +37,8 @@ class Api {
 			.then(res => res.data);
 	}
 
-	delete(endPoint, id) {
-		let path = `${this.url}/api/${endPoint}/${id}`;
+	delete(endPoint) {
+		let path = `${this.url}/api/${endPoint}`;
 		return axios
 			.delete(path)
 			.then(res => res.data);

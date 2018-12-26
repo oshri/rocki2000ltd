@@ -5,8 +5,13 @@ import { Col, Row, Label, FormGroup } from 'reactstrap';
 import TextField from '../TextField';
 import { required, asyncValidate} from '../../../../utils/formValidation';
   
-  const renderInputs = ({ fields, meta: { touched, error, submitFailed }, onSubmitTag, onUpdtaeTag, onDeleteTag}) => {
+  const renderInputs = ({ fields, meta: { touched, error, submitFailed }, onSubmitTag, onDeleteTag}) => {
 	
+	const onDelete = (fields, index) => {
+		fields.remove(index);
+		onDeleteTag(fields.get(index).name)
+	};
+
 	return (
 		<div>
 			<button className="rounded-icon-button" type="button" onClick={() => fields.push({})}>
@@ -17,10 +22,10 @@ import { required, asyncValidate} from '../../../../utils/formValidation';
 			{fields.map((tag, index) => (
 				<Row className="row-start-wrapper" key={index}>
 					<Col md={2}>
-						<button type="button" className="rounded-icon-button" onClick={() => fields.remove(index)}>
+						<button type="button" className="rounded-icon-button" onClick={() => onDelete(fields, index)}>
 							<FontAwesomeIcon icon="trash-alt" />
 						</button>
-						<button type="button" className="rounded-icon-button" onClick={() => onUpdtaeTag(fields.get(index).name)}>
+						<button type="button" className="rounded-icon-button" onClick={() => onSubmitTag(fields.get(index).name)}>
 							<FontAwesomeIcon icon="save" />
 						</button>
 					</Col>
@@ -40,10 +45,10 @@ import { required, asyncValidate} from '../../../../utils/formValidation';
   };
   
   const FieldArraysForm = props => {
-		const { handleSubmit, pristine, reset, submitting, onSubmitTag, initialValues } = props;
+		const { handleSubmit, pristine, reset, submitting, onSubmitTag, onDeleteTag, initialValues } = props;
 		return (
 			<div>
-				<FieldArray name="tags"  component={renderInputs} onSubmitTag={onSubmitTag} />
+				<FieldArray name="tags"  component={renderInputs} onSubmitTag={onSubmitTag} onDeleteTag={onDeleteTag} />
 			</div>
 		);
   };

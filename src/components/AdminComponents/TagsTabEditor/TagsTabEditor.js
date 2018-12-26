@@ -12,7 +12,6 @@ class TagsTabEditor extends Component {
 		super(props);
 
 		this.onSubmitTag = this.onSubmitTag.bind(this);
-		this.onUpdateTag = this.onUpdateTag.bind(this);
 		this.onDeleteTag = this.onDeleteTag.bind(this);
 		this.convertTagsArrayToObject = this.convertTagsArrayToObject.bind(this);
 	}
@@ -25,14 +24,6 @@ class TagsTabEditor extends Component {
 	onSubmitTag(value) {
 		const {  page, create } = this.props;
 		create({
-			name: value,
-			pageId: page._id
-		});
-	}
-
-	onUpdateTag(value) {
-		const {  page, update } = this.props;
-		update({
 			name: value,
 			pageId: page._id
 		});
@@ -68,7 +59,6 @@ class TagsTabEditor extends Component {
 				{	this.props.tags.data ? 
 					<FieldArraysForm 
 						onSubmitTag={this.onSubmitTag}
-						onUpdtaeTag={this.onUpdtaeTag}
 						onDeleteTag={this.onDeleteTag}
 						initialValues={{tags: this.convertTagsArrayToObject(this.props.tags.data)}}/>
 					: null
@@ -88,7 +78,6 @@ function mapDispatchToProps(dispatch) {
 	return {
 		loadPageTags: bindActionCreators(FromTagsActions.loadPageTags, dispatch),
 		create: bindActionCreators(FromTagsActions.createTags, dispatch),
-		update: bindActionCreators(FromTagsActions.updateTag, dispatch),
 		remove: bindActionCreators(FromTagsActions.removeTag, dispatch)
 	};
 }

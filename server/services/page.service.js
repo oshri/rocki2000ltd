@@ -17,16 +17,31 @@ class PageService extends Base {
     }
 
     async createTag(tag) {
-        const newPageTag = new PageTag(tag);
-        return await newPageTag.save();
+        const tags = await this.findExistingTag(tag);
+        
+        if (tags.length === 0) {
+            const newPageTag = new PageTag(tag);
+            return await newPageTag.save();
+        }
+        
+        if (tags[0].name !== tag.name) {
+            const newPageTag = new PageTag(tag);
+            return await newPageTag.save();
+        }
+
+        return Promise.reject(`Tag with name: ${tag.name}, all ready exist in that page`);
     }
 
-    async updateTag(tag) {
-        return await this.update(tag);
+    async findExistingTag(tag) {
+        const tags = await PageTag.find({pageId: tag.pageId});
+        const t = tags.filter((t) => t.pageId === tag.pageId && t.name === tag.name);
+        return t;
     }
 
-    async deleteTag(tagId) {
-        return await this.delete(tagId);
+
+    async deleteTag(tag) {
+        const tags = await this.findExistingTag(tag);
+        return await PageTag.deleteOne({_id: tags[0]._id}).exec();
     }
 
     async getTree(id) {

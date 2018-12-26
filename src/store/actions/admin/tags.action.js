@@ -21,23 +21,15 @@ export const loadPageTags = (payload) => {
 }
 
 export const createTags = (payload) => {
-    return (dispatch) => tagsApi.post(`/pages/${payload.pageId}/tags`, payload).then((res) => {
+    return (dispatch) => tagsApi.post(`pages/${payload.pageId}/tags`, payload).then((res) => {
         return dispatch({ type: actionTypes.CREATE_TAG_SUCCESS, payload: res });
     }).catch((err) => {
         return dispatch({ type: actionTypes.REQUEST_ERROR, payload: err.data.error})
     });
 }
 
-export const updateTag = (payload) => {
-    return (dispatch) => tagsApi.put(`pages/${payload.id}`, payload.data).then((res) => {
-        return dispatch({type: actionTypes.UPDATE_TAG_SUCCESS, paylaod: res});
-    }).catch((err) => {
-        return dispatch({ type: actionTypes.REQUEST_ERROR, payload: err.data.error})
-    });
-}
-
 export const removeTag = (payload) => {
-    return (dispatch) => tagsApi.delete(`pages/${payload.id}`).then((res) => {
+    return (dispatch) => tagsApi.delete(`pages/${payload.pageId}/tags?tageName=${payload.name}`).then((res) => {
         return dispatch({type: actionTypes.REMOVE_TAG_SUCCESS, paylaod: res});
     }).catch((err) => {
         return dispatch({ type: actionTypes.REQUEST_ERROR, payload: err.data.error})
