@@ -110,6 +110,9 @@ class AdminPageCard extends Component {
                             <div className="modal-header-content">
                                 <span>{this.state.selectedPage ? this.state.selectedPage.name : null}</span>
                                 <span className="id">{this.state.selectedPage ? this.state.selectedPage._id : null}</span>
+                                <button type="button" className="rounded-icon-button" onClick={() => this.props.delete(this.state.selectedPage._id)}>
+                                    <FontAwesomeIcon icon="trash-alt" />
+                                </button>
                             </div>
                     </ModalHeader>
 

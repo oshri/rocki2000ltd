@@ -8,6 +8,7 @@ import * as FromAuthRoot from '../../src/store/actions/auth.action';
 import { fetchLayout } from '../../src/store/actions/layout.action';
 import Layout from '../../src/components/Layout';
 import PageHeader from '../../src/components/PageHeader';
+import AddNewPage from '../../src/components/AdminComponents/AddNewPage';
 
 import * as FromPagesActions from '../../src/store/actions/admin/pages.action';
 import '../../src/scss/style.scss';
@@ -26,14 +27,20 @@ let Pages = (props) => {
 	};
 
 	const updatePage = (data) => {
-		// TODO: Need to build global Loading state & component that block UI
-		// props.loading();
 		props.update({id: data._id, data: data});
+	};
+
+	const createPage = (data) => {
+		props.create(data);
+	};
+
+	const deletePage = (pageId) => {
+		props.delete(pageId);
 	};
 	
 	const pages = (
 		props.pages.data.map((page, index) => {
-			return (<AdminPageCard update={updatePage} key={index} {...page}/>)
+			return (<AdminPageCard update={updatePage} key={index} {...page} delete={deletePage}/>)
 		})
 	);
 	
@@ -42,6 +49,7 @@ let Pages = (props) => {
 			<NextSeo config={getSeo}/>
 			<div className="inside-page-content">
 				<PageHeader title={'ניהול דפים'}/>
+				<AddNewPage create={createPage}/>
 				{
 					props.pages.isLoading ? <Loading/> : (
 						<div className="AdminPages">
@@ -81,7 +89,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		loading: bindActionCreators(FromPagesActions.loadingStart, dispatch),
-		update: bindActionCreators(FromPagesActions.updatePage, dispatch)
+		update: bindActionCreators(FromPagesActions.updatePage, dispatch),
+		create: bindActionCreators(FromPagesActions.createPage, dispatch),
+		delete: bindActionCreators(FromPagesActions.deletePage, dispatch)
 	};
 }
 
