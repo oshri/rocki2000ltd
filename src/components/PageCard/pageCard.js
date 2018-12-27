@@ -24,7 +24,7 @@ const PageCard = props => {
 				/>
                 <div className="card-action">
                     <ButtonLink
-                        href={`/page?id=${page.id}&link=${page.link}`}
+                        href={`/page?id=${page._id}&link=${page.link}`}
                         hrefAs={`/page/${page.link}`}
                     >
                         מידע נוסף

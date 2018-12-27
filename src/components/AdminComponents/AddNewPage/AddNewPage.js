@@ -14,7 +14,7 @@ class AddNewPage extends Component {
         super(props);
         
         this.state = {
-          modal: false
+		  modal: false
         };
     }
 
@@ -50,9 +50,9 @@ class AddNewPage extends Component {
                     </ModalHeader>
 
 					<ModalBody className="AdminModalBody">
-                        <div>
-						<CreatePageEditor onSubmitForm={this.props.create}/>
-                        </div>
+						{
+                        	this.props.loading ? <Loading /> : <CreatePageEditor onSubmitForm={this.props.create}/>
+                        }
 					</ModalBody>
 				</Modal>
             </div>

@@ -12,7 +12,7 @@ const Breadcrumbs  = ({link}) => {
                 name: _path.split('-').join(' '),
                 url: index === 0 ? _path : `${paths[index -1]}/${_path}`
             };
-        });
+        }).filter((link) => link.name !== '');
 
         return links;
     };

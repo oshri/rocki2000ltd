@@ -37,8 +37,8 @@ const SubjectCard = props => {
 			</div>
 			<div className="card-action">
 				<ButtonLink
-					href={`/page?id=${page.id}&link=${page.link}`}
-					hrefAs={`/page/${page.link}`}
+					href={`/subject?id=${page.id}&link=${page.link}`}
+					hrefAs={`/subject/${page.link}`}
 				>
 					מידע נוסף
 				</ButtonLink>

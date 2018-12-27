@@ -133,7 +133,8 @@ class PageService extends Base {
             return {
                 name: page.name,
                 description: page.description,
-                link: page.link
+                link: page.link,
+                _id: page._id
             };
         });
     }
@@ -145,7 +146,9 @@ class PageService extends Base {
                 name: page.name,
                 description: page.description,
                 link: page.link,
-                icon: page.icon
+                icon: page.icon,
+                template: page.template,
+                id: page._id
             };
         });
     }
@@ -187,7 +190,9 @@ class PageService extends Base {
         
         if(data.parent) {
             const parentLink = await this.getParentLink(data.parent);
-            data.link = `${parentLink}/${data.link}`;
+            data.link = `${parentLink}/${data.link ? data.link : data.name}`;
+        } else {
+            data.link = `${data.link ? data.link : data.name}`;
         }
 
         const pageSeo = await this.generateSeoFromPage(data);

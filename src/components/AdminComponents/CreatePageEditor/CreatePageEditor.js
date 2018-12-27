@@ -6,13 +6,13 @@ import './CreatePageEditor.scss';
 import TextField from '../FormsComponents/TextField';
 import SelectField from '../FormsComponents/SelectField';
 import CheckboxField from '../FormsComponents/Checkbox';
+import Loading from '../../Loading';
 
 let CreatePageEditor = (props) => {
   const { handleSubmit, pristine, reset, submitting, onSubmitForm } = props
 
   return (
-    <form className="PageEditor" onSubmit={handleSubmit((values, dispatch, props) => onSubmitForm(values) )}>
-      
+    <form className="PageEditor" onSubmit={handleSubmit((values, dispatch, props) => onSubmitForm(values) )}>  
       <Row>
           <Col md={6}>
             <FormGroup>
